@@ -17,7 +17,7 @@
 # 192.168.59.x — mattermost-lab holds .58.x, codavox-lab .57.x.
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "bento/debian-12"
+  config.vm.box = "bento/ubuntu-24.04"
 
   config.vm.define "matrix01" do |node|
     node.vm.hostname = "matrix01.voxpupu.li"
@@ -48,7 +48,7 @@ EOF
       apt-get install -y -qq curl gnupg rsync git >/dev/null
 
       if ! dpkg -s openvox8-release >/dev/null 2>&1; then
-        curl -sfLo /tmp/openvox8-release.deb https://apt.voxpupuli.org/openvox8-release-debian12.deb
+        curl -sfLo /tmp/openvox8-release.deb https://apt.voxpupuli.org/openvox8-release-ubuntu24.04.deb
         dpkg -i /tmp/openvox8-release.deb
         apt-get update -qq
       fi

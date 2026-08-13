@@ -44,7 +44,8 @@ EOF
 
       export DEBIAN_FRONTEND=noninteractive
       apt-get update -qq
-      apt-get install -y -qq curl gnupg rsync >/dev/null
+      # git: r10k needs a functional git provider for git-sourced modules
+      apt-get install -y -qq curl gnupg rsync git >/dev/null
 
       if ! dpkg -s openvox8-release >/dev/null 2>&1; then
         curl -sfLo /tmp/openvox8-release.deb https://apt.voxpupuli.org/openvox8-release-debian12.deb

@@ -18,9 +18,11 @@ grep -q 'matrix-lab overrides' "$node_yaml" 2>/dev/null || {
 cd "$env_dir"
 /opt/puppetlabs/puppet/bin/r10k puppetfile install --moduledir "$env_dir/modules" --force
 
-# Exit 2 = changes applied; that's success.
+# Exit 2 = changes applied. Exit 6 = changes + failures, tolerated
+# because the controlrepo's certbot exec always fails against the lab's
+# fake domains (ACME can't validate) — inspect output for anything else.
 /opt/puppetlabs/bin/puppet apply \
   --hiera_config "$env_dir/hiera.yaml" \
   --modulepath "$env_dir/site:$env_dir/modules" \
   --detailed-exitcodes \
-  "$env_dir/manifests/site.pp" || { rc=$?; [ "$rc" -eq 2 ] || exit "$rc"; }
+  "$env_dir/manifests/site.pp" || { rc=$?; [ "$rc" -eq 2 ] || [ "$rc" -eq 6 ] || exit "$rc"; }

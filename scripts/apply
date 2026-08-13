@@ -16,7 +16,7 @@ grep -q 'matrix-lab overrides' "$node_yaml" 2>/dev/null || {
 }
 
 cd "$env_dir"
-/opt/puppetlabs/puppet/bin/r10k puppetfile install --moduledir "$env_dir/modules"
+/opt/puppetlabs/puppet/bin/r10k puppetfile install --moduledir "/modules" --force
 
 # Exit 2 = changes applied; that's success.
 /opt/puppetlabs/bin/puppet apply \

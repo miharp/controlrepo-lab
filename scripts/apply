@@ -1,0 +1,26 @@
+#!/bin/bash
+# Runs ON THE VM (root). Sync the controlrepo working tree, overlay the lab
+# hiera, resolve Puppetfile modules, apply masterless — the same way the
+# controlrepo's own site.pp expects (`puppet apply` + pluginsync hack).
+set -euo pipefail
+
+env_dir=/etc/puppetlabs/code/environments/production
+node_yaml="$env_dir/data/nodes/matrix01.voxpupu.li.yaml"
+
+mkdir -p "$env_dir"
+rsync -a --delete --exclude='.git' /vagrant-controlrepo/ "$env_dir/"
+
+grep -q 'matrix-lab overrides' "$node_yaml" 2>/dev/null || {
+  printf '\n# --- matrix-lab overrides (appended by scripts/apply) ---\n' >> "$node_yaml"
+  grep -v '^#' /vagrant-lab/hiera-lab-overrides.yaml >> "$node_yaml"
+}
+
+cd "$env_dir"
+/opt/puppetlabs/puppet/bin/r10k puppetfile install --moduledir "$env_dir/modules"
+
+# Exit 2 = changes applied; that's success.
+/opt/puppetlabs/bin/puppet apply \
+  --hiera_config "$env_dir/hiera.yaml" \
+  --modulepath "$env_dir/site:$env_dir/modules" \
+  --detailed-exitcodes \
+  "$env_dir/manifests/site.pp" || { rc=$?; [ "$rc" -eq 2 ] || exit "$rc"; }

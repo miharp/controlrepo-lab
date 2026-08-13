@@ -1,0 +1,22 @@
+#!/bin/bash
+# Runs ON THE HOST. Re-apply the current ../voxpupuli_controlrepo working
+# tree (Parallels shared folders are live, so edits are already visible in
+# the VM) and show what happened.
+#
+#   ./scripts/converge           # apply
+#   ./scripts/converge --check   # then probe the Matrix endpoints
+set -euo pipefail
+here="$(cd "$(dirname "$0")" && pwd)"
+cd "$here/.."
+
+vagrant ssh matrix01 -c 'sudo /vagrant-lab/scripts/apply' 2>/dev/null
+
+if [ "${1:-}" = "--check" ]; then
+  echo "==> probes"
+  vagrant ssh matrix01 -c '
+    curl -sf http://matrix01.voxpupu.li/_matrix/client/versions >/dev/null && echo "client API: ok" || echo "client API: FAIL"
+    curl -sf http://voxpupuli.party/.well-known/matrix/server || echo "well-known server: EMPTY/FAIL"
+    echo
+    sudo docker compose -f /opt/matrix-synapse/docker-compose.yml ps --format "table {{.Name}}\t{{.Status}}" 2>/dev/null | head -12
+  ' 2>/dev/null
+fi

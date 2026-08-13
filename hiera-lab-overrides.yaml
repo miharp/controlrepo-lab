@@ -1,0 +1,24 @@
+# Appended by scripts/apply to data/nodes/matrix01.voxpupu.li.yaml in the
+# VM's copy of the controlrepo (never to the real checkout). Everything a
+# lab needs that the PR expects from eyaml/production.
+
+# The PR's global.yaml regex says 'profile::' (singular) so it never
+# matches the profiles:: namespace — this corrected version is itself a
+# finding to report upstream. Without it, the plain-string secrets below
+# fail the Sensitive[String] parameter types.
+lookup_options:
+  '^profiles::matrix::sensitive_\w+$':
+    convert_to: 'Sensitive'
+
+# Lab secrets — dummies, committed on purpose.
+profiles::matrix::sensitive_postgres_password: 'lab-postgres-password'
+profiles::matrix::sensitive_macaroon_secret_key: 'lab-macaroon-secret-key-000000000000'
+profiles::matrix::sensitive_form_secret: 'lab-form-secret-000000000000'
+profiles::matrix::sensitive_s3_access_key: 'LABDUMMYACCESSKEY'
+profiles::matrix::sensitive_s3_secret_key: 'lab-dummy-secret-key'
+profiles::matrix::s3_bucket: 'lab-media'
+profiles::matrix::s3_region: 'lab'
+profiles::matrix::s3_endpoint: 'https://s3.lab.invalid'
+
+# No borg server in the lab.
+profiles::base::manage_borg: false

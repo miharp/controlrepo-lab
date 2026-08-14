@@ -24,10 +24,16 @@ Vagrant.configure("2") do |config|
     node.vm.hostname = "matrix01.voxpupu.li"
     node.vm.network "private_network", ip: "192.168.59.10"
 
-    node.vm.provider "parallels" do |prl|
-      # main + 7 synapse workers + postgres + redis, all Python-hungry
-      prl.memory = 6144
-      prl.cpus = 4
+    # main + 7 synapse workers + postgres + redis, all Python-hungry
+    %w[parallels virtualbox libvirt].each do |provider|
+      node.vm.provider provider do |p|
+        p.memory = 6144
+        p.cpus = 4
+      end
+    end
+    node.vm.provider "vmware_desktop" do |v|
+      v.vmx["memsize"] = "6144"
+      v.vmx["numvcpus"] = "4"
     end
 
     node.vm.synced_folder ".", "/vagrant-lab", mount_options: ["ro"]

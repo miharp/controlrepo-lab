@@ -1,4 +1,4 @@
-# matrix-lab: run voxpupuli/controlrepo roles for real.
+# controlrepo-lab: run voxpupuli/controlrepo roles for real.
 #
 # Ubuntu 24.04 VMs (matching the Vox fleet) that apply the actual
 # controlrepo masterless — which is
@@ -83,8 +83,8 @@ Vagrant.configure("2") do |config|
     lab_node(node, 6144, 4)
 
     node.vm.provision "shell", inline: <<-SHELL
-      grep -q '# matrix-lab' /etc/hosts || cat >> /etc/hosts <<'EOF'
-# matrix-lab
+      grep -q '# controlrepo-lab' /etc/hosts || cat >> /etc/hosts <<'EOF'
+# controlrepo-lab
 127.0.0.1 matrix01.voxpupu.li matrix01
 127.0.0.1 voxpupuli.party
 EOF
@@ -98,8 +98,8 @@ EOF
     lab_node(node, 4096, 2)
 
     node.vm.provision "shell", inline: <<-SHELL
-      grep -q '# matrix-lab' /etc/hosts || cat >> /etc/hosts <<'EOF'
-# matrix-lab
+      grep -q '# controlrepo-lab' /etc/hosts || cat >> /etc/hosts <<'EOF'
+# controlrepo-lab
 127.0.0.1 voxpupu.li vox01
 127.0.0.1 grafana.voxpupu.li
 127.0.0.1 puppetmodule.info www.puppetmodule.info

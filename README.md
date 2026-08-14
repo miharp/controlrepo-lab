@@ -1,4 +1,4 @@
-# matrix-lab
+# controlrepo-lab
 
 Ubuntu 24.04 VMs (matching the Vox Pupuli fleet per
 `site/profiles/metadata.json`) that run [voxpupuli/controlrepo] roles

@@ -16,8 +16,8 @@ mkdir -p "$env_dir"
 rsync -a --delete --exclude='.git' /vagrant-controlrepo/ "$env_dir/"
 
 if [ -f "$overrides" ]; then
-  grep -q 'matrix-lab overrides' "$node_yaml" 2>/dev/null || {
-    printf '\n# --- matrix-lab overrides (appended by scripts/apply) ---\n' >> "$node_yaml"
+  grep -q 'controlrepo-lab overrides' "$node_yaml" 2>/dev/null || {
+    printf '\n# --- controlrepo-lab overrides (appended by scripts/apply) ---\n' >> "$node_yaml"
     grep -v '^#' "$overrides" >> "$node_yaml"
   }
 fi

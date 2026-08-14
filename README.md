@@ -18,15 +18,11 @@ commit preserved as the base). Final validation: a virgin
 manual steps — full worker fleet healthy, client API served through
 nginx, delegation well-knowns with JSON + CORS.
 
-Write-ups:
-
-- `~/projects/pr153-findings-report.md` — the findings narrative
-  (for #sig-matrix-ops / the new PR conversation)
-- `~/projects/pr153-new-pr-body.md` — paste-ready PR description
-- `~/projects/pr153-review-notes.md` — raw review notes
-
-Nothing has been pushed upstream; the branch ships only after
-coordinating with GeneBean in #sig-matrix-ops.
+The fixed branch lives at
+[miharp/controlrepo `matrix-fixes`](https://github.com/miharp/controlrepo/tree/matrix-fixes)
+([full diff](https://github.com/voxpupuli/controlrepo/compare/production...miharp:controlrepo:matrix-fixes)).
+A detailed findings write-up is available on request; commit messages
+carry the per-fix reasoning.
 
 ## Prerequisites
 

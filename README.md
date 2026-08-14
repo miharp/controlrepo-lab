@@ -15,7 +15,11 @@ The lab found and fixed **19 defects** in the PR — 8 compile blockers,
 `matrix-fixes` branch (Gene's original commit preserved as the base). Final validation: a virgin
 `vagrant destroy -f && vagrant up` converges from nothing with zero
 manual steps — full worker fleet healthy, client API served through
-nginx, delegation well-knowns with JSON + CORS.
+nginx, delegation well-knowns with JSON + CORS. Full console log of a
+virgin run against the final branch:
+[evidence/virgin-run-2026-08-14.log](evidence/virgin-run-2026-08-14.log)
+(first catalog 236s; the second apply changes nothing but the expected
+ACME retries; ends with the container health table).
 
 The fixed branch lives at
 [miharp/controlrepo `matrix-fixes`](https://github.com/miharp/controlrepo/tree/matrix-fixes)

@@ -1,0 +1,1025 @@
+=== matrix-lab virgin run: 2026-08-14 14:15 UTC
+=== controlrepo: branch matrix-fixes @ 59d1822, working tree clean
+=== vagrant destroy -f && vagrant up
+==> matrix01: Forcing shutdown of VM...
+==> matrix01: Destroying VM and associated drives...
+==> matrix01: Destroying unused networking interface...
+Bringing machine 'matrix01' up with 'parallels' provider...
+==> matrix01: Registering VM image from the base box 'bento/ubuntu-24.04'...
+==> matrix01: Creating new virtual machine as a linked clone of the box image...
+[K==> matrix01: Unregistering the box VM image...
+==> matrix01: Setting the default configuration for VM...
+==> matrix01: Checking if box 'bento/ubuntu-24.04' version '202510.26.0' is up to date...
+==> matrix01: Setting the name of the VM: matrix-lab_matrix01_1786716974330_12889
+==> matrix01: Preparing network interfaces based on configuration...
+    matrix01: Adapter 0: shared
+    matrix01: Adapter 1: hostonly
+==> matrix01: Clearing any previously set network interfaces...
+==> matrix01: Running 'pre-boot' VM customizations...
+==> matrix01: Booting VM...
+==> matrix01: Waiting for machine to boot. This may take a few minutes...
+    matrix01: SSH address: 10.211.55.184:22
+    matrix01: SSH username: vagrant
+    matrix01: SSH auth method: private key
+    matrix01: 
+    matrix01: Vagrant insecure key detected. Vagrant will automatically replace
+    matrix01: this with a newly generated keypair for better security.
+    matrix01: 
+    matrix01: Inserting generated public key within guest...
+    matrix01: Removing insecure key from the guest if it's present...
+    matrix01: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> matrix01: Machine booted and ready!
+==> matrix01: Checking for Parallels Tools installed on the VM...
+==> matrix01: Parallels Tools installed on this VM are outdated! In most cases
+==> matrix01: this is fine but in rare cases it can cause things such as shared
+==> matrix01: folders to not work properly. If you see shared folder errors,
+==> matrix01: please update Parallels Tools within the virtual machine and
+==> matrix01: reload your VM.
+==> matrix01: Setting hostname...
+==> matrix01: Configuring and enabling network interfaces...
+==> matrix01: Mounting shared folders...
+    matrix01: /Users/michaelharp/projects/matrix-lab => /vagrant-lab
+    matrix01: /Users/michaelharp/projects/voxpupuli_controlrepo => /vagrant-controlrepo
+==> matrix01: Detected mount owner ID within mount options. (uid: 1000 guestpath: /vagrant-lab)
+==> matrix01: Detected mount group ID within mount options. (gid: 1000 guestpath: /vagrant-lab)
+==> matrix01: Detected mount owner ID within mount options. (uid: 1000 guestpath: /vagrant-controlrepo)
+==> matrix01: Detected mount group ID within mount options. (gid: 1000 guestpath: /vagrant-controlrepo)
+==> matrix01: Running provisioner: shell...
+    matrix01: Running: inline script
+    matrix01: 
+    matrix01: Running kernel seems to be up-to-date.
+    matrix01: 
+    matrix01: Restarting services...
+    matrix01:  systemctl restart packagekit.service
+    matrix01: 
+    matrix01: No containers need to be restarted.
+    matrix01: 
+    matrix01: No user sessions are running outdated binaries.
+    matrix01: 
+    matrix01: No VM guests are running outdated hypervisor (qemu) binaries on this host.
+    matrix01: Selecting previously unselected package openvox8-release.
+    matrix01: (Reading database ... 89454 files and directories currently installed.)
+    matrix01: Preparing to unpack /tmp/openvox8-release.deb ...
+    matrix01: Unpacking openvox8-release (1-1ubuntu24.04) ...
+    matrix01: Setting up openvox8-release (1-1ubuntu24.04) ...
+    matrix01: 
+    matrix01: Running kernel seems to be up-to-date.
+    matrix01: 
+    matrix01: No services need to be restarted.
+    matrix01: 
+    matrix01: No containers need to be restarted.
+    matrix01: 
+    matrix01: No user sessions are running outdated binaries.
+    matrix01: 
+    matrix01: No VM guests are running outdated hypervisor (qemu) binaries on this host.
+    matrix01: Successfully installed minitar-1.1.0
+    matrix01: Successfully installed net-http-0.9.1
+    matrix01: Successfully installed faraday-net_http-3.4.4
+    matrix01: Successfully installed faraday-2.14.3
+    matrix01: Successfully installed faraday-follow_redirects-0.5.0
+    matrix01: Successfully installed puppet_forge-6.2.0
+    matrix01: Successfully installed log4r-1.1.10
+    matrix01: Successfully installed jwt-2.10.3
+    matrix01: Successfully installed gettext-setup-1.1.1
+    matrix01: Successfully installed cri-2.15.12
+    matrix01: Successfully installed colored2-4.0.3
+    matrix01: Successfully installed r10k-5.0.3
+    matrix01: 12 gems installed
+    matrix01: [hiera-eyaml-core] Keys created OK
+    matrix01: Notice: Compiled catalog for matrix01.voxpupu.li in environment production in 3.65 seconds
+    matrix01: Warning: /Stage[main]/Nftables::Rules::Docker_ce/Nftables::Rule[POSTROUTING-docker]/Concat::Fragment[nftables-ip-nat-chain-POSTROUTING-rule-docker_header]/Concat_fragment[nftables-ip-nat-chain-POSTROUTING-rule-docker_header]: Target Concat_file with path or title 'nftables-ip-nat-chain-POSTROUTING' or tag 'nftables-ip-nat-chain-POSTROUTING not found in the catalog
+    matrix01: Warning: /Stage[main]/Nftables::Rules::Docker_ce/Nftables::Rule[POSTROUTING-docker]/Concat::Fragment[nftables-ip-nat-chain-POSTROUTING-rule-docker]/Concat_fragment[nftables-ip-nat-chain-POSTROUTING-rule-docker]: Target Concat_file with path or title 'nftables-ip-nat-chain-POSTROUTING' or tag 'nftables-ip-nat-chain-POSTROUTING not found in the catalog
+    matrix01: Warning: /Stage[main]/Nftables::Rules::Docker_ce/Nftables::Rule[PREROUTING-docker]/Concat::Fragment[nftables-ip-nat-chain-PREROUTING-rule-docker_header]/Concat_fragment[nftables-ip-nat-chain-PREROUTING-rule-docker_header]: Target Concat_file with path or title 'nftables-ip-nat-chain-PREROUTING' or tag 'nftables-ip-nat-chain-PREROUTING not found in the catalog
+    matrix01: Warning: /Stage[main]/Nftables::Rules::Docker_ce/Nftables::Rule[PREROUTING-docker]/Concat::Fragment[nftables-ip-nat-chain-PREROUTING-rule-docker]/Concat_fragment[nftables-ip-nat-chain-PREROUTING-rule-docker]: Target Concat_file with path or title 'nftables-ip-nat-chain-PREROUTING' or tag 'nftables-ip-nat-chain-PREROUTING not found in the catalog
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/alert_manager_running.rb]/ensure: defined content as '{sha256}e6c2d3d03b441c6877bb1634874002790ae26df57e91571d6c75bcc56fad79e0'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/apt_reboot_required.rb]/ensure: defined content as '{sha256}5bb611781119dac93b2fcf0855847e9634fa861410f64a3f4aa021e78efcbc69'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/apt_sources.rb]/ensure: defined content as '{sha256}22fd91eb6908fedf5392210ed14dc959e44488fd5f3895b507f471ed5f0e751a'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/apt_update_last_success.rb]/ensure: defined content as '{sha256}b38cf0a0e9397768338891e6964359ad4f55fb7ff6bdb76e40818b2e6d6b715f'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/apt_updates.rb]/ensure: defined content as '{sha256}f892ca9a462a669ec0940df50976491a410a2950c665a4a7d03b5c506bc0f612'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/archive_windir.rb]/ensure: defined content as '{sha256}80c332a20ca357a9ddb68485994d4bcb78f9e9eae6643a1b6c7e88120e5f7cfb'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/borgbackup.rb]/ensure: defined content as '{sha256}64e8a3922ea2f5776d34528e1427bd9aac543ae39d37a78b0061f5ff3dd15d93'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/certbot_version.rb]/ensure: defined content as '{sha256}0497e4f9edbe8335df26b774826cec5a7cc70c2c0d74120a6c22d401c66330f2'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/docker.rb]/ensure: defined content as '{sha256}8bee68e9d8be74bf3ef34dc99c1f283a314eae024d4852d7c1b769efae3c05e7'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/dynflow.rb]/ensure: defined content as '{sha256}69454631b0d90bbedf84dd2cce7ef946b690bc9d0b596fb8f1f2575b5352b1fa'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/extlib__puppet_config.rb]/ensure: defined content as '{sha256}fb0161225c405ee54748ec6a1617349142440f713e532a78d7b2eff908bbd03b'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/grafana_version.rb]/ensure: defined content as '{sha256}1e8b16767c241e5597d1fa6099f7d6f6bdc11259a5ea22a9f9cb07be9ed07b91'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/letsencrypt_directory.rb]/ensure: defined content as '{sha256}100beb5f69490f252a6c1da34bbe65f9c0cb9a2e57f75d2be6ee3e0d78458ede'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/mcollective.rb]/ensure: defined content as '{sha256}17dc4e2bb0207d783be7b23e2f29b995bcb4aa6fdf9f090dca0906ef54df3d63'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/nftables.rb]/ensure: defined content as '{sha256}3f3b0de36a7e4df1393888068b69777149d2a3a640a3827fa7e3b353c72f1012'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/nginx_version.rb]/ensure: defined content as '{sha256}48613b541ee2e25690f371cf989fc493b84d2861d82af90038cf53eba1d01193'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/package_provider.rb]/ensure: defined content as '{sha256}b8b79c0e50b4157ce6e139cf6338095ad15d0def3697d97498f6f6b7b1e242ca'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/pe_version.rb]/ensure: defined content as '{sha256}ea15e3b915e7f382e1cb98e1802b0a49f6d75b34d799749f317bab2254966dfd'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/puppet_settings.rb]/ensure: defined content as '{sha256}a9b6b5816ace9e30669dbfc4a72d74ba716457895b25ac22155e694f1a206263'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/puppetdb_version.rb]/ensure: defined content as '{sha256}7ba335fbb36b0e778648274f499d55726f760182899ab1d7af4f444ae00097e5'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/r10k_environment.rb]/ensure: defined content as '{sha256}5977455d980ea2a4f39f1a26f1963d9b760dbb3e7490c39006e33e0bd8c9ff9c'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/r10k_path.rb]/ensure: defined content as '{sha256}24362878eb6561536fdbf9c6b58e95864b153a980eb943ac0e7f0bc1749a7983'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/redis_server_version.rb]/ensure: defined content as '{sha256}ac8d8674da455f0b1501fe8203547bd1f794ea1f252bc2bc3f673762eba26c76'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/root_home.rb]/ensure: defined content as '{sha256}f07c76ca898e90bdb32b744c8639eceb96a06b2292c1e08c4827f96af1ca0d79'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/service_provider.rb]/ensure: defined content as '{sha256}12f477c5d71d2e0b23a813a587c4028a7688813b47390e77b75ddded0ae56555'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/ssh_client_version.rb]/ensure: defined content as '{sha256}2ff01755ef4b213ed4c2a87fb515d5cabea80fbacd4f14d3fe02979e30f16951'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/ssh_server_version.rb]/ensure: defined content as '{sha256}1ff4a0fe52064ab138fa6b5f0d2c0f8bbf1faee977b6b795182713be82755efc'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/sssd.rb]/ensure: defined content as '{sha256}82c7a49992431b8e0bb1e9cc281fadae9d723e46ac6d297b4b932fa1cf31f4d8'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/sudoversion.rb]/ensure: defined content as '{sha256}085696be509e30096169b40b53d8868511f95d6f731052f2527d4e13f0e9a930'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/systemd.rb]/ensure: defined content as '{sha256}d96ea2304307c354a7465b32fd5354aef4dab01dc4a38201ad17a1549e50b8ce'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/util]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/util/puppet_settings.rb]/ensure: defined content as '{sha256}23ab3b375ffd3ff3e4f9c3523109aca81d196738a4b22b6875ca7feed8e4ea12'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/util/sssd.rb]/ensure: defined content as '{sha256}42a03070b48c1394e133981bc026ef3362c2af592185f0ad43017afd6c5d7908'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/facter/vcsrepo_svn_ver.rb]/ensure: defined content as '{sha256}ac2c516bb206ec0d9197c5953ec7ac1ac62856372290a201586c5a449f520699'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/_load_choria.rb]/ensure: defined content as '{sha256}9710fd451bca1495ae501ed632a77297df5d7a0d203332e71cd6b003a6b44988'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/datatypes]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/datatypes/choria]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/datatypes/choria/taskresult.rb]/ensure: defined content as '{sha256}601af77b08c88b5d76aedb1db27ce6c2694b1f65d92d9463889c41e9c9b28ebb'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/datatypes/choria/taskresults.rb]/ensure: defined content as '{sha256}46c975cfe99010cc186c3576a69d3a37f1637ce5d361e33097804c3dc714a8bc'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/feature]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/feature/augeas.rb]/ensure: defined content as '{sha256}d98e8ef39433632b9e835bbb3e85a75f90a8d17a33c2540f2e14f851ca2791b3'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/feature/json.rb]/ensure: defined content as '{sha256}f079938cb97799f106f57b144abdfdde2d3d9aebf9f51489faa992ee6f36fcb4'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/feature/oauth.rb]/ensure: defined content as '{sha256}44063a114babf1aed4ec4c6b6ffdacbc677c3c501e3d4e15995a1f4db53569e2'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/apache]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/apache/apache_pw_hash.rb]/ensure: defined content as '{sha256}e05315ab318bbad67f03aa6ebf5dcbb57c837e0abbc8d79dfaff4f3b9fe7383f'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/apache/authz_core_config.rb]/ensure: defined content as '{sha256}68f0912e4b7bd630bf9b757e4c140f3be40b2e6f24d7ba8ecda3ac265e3db9ee'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/apache/bool2httpd.rb]/ensure: defined content as '{sha256}5cca8ddc5e5daf3f182cf5b8f9ebae11599f93b3a2070c34f8cb143094a473f8'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/apache/pw_hash.rb]/ensure: defined content as '{sha256}511f7f2590dbef8d4569950aceeefcbbe6e6447d14aec01ca2c3a883dca5d848'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/apache_pw_hash.rb]/ensure: defined content as '{sha256}eedf12ba5968c31e913192f04ca33086a296f7eff9f60461f0cdeb708210b286'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/archive]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/archive/artifactory_checksum.rb]/ensure: defined content as '{sha256}122bb8e54ebcdd85818a63ec7397ac9c40acc3ffba4d7719253ca7c8b9975ca9'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/archive/artifactory_latest_url.rb]/ensure: defined content as '{sha256}0e1951bd80ca8271a118eda711a9184cb5d266a598b50a62f68668ba6e37a5b6'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/archive/assemble_nexus_url.rb]/ensure: defined content as '{sha256}09db438391bab9916f6e8d1496f00487165753c3721b6f1dbfd8010a8388c4b5'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/archive/go_md5.rb]/ensure: defined content as '{sha256}172d47ebccac1d0d814a50b34ce9521d7af56f3c729e98eefd35426e852888f7'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/archive/parse_artifactory_url.rb]/ensure: defined content as '{sha256}9b8545622ad67256df125b8a3faf4ca5eeddce4319a09f7f5f3325a2f6104074'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/batch_escape.rb]/ensure: defined content as '{sha256}968bc100bfa0a775490aaac0df4ae3c6f94822134a66cef401cd4b7bde169199'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/bool2httpd.rb]/ensure: defined content as '{sha256}4d36e2c2c66f49c8be56f76fe8c366992a5a088ed9d0a57600fc28969a65bbb4'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/choria]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/choria/data.rb]/ensure: defined content as '{sha256}524461e6e66928cdef7dee9fd4cf9e9b3b089b6f7bffcabcd68a3ed778d77339'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/choria/discover.rb]/ensure: defined content as '{sha256}a939b653c384b7d62728d38fcae44d1a2dfa471a8a72388d0075ddbb8846bde8'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/choria/in_groups_of.rb]/ensure: defined content as '{sha256}d7a7e8445edd189c7c5ff614078a4bda64d5f72fd96788bf17afd6ff8ba452bf'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/choria/lock.rb]/ensure: defined content as '{sha256}454204be582ea9fb00c3b7d4e0d3a223d4824903bc55f5d2745a4e19ab4d7a0a'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/choria/on_error.rb]/ensure: defined content as '{sha256}76b9e71457b42029be614b4c362cbed863499ee0eebbb3e9d76f85fcb41ec432'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/choria/on_success.rb]/ensure: defined content as '{sha256}b187567a48fee92c98bbed27ace6d13fb7e452afd000f65b165200d335a31068'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/choria/playbook_exist.rb]/ensure: defined content as '{sha256}1cf1b3a34d6774304145bc3a5e54d66fbe88b1ff558dc9fba20d675a0939c18f'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/choria/run_playbook.rb]/ensure: defined content as '{sha256}c5a1b8f5640af34dee75ee4c900bdf88b696b72552d9a6464bd1155d8d30ee8f'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/choria/sleep.rb]/ensure: defined content as '{sha256}db6636caec9753a292f67aaf25d7c9c393483486c5169e16463fa4a0bf5a670d'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/choria/task.rb]/ensure: defined content as '{sha256}87060b0dc3de2251aed57f73ef8667540bde73adb58cbcc0982a9e9dfe204329'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/choria/tasks]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/choria/tasks/metadata.rb]/ensure: defined content as '{sha256}2c52e7d009f7a02f57eabb986d856717f9cd38372a2579cf730800ccb8a8e81a'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/choria/tasks/validate_input.rb]/ensure: defined content as '{sha256}115f4d2e98654b9583fe914420775ed6a395cfa6c9019d6a1bbab1588141af4e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/create_ini_settings.rb]/ensure: defined content as '{sha256}ba431b18f4c21eb5cb045eade095b2e23aa15a502b0049e2c1ae4c173a59eb49'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/deprecation.rb]/ensure: defined content as '{sha256}3d111579addd7701d80dc72a095bb965e997afda4e750fa93c49fcac0b1b71fa'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/dns]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/dns/dnssec_keygen.rb]/ensure: defined content as '{sha256}b29b64885a6a1ca941484a619872c036a41227d5c95989fc932b86021cb9157f'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/dns/reverse_dns.rb]/ensure: defined content as '{sha256}5a6c150e1e76fe49f17ba9c16f4c339c62390142db0057395b73dadd07efa925'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/dns/tsig_keygen.rb]/ensure: defined content as '{sha256}8e1efa461a2483e608e914feb281c086c365d2c9f4da5ebcf14190319412f54b'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/docker]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/docker/env.rb]/ensure: defined content as '{sha256}952e51a559dd50ebcdca8e10ae41871aeb911d9038c68907f4bba119e1a610b8'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/docker_params_changed.rb]/ensure: defined content as '{sha256}ce5473dd7686f1708f9c88ddf1cabc9ef225618bcc3b1e43b323716251ef52ac'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/ensure_packages.rb]/ensure: defined content as '{sha256}8a268da016178c99a2558bf3113ab64101f40c5e80032704e746094ee716191e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib/cache_data.rb]/ensure: defined content as '{sha256}d53921cfc589678073890dcf3b666a8eb9103a102184ec5981ccd22f8392f39f'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib/cidr_to_netmask.rb]/ensure: defined content as '{sha256}2f47c1dedb6203af7b7e37d124a6c3f233f87e9e536e8b451cc97c665af12003'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib/cidr_to_network.rb]/ensure: defined content as '{sha256}48cd9faa912587f13d59ce5b1c2e5f131a454b4f0db1f9d42ddc5707fd910424'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib/compare_ip.rb]/ensure: defined content as '{sha256}d464cd913e74b4ee67889690762ec160f44dd1b541f0f6215002b7ca1a8ce743'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib/default_content.rb]/ensure: defined content as '{sha256}62351ed13979b2457c4436781b97667142d6a71314e1835beaf411216a88d280'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib/dump_args.rb]/ensure: defined content as '{sha256}857e96727d5c69f032cc13a277bf836d94fa960ee61de7f091c836992efa48f8'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib/dump_params.rb]/ensure: defined content as '{sha256}5ab41a83e9b6809f0c7bf1dfa06363f10b6a98119d53bad105ad936ac000b3f8'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib/echo.rb]/ensure: defined content as '{sha256}c4b302f81c7235f65cf244b10e6a3e6d1235850dc960d498fb30f464ce8c316b'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib/has_module.rb]/ensure: defined content as '{sha256}b43ad3209b1513187ff68b895f9210967d2a65bae09c5fcbbdf570a922b5ae79'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib/ip_to_cron.rb]/ensure: defined content as '{sha256}3d94c06d5c8e456b2707b7983c8f1fdf4c674f5e0abff08290c871ece670a3d8'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib/ip_to_reverse.rb]/ensure: defined content as '{sha256}38d85e77a16da6b55d0e721666a37665232d78044192a8c812b2ecac4b93cd89'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib/is_in_cidr.rb]/ensure: defined content as '{sha256}6ef8f86a6782a94dc2b6f99dfd1ed7615cda31c855feff0334b6b5aa09a7948b'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib/last_in_cidr.rb]/ensure: defined content as '{sha256}6fafc6eead1af77882cfd3bdfa5fb1b0eabfec99638ea631bd8e31af9a25af52'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib/netmask_to_cidr.rb]/ensure: defined content as '{sha256}cddb1137f92fbba0335faec7f810b06d7a6ae00a2e426ee2880e1da387c7fd0c'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib/random_password.rb]/ensure: defined content as '{sha256}70a3dce9e31f3db8f85a3a4c10d3fe37390d0a5fd3ff788a72c11fd201503add'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib/read_url.rb]/ensure: defined content as '{sha256}e5f497b53c2abcfc08052b0c223c8f9a7f138d7a3082aee0b1d590e2ca8c3735'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib/remote_pql_query.rb]/ensure: defined content as '{sha256}5344a034694e9e833a5f4d3f225c45fddf1d577613d96778c0e2b4b7d47cfdd1'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib/remove_resource.rb]/ensure: defined content as '{sha256}0a74a26ea6b32ddfd9b600af8b604e75d2fa1d00fc1db87bc8d72c026eee88de'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib/resources_deep_merge.rb]/ensure: defined content as '{sha256}363f7bf7aa5ebe8464bf1e82c994eb68958d7c6941a065ba3abf3a8b8f6c5ec9'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib/sort_by_version.rb]/ensure: defined content as '{sha256}993bd989b8c1b655c4d9310f9beac3bc5e6a24f6b849c9edf64f623944429dc6'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/extlib/to_ini.rb]/ensure: defined content as '{sha256}9cc5e5039ee32f739233682716cf86d7fc9d63fe5297a79cf6e70568162fcc0c'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/fact.rb]/ensure: defined content as '{sha256}10eb4da2d090949285d0e94ca24d102c0c17c782e06714f070a9202a3d74d388'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/foreman]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/foreman/enc.rb]/ensure: defined content as '{sha256}e7ff091b4a518b1929e14ec062e337c13135ef0210c446933acc5bd637d554f5'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/foreman/foreman.rb]/ensure: defined content as '{sha256}9fa8993de557e67ecd5f21b573194e9727e3706de0b1ce0cbb1cc661458518b2'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/foreman/smartvar.rb]/ensure: defined content as '{sha256}427cc887253758da750aeb0edb5789cfdfe96ead28cf32e3a8a7533b483930dc'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/foreman/to_symbolized_yaml.rb]/ensure: defined content as '{sha256}b495c98bdbb3402572373d8ba1e63b898f75acf3349c56d0802170855c9cecf3'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/foreman_proxy]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/foreman_proxy/get_network_in_addr.rb]/ensure: defined content as '{sha256}72475c7bf0765f10ee0568bd4689bb45ca903f556a60f91350df01567d74c778'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/fqdn_rand_string.rb]/ensure: defined content as '{sha256}e8127870faef79b5f21487ef1cba6509ce3d9c4552279b7e04dccbf5cfc86303'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/fqdn_rotate.rb]/ensure: defined content as '{sha256}2e785c83367035b1033796617f968273f6a04febc8807e2fd894a3c5fde31a1d'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/get_in_addr_arpa.rb]/ensure: defined content as '{sha256}30adb127187f5608a4488cc8391542f5087ed9d5ae6bef6db52cfca03b4e6957'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/grafana]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/grafana/deep_find_and_remove.rb]/ensure: defined content as '{sha256}95cf5181a3349f5bf111650a134746bb65b1965e7221724a8ecf2f701d72b646'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/grafana/get_sub_paths.rb]/ensure: defined content as '{sha256}6a3ea7d34ead9e83e579f3b112e14c38375a93b94de2cb2fb8969843723c3fa0'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/has_interface_with.rb]/ensure: defined content as '{sha256}115813c65578e22800327f2b81433f52f2ed745a87bdaec318968be546c5a73e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/inifile]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/inifile/create_ini_settings.rb]/ensure: defined content as '{sha256}594e0f71c7ccd7c0a28227b400a00435314533dbdc6f55ec4f4055397a5dc977'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/is_a.rb]/ensure: defined content as '{sha256}869b2af1f1808a8b185017630792e3f0ca776c5b02bd9455e3b13f5a9d45730a'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/letsencrypt]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/letsencrypt/letsencrypt_lookup.rb]/ensure: defined content as '{sha256}ab08b6bef9d0b81d63406704cd2e7bbe998fd82ef4942841b4c4a7fa46738213'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/libvirt]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/libvirt/normalxml.rb]/ensure: defined content as '{sha256}77e0e3dd0bd44def3d55e42744f17cb4d1e10ed6d7720300c4ca90d69c6142d9'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/mcollective]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/mcollective/crontimes.rb]/ensure: defined content as '{sha256}ea64285045dda57bdd4b3069db539998180358e1372892ad0155c0f7a20a6eb4'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/merge.rb]/ensure: defined content as '{sha256}dc1717edacf88a9d66f56fb7bd42721c3172142bb2360208de9fedda40bbee23'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/os_version_gte.rb]/ensure: defined content as '{sha256}2825585b797d46a1f751d39582e3e43f19b55ddc0e42bf4e33b602c8d1757790'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/parsehocon.rb]/ensure: defined content as '{sha256}8c77434e775bdca14f1027242ac14c3dd900e6b2adb5b8ae004f82a52755130f'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/parsepson.rb]/ensure: defined content as '{sha256}2792a77f571eaaada7481a9b2ebbf9bdbf5b644a29e8c21a1d145a88c4fe2b8d'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/postgresql]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/postgresql/postgresql_acls_to_resources_hash.rb]/ensure: defined content as '{sha256}b055b9b4076c45937068bfc9e2648470c030679f94f0d4ac9e7153b8f82fd0d5'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/postgresql/postgresql_escape.rb]/ensure: defined content as '{sha256}eb2d9592f13fc445500fd7e417b13893d33ea15f6f12c24b275324302f6241d4'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/postgresql/postgresql_password.rb]/ensure: defined content as '{sha256}871b886726ce107fca80abfb92174cabf7e3e51bdcf2791932474de046202cb1'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/postgresql/prepend_sql_password.rb]/ensure: defined content as '{sha256}d6923d46775e73bea4f27eca6373e95e004b243b551072eadf858a2b71896aa8'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/postgresql_escape.rb]/ensure: defined content as '{sha256}9055138e16aeddeea1cbacbd67c4051e6d13a815c620d8b4c4386cd4403045a2'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/postgresql_password.rb]/ensure: defined content as '{sha256}cead79aafbfcbef1559f43b57bb226ab7d8ea70998c8685c5249609abd875ffd'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/powershell_escape.rb]/ensure: defined content as '{sha256}d019aa6b1dcf0e4f67c6463173b04db363d71d821215a2cd1acb587c6246446e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/puppetdb]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/puppetdb/create_subsetting_resource_hash.rb]/ensure: defined content as '{sha256}19ed9b819d747927586783cb324ebe2b3824b9b9d9c9870d22d263b4abdb9774'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/puppetdb/flatten_java_args.rb]/ensure: defined content as '{sha256}2ba31e46047bc435918b69bff749e14c3dda3e2c4c8f928739b952bede21740e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/rclone]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/rclone/last_version.rb]/ensure: defined content as '{sha256}1536c6e9e2aec2ca79aab9f113f76dd0dbe82f89dff2ffca1bc50b79bb140267'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/redis]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/redis/get.rb]/ensure: defined content as '{sha256}05c98deac0d91bc53a5f0cbed71e84e7409e82090d62061ea8d7a65fbd7f0c37'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/seeded_rand.rb]/ensure: defined content as '{sha256}b2ea4f3c8b18ad1d876fcfb221f92ddf412d1b452f174264267d74d0a63798c8'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/seeded_rand_string.rb]/ensure: defined content as '{sha256}1548bac52c2ee3700c698fb38043b81f021a258822a7014013d67dde5efdaf1e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/shell_escape.rb]/ensure: defined content as '{sha256}26641f1d0a1738dd0a7460dffb0e4985da144ac608d35c3948d3785cb106c452'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/ssh]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/ssh/ipaddresses.rb]/ensure: defined content as '{sha256}e837bbc0206348088e74aeb7376f7b2013582540222ce585faaf63cce1316a0e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/batch_escape.rb]/ensure: defined content as '{sha256}4b1b268e926d77cb6e2a7152e9b332f828829c38a25d8da8867f5213fb833275'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/crc32.rb]/ensure: defined content as '{sha256}994cbc772331998a7932404a9a7e1a6a2810b6f3b3edc844c811abeb3f52a22a'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/end_with.rb]/ensure: defined content as '{sha256}6224087110c137225c0f88b1870888e4114506c05087845ac11b48f15cb7f673'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/ensure_packages.rb]/ensure: defined content as '{sha256}0e8e15a9b91cc7ce06e1fc29724f57b1e24db5113c9302b16c48df5436e7d175'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/extname.rb]/ensure: defined content as '{sha256}d7a740091698b33500bf815b916509412a7575b61e315b34f9f7ea5f9631a94f'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/fqdn_rand_string.rb]/ensure: defined content as '{sha256}657c8b263a11546fd9afe19ab8c2557319225bf01eda0354939aaa6a2717ce43'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/fqdn_rotate.rb]/ensure: defined content as '{sha256}55d685519a313d1c79290efbbd8a34ca6de4cee0b2889e6936906433c16e46cb'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/has_function.rb]/ensure: defined content as '{sha256}4b38d64bcdedefda8de7b4490b29a3d594e1d4461cca5759b47befd521e31a38'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/has_interface_with.rb]/ensure: defined content as '{sha256}3353a63f9be2932b4207eda78058c8ff6ea444067dc062983a9268c34ef0df43'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/ip_in_range.rb]/ensure: defined content as '{sha256}46b7241ca1a4aa1ce73e9f0ab5f9ab11d6dc6992f33890219213584d89bbbd5c'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/merge.rb]/ensure: defined content as '{sha256}999002a9876b0893c70623b736a2ec4730bbd1df7219e10a26c79ee6dabd542f'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/nested_values.rb]/ensure: defined content as '{sha256}2860c4a85072e91093cc966341b3f81d86f05850bc3fad3d03af0ddeb356ac36'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/os_version_gte.rb]/ensure: defined content as '{sha256}cb1664fa787dbb69d90751cfa04536725f392a2e02844ae0d5bd3b0be04d045c'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/parsehocon.rb]/ensure: defined content as '{sha256}4859583a144f8f1608962faad65e06e7127eb8f95193883e719c8591bb671a90'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/powershell_escape.rb]/ensure: defined content as '{sha256}ba0c8e619115d5570de879d9834bcd967aaad0f89dacffb74f7151801e64d124'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/seeded_rand.rb]/ensure: defined content as '{sha256}778dbf15c1c3dc3b9e4366a3c0e19394e10ae654da1fb15c5813d1f0395c8775'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/seeded_rand_string.rb]/ensure: defined content as '{sha256}6d1440aa95db052fb98de1c8e01fdb2fc0d5db7d21512405a76f6e803ea31c3e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/sha256.rb]/ensure: defined content as '{sha256}f5a79f68cca6b02936f4bc630fa3b02f2d5294795985e3abacd109543e809682'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/shell_escape.rb]/ensure: defined content as '{sha256}55382f27d0562f06492417e5bf040ea1212168dd8282d46d8783cc3c2c7b8ae6'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/sort_by.rb]/ensure: defined content as '{sha256}6ad6585e1b333666ac4ef1084a19adcc3088b7441a19bb4c109bbd0b029d537a'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/start_with.rb]/ensure: defined content as '{sha256}3bd485d65ba8b721b1616a1c666169fe9119950393a880b734a99c50e15e18c3'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/str2resource.rb]/ensure: defined content as '{sha256}9839f5437f11e43ba4ca56353af79dba38e8e9900fdb5b3f3f09c7e40fb1af8e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/to_json.rb]/ensure: defined content as '{sha256}920b197aefa902baccb4f256685130b7227d3d3fa0aee078274273ea3233b5e0'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/to_json_pretty.rb]/ensure: defined content as '{sha256}2eaaf5c0ac017c377f590e9e88f3a6a534d42329ddef7a0bf95fd57faa674bd5'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/to_python.rb]/ensure: defined content as '{sha256}96d9bd450284d5b94655259ab69f6107a969fe6da7ce832744f5a26a9f96d11e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/to_ruby.rb]/ensure: defined content as '{sha256}aff777a0f15a19dffe90cd4a64ff6ca56e3c5d43aebafb2ec6443f1e7eed694f'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/to_toml.rb]/ensure: defined content as '{sha256}680ac78cb8e35185b8c3bca356aa278c3e686ea507c17a0c3f86cb6d8cc8e863'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/to_yaml.rb]/ensure: defined content as '{sha256}f81c6b34d3fb73b7005603e258e0fd34b8622eb8a060e9d67d97e233b9d9a3b8'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/type_of.rb]/ensure: defined content as '{sha256}48bc87110c83ea63f8f8f07459e2160075866381112ff12d382be37e6c1cdfcf'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/validate_domain_name.rb]/ensure: defined content as '{sha256}7b024f6011fabb76f60bc19c3550f90328a2cc52033a044091f663e56e43bf01'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/validate_email_address.rb]/ensure: defined content as '{sha256}a9c3d434086482525f4d50d8333c5c1440cec0113dd9e77237eb06dbf9b8d696'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/stdlib/xml_encode.rb]/ensure: defined content as '{sha256}36e11de3ee8b06e818feb9b6c280111d6d8e4a6b0e1c81c88e73f53edae50ae0'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/sudo]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/sudo/defaults.rb]/ensure: defined content as '{sha256}b93f983b606febb45d33753954d8c90fe2af05dbda1fc5ada1ddfdb8b53b013a'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/systemd]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/systemd/systemd_escape.rb]/ensure: defined content as '{sha256}825cad7e9a8644639cc373d10b3a03538ccb3d19f62f1ac3821d136332791ed3'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/time.rb]/ensure: defined content as '{sha256}10c88eaa29cf0eb92c97d6c0bb47e6387af32e77bed4017f24cc4a5a9b73920a'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/to_json.rb]/ensure: defined content as '{sha256}98d4c84d93b83eeb0ad598164f4ab6845da04fb8beb5329d1ad77d8a2442650d'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/to_json_pretty.rb]/ensure: defined content as '{sha256}718823314a39e2f9c5ba35846f66b7f7147117a50b5585734a04962b23674561'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/to_python.rb]/ensure: defined content as '{sha256}35365fb0007920864046f5f88865812f34a7bbcf806f8c5efb95b44b9fea4299'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/to_ruby.rb]/ensure: defined content as '{sha256}91ea10b4eb336a0ad0ebb0d48e353a8b879dc1cae395aab789edaafb2fda439e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/to_toml.rb]/ensure: defined content as '{sha256}15483c9d209b6856c59fe7aba612b347084c246bc4ecf906f3527056730e5095'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/to_yaml.rb]/ensure: defined content as '{sha256}78ed0340c2909776975c0573002a915680ab00f5667051d218be49a084ba644b'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/type_of.rb]/ensure: defined content as '{sha256}57ca11364702435c55df07a042e557121f43b72e51dcefc4572ebdc22678b4e5'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/validate_domain_name.rb]/ensure: defined content as '{sha256}962370f1f43fe879c9258f5800a87166d2a4554b1a32bc986fe443c6991c20c9'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/validate_email_address.rb]/ensure: defined content as '{sha256}0775253f3df427dac13db5930e8bd20809b65703d677d12c8dcc727a460b2d92'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/functions/validate_legacy.rb]/ensure: defined content as '{sha256}ec7cf3581dd4dae7111b89c4effc7a7140f44c44063062698e7332dcc8a83786'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/any2array.rb]/ensure: defined content as '{sha256}f08851e4a4285fb156242df3340afaf7d5f84673b6f1c41a592de1667498bdd8'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/any2bool.rb]/ensure: defined content as '{sha256}0622681baf847f22f2268f1bbd5a7e92587ff110a21c806dca01fc94ee816b42'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/assert_private.rb]/ensure: defined content as '{sha256}d4e34e31ac353a857391e02c4473c7acc2ecd0b75a4ae3f76e0aff277351ecaa'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/base64.rb]/ensure: defined content as '{sha256}d295b995d0e110d46751b57fa32ffce0b5f3edac7ef1e1ad0dd82ef402b9b1fe'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/basename.rb]/ensure: defined content as '{sha256}fefdff8d8cdbe843383eb13f42555aedcba95aa16b5ab4dcd814cf6852822cb1'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/bool2num.rb]/ensure: defined content as '{sha256}53ebf99c7f386b9d66974088cf16c821772a8ce8d684f2f3c950a5fef37a4017'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/bool2str.rb]/ensure: defined content as '{sha256}1b3d1a7941017ce35dbfbf62bd2967c9b76380139217a1f371f013520e6384b2'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/clamp.rb]/ensure: defined content as '{sha256}86f643d944e8104e4aff1012e0e15b3126448c38904a064963c874ef42a5bdb2'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/concat.rb]/ensure: defined content as '{sha256}04f46bffc83106e69a276cadfe122a9cc4d6b7ae468d0a290073264e116a8d6e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/convert_base.rb]/ensure: defined content as '{sha256}063e594b4fc5ea157a22d0b0a1c78297357a6dff8b1a50cdcab59898aba50c56'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/count.rb]/ensure: defined content as '{sha256}e5c923e1f1f1e14de52d750a105dc4d16404ead31fb5690cce225eb46d5bbff5'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/deep_merge.rb]/ensure: defined content as '{sha256}522c6b2366421bcee5b75a18fd54ff93e320d3e2813bc8dd818faf8dd30d397a'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/defined_with_params.rb]/ensure: defined content as '{sha256}397dd740103a11959b2ef74766ffed3989dec1db5a6bc54c4d7e943e9552aa70'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/delete.rb]/ensure: defined content as '{sha256}56b279ed09b465207a7f33f7690bbc2fae85a822ff4473f997ada95244647e36'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/delete_at.rb]/ensure: defined content as '{sha256}90828470aaac937b2ada7496034cb8a5e36d4ce173e789810969e930d09d210c'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/delete_regex.rb]/ensure: defined content as '{sha256}af35636d1bea0a19eab2085d34a7231a434c959cf2e8a6e3f78aef161814b67b'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/delete_undef_values.rb]/ensure: defined content as '{sha256}551f5d46c28b08cb56f8027b888dfcfed97ad4b6ef01f020d7a1a14d988c9c43'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/delete_values.rb]/ensure: defined content as '{sha256}9d378dd7c4077140896f908192e2ef69e3bdf13c65c0f05bcbc083441509b45d'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/difference.rb]/ensure: defined content as '{sha256}d1d41fa6c78ff7fc246f7f1e23871c5a1e563aec57c013a7f04acf9ed89730b2'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/dirname.rb]/ensure: defined content as '{sha256}25b37e8af49f6d595af5c48dc46f33ff5b636090e32365a7d24c54397ec0ab20'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/docker_exec_flags.rb]/ensure: defined content as '{sha256}3b692e493334312f8dff06a424e1dd21d44bf3c6bb731717b9695f8cf8a7ccb8'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/docker_plugin_enable_flags.rb]/ensure: defined content as '{sha256}4a1e6e03fe81e5a137efa945f1f42cf3fbc0a24865541fa3b0d0642ea15f4b9b'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/docker_plugin_install_flags.rb]/ensure: defined content as '{sha256}4f6558575182b579f238f7508bdd7c0714def05ab71db130bee3c49811c1c274'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/docker_plugin_remove_flags.rb]/ensure: defined content as '{sha256}12e4638830c6a72a1c922f4e24901d6d83c6a851787bf69754c7dc0c18bd49cd'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/docker_run_flags.rb]/ensure: defined content as '{sha256}31757bf7ef5fc382cf939ed76861382f107a913e66f103cf9698e4111d6e2cec'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/docker_secrets_flags.rb]/ensure: defined content as '{sha256}44cbc2705b6de477465827eec14f53a4d3d03402009fe59936a883b395c93a1f'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/docker_service_flags.rb]/ensure: defined content as '{sha256}2a52a33790ef6847b57c098b2736405cc335bced3105a8ec4bb415df8250336b'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/docker_stack_flags.rb]/ensure: defined content as '{sha256}d55100c40c651f36bb9a2e9d6de2355367cfcb328b498eb812cf419427bc1556'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/docker_swarm_init_flags.rb]/ensure: defined content as '{sha256}3e8a5b82612ff8eecd111a0ea78abcf1c9ba5710153deac5d5b5a07384a289e9'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/docker_swarm_join_flags.rb]/ensure: defined content as '{sha256}406de57687910cff2497768cff8ef4a3956b9a8f5682e19c5fc3ab148b0cebf6'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/dos2unix.rb]/ensure: defined content as '{sha256}5f30cae48f6a9e8789fce867180398f24fc3135dacb474724b71b1b4d6890f53'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/enclose_ipv6.rb]/ensure: defined content as '{sha256}08acfb736c70984c804ae82ed6f1d40fa752c8897ea2ca9ac34dde67a20e802f'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/ensure_resource.rb]/ensure: defined content as '{sha256}955ea1ef26a49cc943f175f34f37f37f229d8326c56c939212ec67876c0477dd'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/ensure_resources.rb]/ensure: defined content as '{sha256}8f30020eda0de3e21d0c2225d67a489dc44b0e71590b5d9f6d81aeb06581fd39'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/fqdn_uuid.rb]/ensure: defined content as '{sha256}cea99f0a0bc7b420848f49c9413dda092ed6138c73d7e19bb8a6f67874787299'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/get_module_path.rb]/ensure: defined content as '{sha256}e14beac4294d879ecfd0064ba5d089b8f87b63d746020d8ac825067cf9ff4851'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/getparam.rb]/ensure: defined content as '{sha256}7f6ec9bf85f1f5d4546ee6459fc20a12c60a45e570ed3fb1792cb168e697d4b6'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/glob.rb]/ensure: defined content as '{sha256}c2f1690ba206f51f207ed2cfdf053d3abb41dde3fe1359f1713fdddacac0512e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/grep.rb]/ensure: defined content as '{sha256}2d8d90cecc52768d11c473028721f778a775367ba93ee553b4c2a181089c4689'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/has_interface_with.rb]/ensure: defined content as '{sha256}2aa11baa95294b18f53838d46bb459a11c39a04b01eb16d0f903e8cfb16b7eca'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/has_ip_address.rb]/ensure: defined content as '{sha256}8e1658190bfd2c5c8a0cc9578b2dfd0ba6f06e7cb6ed44460ef5f866a81f608e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/has_ip_network.rb]/ensure: defined content as '{sha256}3092cafb4d13cc00c15134b68269f3f8856db39b59c9ac9afb27f7375d8e6358'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/intersection.rb]/ensure: defined content as '{sha256}dcbb4415028cbe5b45db391061b14071dc2a46d26a6800453d5167e933eeb20e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/join_keys_to_values.rb]/ensure: defined content as '{sha256}0afadd8a7793c43f07c2aa29d61b6f0daeab31c26999ac9d1c7bbedcf42016e8'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/libvirt_generate_mac.rb]/ensure: defined content as '{sha256}95183ce43a9da120af9662e5f5da63d10643f1640a593d12cfa1c2c9efb6284b'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/libvirt_generate_mac_addresses.rb]/ensure: defined content as '{sha256}a15b801565c27221945621590d247e9f0e7beb8e8e35c72b5dcd3516d5d23632'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/libvirt_generate_uuid.rb]/ensure: defined content as '{sha256}c81d9880228265c9669fd9e59754354777621fcb8e11390306d40d0961b5d687'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/load_module_metadata.rb]/ensure: defined content as '{sha256}0d46d2ce0dec28549d910fb5ac104bba9d2a5c6db5670e2bc7a43461e1a0a827'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/loadjson.rb]/ensure: defined content as '{sha256}5bbd894f3d8d66ec4775b8d3533669f3de085e1228b2cd68c45eeffe07549ef2'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/loadyaml.rb]/ensure: defined content as '{sha256}942dd672f6d4c87c9364851e9ddada083d5f7db16da37cb553fad47da4395f3f'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/member.rb]/ensure: defined content as '{sha256}172beb873f4bf6524fe3b78f29c5438abd4ea18a29d557e9fd2d0b3d8407f78e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/merge.rb]/ensure: defined content as '{sha256}e79b082326ab773011e77a771807cbe86c6972bec7e1da09bd325a977635d048'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/num2bool.rb]/ensure: defined content as '{sha256}e2dea7bc237320a84c233bb24307aac6c1dc7663cf5d1f099b729b10064a8f87'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/parsejson.rb]/ensure: defined content as '{sha256}8bcc6ab9a52f4cff9f7fa797a16b765cbd63474fc90f16f5cd0784fdf06f473d'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/parseyaml.rb]/ensure: defined content as '{sha256}d341e25fe6a337cb40e4cd667fe5175be1e9190686b22299cbda1a3e7c3dc28c'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/pick.rb]/ensure: defined content as '{sha256}f0053f3559b9286d35c448e0d125ab83f6f7a04aef99ea1424f20d75503f6505'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/pick_default.rb]/ensure: defined content as '{sha256}25e67a1a71e1dd3fa2cdaacbf5a4d68b30ab982abe5214bbb84ce9ee5160e047'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/prefix.rb]/ensure: defined content as '{sha256}b1113129dfce0d35165b83eebd5d99c8f8da67c0222e201171324aff2ec14883'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/pry.rb]/ensure: defined content as '{sha256}2bf3621174e26ad9b2b6cbd892daa69dcf60213e98933a54cfc2704dcaf8bce1'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/pw_hash.rb]/ensure: defined content as '{sha256}97866f379a9c97297f6df558593cb6a182d00ae7d02daf90de4f8eae90bc29f5'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/range.rb]/ensure: defined content as '{sha256}ed3ea7e8f0392da381a1839492e753c78430c15aebf77c2476827d97577a3367'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/regexpescape.rb]/ensure: defined content as '{sha256}442ca8850507d22ffc947f5f271f7a1a84b3a1ad4392d1d59d7013aa73c58df9'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/reject.rb]/ensure: defined content as '{sha256}ff0f77ac8443275853c7a50b8d7ca06afdfae5db97f41d9c1e0c1cb5c0a0c859'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/reverse.rb]/ensure: defined content as '{sha256}376c1eddc28b62ff0414c4a77b4b1829dbaa6609eacbff90baa439f697b052b4'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/shell_join.rb]/ensure: defined content as '{sha256}3e5b0bdec93b873092be4dc218d5d9d628a44a60922e67dbdf549174bedc8fdd'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/shell_split.rb]/ensure: defined content as '{sha256}1d8fbafcd4e5324f264efb682f886899f5dcf5adacd80fb7f4e4e0edb999021b'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/shuffle.rb]/ensure: defined content as '{sha256}da760f1dd6274f920ce6a00fb0c7294e3ec0e8bfccc3350a69f0f5416bc879f3'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/squeeze.rb]/ensure: defined content as '{sha256}a6cc346c941727aa1a752410d42071eb2278f6547b6475cfdf518eec4ad764fa'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/sshclient_options_to_augeas_ssh_config.rb]/ensure: defined content as '{sha256}baadb5857271f65bd9b06815bbf8c59e5fdf81156fa702abc5aacb7ad747ac3d'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/sshserver_options_to_augeas_sshd_config.rb]/ensure: defined content as '{sha256}e689f2e90933e905b7fec92a2c85996298cf062802fd22c2766539e3baaf1251'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/str2bool.rb]/ensure: defined content as '{sha256}8b6c42cb9f4cb0e39a7d21e972e309ac02a71ba7b1d27fd1e3c2ac8f6c8fadca'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/str2saltedpbkdf2.rb]/ensure: defined content as '{sha256}873b76588b37489022aa9d76fe8545e291b1c1e5a12e5d6599ab2d00a263cd2e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/str2saltedsha512.rb]/ensure: defined content as '{sha256}9a69a5762bc3bab800927e498f7ca01e6059f3ea43afe3eae2ad7786e1984537'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/suffix.rb]/ensure: defined content as '{sha256}dd882f53878c955225bcab890ef3127f97b0c9c6869857a94a9fdd9920fc4923'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/swapcase.rb]/ensure: defined content as '{sha256}030129430bee3b6d340527319f26792b3c9d34f8049f42c7f77cb7da0329fa51'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/template_body.rb]/ensure: defined content as '{sha256}17585d0d4ad7369471b21a9fd0a96c6a8bca536010b497414b14dd8406807f2b'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/to_bytes.rb]/ensure: defined content as '{sha256}09b57beb4ac8e988a92e3e4cfad5a5b47bf9663ed1eb43fa1e21c42c0ec8207a'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/union.rb]/ensure: defined content as '{sha256}deb321e798df15624b9b7846da4a3bca00de885edcaf53b7361756adabeed2f9'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/unix2dos.rb]/ensure: defined content as '{sha256}ef3bce0f745546b2f4dab5157a81206348f6685277e869264505047537cb4109'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/uriescape.rb]/ensure: defined content as '{sha256}9673effd2dc31dcba1d1e1ac89c2f958483450fc31a997737bfeb5c4e1253704'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/validate_augeas.rb]/ensure: defined content as '{sha256}f9e6c81e845628e9ef92d44c934a5cb2cd5d2fc122bf8f7211a991a172da9da0'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/validate_cmd.rb]/ensure: defined content as '{sha256}f914f96f9992f7d9b3a3391971bb9367c209c4b0bbe394da35e95af414a46c32'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/validate_x509_rsa_key_pair.rb]/ensure: defined content as '{sha256}331721f2b0d146b0d267f52d8f633de87197e7b788e6ad4a1eb017abe56d559b'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/values_at.rb]/ensure: defined content as '{sha256}a6ef1bdb1abb8580a7b1e3b9241e870cb8baa0757560df134401f03d7bea1244'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/parser/functions/zip.rb]/ensure: defined content as '{sha256}7c8363060775402cdf8fd1a3d847a4ece27b8ef905922f6c087d5fc6790a253e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/a2mod.rb]/ensure: defined content as '{sha256}3bf3c5ea28b93e30065c53932b6b53d54290c57d636352a6ef95d789ac7b5f52'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/apt_key]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/apt_key/apt_key.rb]/ensure: defined content as '{sha256}a6b4c97da008d8a50f689e44c65c2f87524c1256aef75450964c543b570c7a74'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/archive]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/archive/curl.rb]/ensure: defined content as '{sha256}eb07ecc91d3ceb0fed9de0606508848b325aea25e18738b6a66fb214efd58bc1'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/archive/ruby.rb]/ensure: defined content as '{sha256}8f5d412ee8766e4f0c814dfe1f3eeb9797c4719b29744a0ded79a2c1a3d169cf'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/archive/wget.rb]/ensure: defined content as '{sha256}30f52fcb733454d0ca0ee37f427e12824e7863af26c9e8e5accae30f21439ed7'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/augeasprovider]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/augeasprovider/default.rb]/ensure: defined content as '{sha256}fd69752d34ac260ebe808f941e72d901a1c7178ea280629154a9778a2a0e680d'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/choria_governor]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/choria_governor/choria_governor.rb]/ensure: defined content as '{sha256}1d475bda09ebbd2d8e9448d1a457fe00fe41741e5fd82ea9f22c88f4ce854d9c'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/choria_kv_bucket]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/choria_kv_bucket/choria_kv_bucket.rb]/ensure: defined content as '{sha256}5c2063dc355806c0a21676f80e0f1b05701ed5367c2b3147ef944c9350962afa'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/datacat_collector]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/datacat_collector/datacat_collector.rb]/ensure: defined content as '{sha256}05967b76ca6982b244881e10032cd998158fd81a7fc8c008f85188d392289d21'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/datacat_fragment]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/datacat_fragment/datacat_fragment.rb]/ensure: defined content as '{sha256}6a46dda95c597e0fed430e008b1488c21269a13443ea64ef3ee7ae34398eea07'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/docker_compose]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/docker_compose/ruby.rb]/ensure: defined content as '{sha256}a7f276cf371745eff220f80109dab69ce0c56c1129849c84c5b088dc8ac01b34'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/docker_network]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/docker_network/ruby.rb]/ensure: defined content as '{sha256}0e9a91350c81b5972bb10c9c78301f64f4d7ecab451382dd7908a04e4590a658'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/docker_stack]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/docker_stack/ruby.rb]/ensure: defined content as '{sha256}d77243873e5f58ff20453ad713ded6d5ea9939f9035553714a3b81b1f3c0b0de'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/docker_volume]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/docker_volume/ruby.rb]/ensure: defined content as '{sha256}bf3b9fcebe71686cb3112a33ab98698a1773ae860ed21b87b88f84df9e2d4d05'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/file_line]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/file_line/ruby.rb]/ensure: defined content as '{sha256}fc3b7ec393c50f9820af8c4b7159b7da5a6154aa17a80060b51182fe41a0e994'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/foreman_config_entry]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/foreman_config_entry/cli.rb]/ensure: defined content as '{sha256}f465cfadee3cbdf0ef1fea7535a0ba78bb4c2343e41d956c1fcae8257bbfdd25'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/foreman_global_parameter]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/foreman_global_parameter/rest_v3.rb]/ensure: defined content as '{sha256}1166764dfd9480d6ee5f0aa94f96e0dcc213dfcf68ba6111e4e61b1d6c0aebf9'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/foreman_host]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/foreman_host/rest_v3.rb]/ensure: defined content as '{sha256}5d14f158d0b6732dd2f20a9086a614db51e50dd820e5a5c1ad55a30ba0df416f'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/foreman_hostgroup]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/foreman_hostgroup/rest_v3.rb]/ensure: defined content as '{sha256}f00b0c901579f71d45970382c4f8f148f12d7d5b3774d0ebc5500b249f01b654'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/foreman_instance_host]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/foreman_instance_host/rest_v3.rb]/ensure: defined content as '{sha256}8f2880f0109fcfb662c7fcecd8f34cdd5276f4d42fc26fdeeca9a8c81fcd093d'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/foreman_resource]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/foreman_resource/rest_v3.rb]/ensure: defined content as '{sha256}3f03cb2e8996b613440f53f5b8ff54cdd04a9b8155256f4d19ad7ca259029871'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/foreman_smartproxy]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/foreman_smartproxy/rest_v3.rb]/ensure: defined content as '{sha256}1ef9e2c74759a3634bf0356ea07ac7ea01fe3cb195d7507e22326921405d1fbf'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/foreman_smartproxy_host]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/foreman_smartproxy_host/rest_v3.rb]/ensure: defined content as '{sha256}59cf6194b4af1b00c7a44a0a3812d4452401ba81dcd467db8c3b83c57498575e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana.rb]/ensure: defined content as '{sha256}7cc0fb7a6ae54c1a798ae09c9e45ebad86e48858a1b9b9ddc9a290e3c807fa26'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_conn_validator]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_conn_validator/net_http.rb]/ensure: defined content as '{sha256}713f6c36a8ec28d3f6ac638461e7fee47448f74ed772ae060df2589533c14fe3'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_dashboard]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_dashboard/grafana.rb]/ensure: defined content as '{sha256}e8811940931a412a1cf83bb82ac6879f83a1d4773f4e4acc9ff20846454fa1c2'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_dashboard_permission]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_dashboard_permission/grafana.rb]/ensure: defined content as '{sha256}2814eb746022f86ef1506590e5624173b091804974b444982d89c16a63c5410d'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_datasource]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_datasource/grafana.rb]/ensure: defined content as '{sha256}cf03fe47860861b28ddb2d1e6a903359feb81f11982d377147514d1a8f89c389'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_folder]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_folder/grafana.rb]/ensure: defined content as '{sha256}8ebe68b1b022c279b2642d953d6cd6defb47d82bec4d47b9499d49b1c7c1bff7'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_membership]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_membership/grafana.rb]/ensure: defined content as '{sha256}7a1e1a7bc3e419e531cdbea9dda24aac3ac909b3c83bcecdab1887ead6e637dc'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_notification]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_notification/grafana.rb]/ensure: defined content as '{sha256}7fa77139088afa6f40f12295b481aec936a1cdce3ac90a005927deafee999394'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_organization]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_organization/grafana.rb]/ensure: defined content as '{sha256}b8d8c39cf9c24f48b764728093627544d37a6c62da3d6377a937813e4b09a7f2'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_plugin]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_plugin/grafana_cli.rb]/ensure: defined content as '{sha256}39df1d9410eb49f107429315e5ea66691c6b9cb79d3f8f21da680c7cb3f70341'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_team]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_team/grafana.rb]/ensure: defined content as '{sha256}3a75ceaf1349a4275336eba23950f6e27a35d55edc33cbdf9a8be00384177dc2'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_user]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/grafana_user/grafana.rb]/ensure: defined content as '{sha256}2e7e6a58f9aa2d3f5a0f211179d792a836c7836e4bae5f41524e6e7924b7f884'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/ini_setting]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/ini_setting/ruby.rb]/ensure: defined content as '{sha256}0cbab12d3eaae8b7f9956e06c0e654d68970ab3dafe83db215aa2446af49ea64'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/ini_subsetting]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/ini_subsetting/ruby.rb]/ensure: defined content as '{sha256}c856fb2c7f087f0b19543e5708b175530fe11bcea39819471cf86a0663bb6dd6'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/libvirt_domain]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/libvirt_domain/virsh.rb]/ensure: defined content as '{sha256}0227862e604ae6f139b604b8e493918e1cedd7d7f1003d1014f16d1985dc8f1d'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/libvirt_network]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/libvirt_network/virsh.rb]/ensure: defined content as '{sha256}9d7d3bbf2122a4b811372feb8dfb184a4f7a79e1c843230b9eda04b05b7be107'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/libvirt_nwfilter]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/libvirt_nwfilter/virsh.rb]/ensure: defined content as '{sha256}8782e7033c5b1f6680e8784bd784e83451b251b7971aa6c61336e73e9c8760c1'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/libvirt_pool]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/libvirt_pool/virsh.rb]/ensure: defined content as '{sha256}a1038a5773a49d047f14e30abb0e4181a9f7355493c4859c84c82cefc79336b6'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/libvirtd_conf]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/libvirtd_conf/ini_setting.rb]/ensure: defined content as '{sha256}ee013ced9c1941cdc2788f8726bd73206908ab43b87fcdc17a6481609ba839e2'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/libvirtd_default]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/libvirtd_default/ini_setting.rb]/ensure: defined content as '{sha256}6cb7a39ebc68a524a519f251c61340192875a54bc43e50144fb2819fea06530e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/libvirtd_default/ini_setting_redhat.rb]/ensure: defined content as '{sha256}608a4af0d275a30c81fd7383b821cabe243031e1cfed4e4946630ea58c7d9076'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/loginctl_user]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/loginctl_user/ruby.rb]/ensure: defined content as '{sha256}edf302204909776a90d14ba058ff4a414e235c83ebe2cb6c3ceebd7d22e52a3e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/mount]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/mount.rb]/ensure: defined content as '{sha256}9c2ce747e83d5398ac51cd5f5f9abe80860c75c61f7650ddc3fe39bf3c07bea1'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/mount/parsed.rb]/ensure: defined content as '{sha256}9ce69a02f80ad9e04c014bec2d555240dca26e5226e77f2ea0695bc96c293230'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/package]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/package/grafana.rb]/ensure: defined content as '{sha256}624c15ab35d38e22611629e30a50e87f5cbe8bb0c7a833e9797874c322d192ac'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/postgresql_conf]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/postgresql_conf/ruby.rb]/ensure: defined content as '{sha256}f39314fba3810ea891aa44b8e0e05167545726b2f481c94df68871d35fe55047'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/postgresql_conn_validator]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/postgresql_conn_validator/ruby.rb]/ensure: defined content as '{sha256}af9a91404087ceb085f05d78af240060c7b4ef2e0ec29d1dbc2b54a33ad7abc0'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/postgresql_psql]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/postgresql_psql/ruby.rb]/ensure: defined content as '{sha256}d7db81efca6826398c66eaf1ef4a56c02ef6010b27cdc765fa7271df42bc675b'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/postgresql_replication_slot]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/postgresql_replication_slot/ruby.rb]/ensure: defined content as '{sha256}9bef5c907abee924cd63c41d165c54a49446e0d683ab32ba6bc52739373d8f74'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/puppetdb_conn_validator]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/puppetdb_conn_validator/puppet_https.rb]/ensure: defined content as '{sha256}37f7fc9449c5bccb64c5443674c2795ef08b7a9cbcd899a468124d63275603b9'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/sysctl]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/sysctl/augeas.rb]/ensure: defined content as '{sha256}8d40046dd0ee2b217e94603cae768b36c753cf320bf3be6aec13d3c9aa1433c2'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/vcsrepo]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/vcsrepo.rb]/ensure: defined content as '{sha256}66a0661599564ddbbde5375b9f3bf3016b123e81773d83f673ea01723bdd45c3'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/vcsrepo/bzr.rb]/ensure: defined content as '{sha256}82224b85ad10bad351dfcfda9536d198325a12fa312fdd11f42b5bc8918e923e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/vcsrepo/cvs.rb]/ensure: defined content as '{sha256}6afc42519355b36837c381be76786a90597c3f9f5ec7061ba4c365e8b03c5fe1'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/vcsrepo/dummy.rb]/ensure: defined content as '{sha256}9234d066dc4859b5ac7a801ad0d924055d7355c08df7cd5bcac79f17d0936da8'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/vcsrepo/git.rb]/ensure: defined content as '{sha256}b1f8fa973ec9a8e95bde394928f4aa950e6288e7e8be98873b489a549826765a'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/vcsrepo/hg.rb]/ensure: defined content as '{sha256}f4d8ed37a259f245a1931fa0d090ca6bc2b3e7e115ff2c5eb146a45c09c8ef68'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/vcsrepo/p4.rb]/ensure: defined content as '{sha256}b0652f50123150567fa4b81906cec96a37788182f13809e095c7a875e3803c4c'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/provider/vcsrepo/svn.rb]/ensure: defined content as '{sha256}6b0b82a352a029c47d6a287d91c07c4b73a21319c4eb9d1c04b3f17fea6ff185'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/.yardoc]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/.yardoc/checksums]/ensure: defined content as '{sha256}e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/.yardoc/complete]/ensure: defined content as '{sha256}e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/.yardoc/object_types]/ensure: defined content as '{sha256}4fcfddcf485fd859b0e14c4d5c5ba077ef8c0849b750a54a888a8f9e21251f22'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/.yardoc/objects]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/.yardoc/objects/root.dat]/ensure: defined content as '{sha256}f292b5c70598fbca4dfe92f8dcda409e4e5ef674b044915d5f72e7884368e418'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/.yardoc/proxy_types]/ensure: defined content as '{sha256}c5bc4c41ac7b4627483446a853d2bbaa2b33b1cebbb54a56dfa2a0615079b4ea'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/anchor.rb]/ensure: defined content as '{sha256}27342765acf238ef299421b2a660a36ff9bced65f98c1f8aca79019e3c2e56d7'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/apt_key.rb]/ensure: defined content as '{sha256}5301b7e444e6481fcb4b066621872898efec588f33b00392a99fef0f6d587b6e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/archive.rb]/ensure: defined content as '{sha256}4857b24b3112eb4a60a230bb6367383d3590fa942d874d3b8695869403b65ee4'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/augeasprovider.rb]/ensure: defined content as '{sha256}0cd37a04489790a03adcae071cf3ee62a81ba238c4ce4959314092d1ab69e795'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/choria_governor.rb]/ensure: defined content as '{sha256}adb3fd37489df9512e8c5a66d85088e4e50889120149d3270959aa8960399a76'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/choria_kv_bucket.rb]/ensure: defined content as '{sha256}d281ccbc041934f281089518437d8ffc1bb4df9737141fbafade6c25e31b6202'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/concat_file.rb]/ensure: defined content as '{sha256}7872760598bf35c8e3b285d89daecc4fa29c727a456e47118626a2c58f9c0d6f'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/concat_fragment.rb]/ensure: defined content as '{sha256}ee003b5d10550f6104fde62ad46f5296ce9361a6a4c1e5ef6d973333f30585ef'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/datacat_collector.rb]/ensure: defined content as '{sha256}d4a07b24a920cefb1ab7e3dbad1b78e1d9c5c8cdf7c8c059ffc6872094ff0603'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/datacat_fragment.rb]/ensure: defined content as '{sha256}e31856adb913caf23eec71d072e8beeecbd6b8313cebb0c5d1062490f9ebe339'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/docker_compose.rb]/ensure: defined content as '{sha256}31af1c4948530ebf038c6c17b5db59573f1161fcd2f90d4d9c1fea106434fe37'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/docker_network.rb]/ensure: defined content as '{sha256}6a7ffb0cd33e99600941d9db6bc1c5e710c762d3e92b8273f01d31e97c03b118'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/docker_stack.rb]/ensure: defined content as '{sha256}482d6b3adeac0749740bc3edcf0f86f113248620e73be640876d36036fe8ed24'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/docker_volume.rb]/ensure: defined content as '{sha256}c69fe644c29a846ef419605fcb85285a8cd92cddf82590ea709de0c88b8618b4'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/echo.rb]/ensure: defined content as '{sha256}53c279a35779f5f717f8732fc1a197c064c6e58eaa9382cdffd45a6e1af73736'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/file_line.rb]/ensure: defined content as '{sha256}dfb1994b5990629dc686599b8f98b9b13adbbc3f6716fd591a136004e34ecdb7'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/foreman_config_entry.rb]/ensure: defined content as '{sha256}fe0118d171b92c355337da90a5b1e088ea3256520bf7461de6350441ec18a595'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/foreman_global_parameter.rb]/ensure: defined content as '{sha256}ed2a2c97574627f12e19d263faf69fb88c2d65c7197e68c8f779d9841eb5f569'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/foreman_host.rb]/ensure: defined content as '{sha256}4b1c4e54ff128c241bea5e5c859afb0a6646c27ecf20f1baff267e946fca064f'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/foreman_hostgroup.rb]/ensure: defined content as '{sha256}8a1ded7164e042c26be447fd9db6a1d41e130b6f8470a91664ce41d87a936505'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/foreman_instance_host.rb]/ensure: defined content as '{sha256}8a7f2d4901b57c9620f7847cd9c4deab5d63121114a13f321f340cd29cbe89f1'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/foreman_resource.rb]/ensure: defined content as '{sha256}ad01d6cd47e6fa1ef61ae63dfc5d7492a694f30feac0ca7c56ab33cbc2c4231d'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/foreman_smartproxy.rb]/ensure: defined content as '{sha256}70ab255d2fcc1e0879c98dcae385d571a4fa3fd45a64c7ac8a32c2e97bc66e1a'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/foreman_smartproxy_host.rb]/ensure: defined content as '{sha256}198c17725d9335a2d900c4b0e9cca3336b3644d079ab5dda28a0b3787386afaa'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/grafana_conn_validator.rb]/ensure: defined content as '{sha256}eea8536afe5c37ff860557e89bb22951cc32f4b3dd32d90360c9230a75ba20d6'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/grafana_dashboard.rb]/ensure: defined content as '{sha256}98658ecdec35602fc827f2e5389f2d5359b153d8d25f0ee6f1ea4101a1dae2ca'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/grafana_dashboard_permission.rb]/ensure: defined content as '{sha256}c3d0d003888139d8dd635688b13ab087d7e0d8699fbb77ca2462c59e94b61232'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/grafana_datasource.rb]/ensure: defined content as '{sha256}16b3e894196c79f1c60bcd99742ca9f7e6de486b508e076b7a42d74d0833a88c'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/grafana_folder.rb]/ensure: defined content as '{sha256}55d9bd4ad9792065101bc9115e9033b3eb7e01bb8e64fee06bcd7371816c074b'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/grafana_ldap_config.rb]/ensure: defined content as '{sha256}670ecd472d85eabda94e8bc22eea510a26aad2fdff9d298f52c53bea885a4e09'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/grafana_ldap_group_mapping.rb]/ensure: defined content as '{sha256}4c41ca152959d901df839628591ceb95ebe4b755ecc0a946a971f44b435926c0'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/grafana_ldap_server.rb]/ensure: defined content as '{sha256}d0ebefd11ca722bc033aced1650731d4bb70c65228d0da9bec48ef4494941e17'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/grafana_membership.rb]/ensure: defined content as '{sha256}97f0377cbdaa140a72c96cb30a152d84b3e7e487547f9e3158947a7d5c151b0f'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/grafana_notification.rb]/ensure: defined content as '{sha256}4dbc13610d0db2780419d5fac260950ef2935df0bbfa0462991a61f4f0f12343'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/grafana_organization.rb]/ensure: defined content as '{sha256}9a11ee17851fe160ec65a91a5ba98aa219998a84ddb4d5256c46f02fd195eb44'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/grafana_plugin.rb]/ensure: defined content as '{sha256}49fdde806f96284e4db5072bae77b41c18dd70195791e027dd8f5918e52e334f'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/grafana_team.rb]/ensure: defined content as '{sha256}d7a523e5cc0180f09b3b4b659b348e73ba5861fceab04f8dc4d3506a1e120e1c'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/grafana_user.rb]/ensure: defined content as '{sha256}0d663f9f814340f5ff3f4c4a7bec3afad4441814e64480c749051d7dc3cd688f'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/ini_setting.rb]/ensure: defined content as '{sha256}e8b4b45ba30c40b720e7e037ce24504a347fe9200a58dd2b3ae5fc9090a79d77'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/ini_subsetting.rb]/ensure: defined content as '{sha256}38140bb3d9ff50f6c6fe3672c8b428e55cd0ae3e73039d64b9998417aea8a95c'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/libvirt_domain.rb]/ensure: defined content as '{sha256}4b0c4d8ce282951e66d0166c1893ef7d422f36328e508311dbb4d0007c880db5'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/libvirt_network.rb]/ensure: defined content as '{sha256}d4b7017e12ba1a70a288c658394897f19503752a8642c246ee1cb9cc27c5a03f'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/libvirt_nwfilter.rb]/ensure: defined content as '{sha256}cbcb6d118d0c41f5bd9f5d31425be64639e9956f84124288426d958b1cfc863c'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/libvirt_pool.rb]/ensure: defined content as '{sha256}0c42d631ca8e8f332bb1e21ce317e27528a3e677058ac8c9e8a9ec43c3a67094'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/libvirtd_conf.rb]/ensure: defined content as '{sha256}009bbf5cc05deda5101e03ae0ee1e43eef4123fcd3f65c750181fb91dc46436a'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/libvirtd_default.rb]/ensure: defined content as '{sha256}00a053f8a87fd8333203f037057b703fa4cf870c31329c7d7a377535a8772b33'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/loginctl_user.rb]/ensure: defined content as '{sha256}90cc1f2f5f9836d27b35f1b1196304c8d219a7e7365f6ba3b42a00364f6ba0cc'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/mount.rb]/ensure: defined content as '{sha256}ad59cd27fb9611a38407ece68e1d128c05fe6dba6f5be5af979c4c50eda43d7e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/postgresql_conf.rb]/ensure: defined content as '{sha256}b17b98afa9b6abf0899ba1be8c31788f92bb585d477bb52b42aec230d5067442'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/postgresql_conn_validator.rb]/ensure: defined content as '{sha256}c6fb06f9af49e99c3bd4e3a80fa6929af5707aff2259772e4f7e178a8a018b26'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/postgresql_psql.rb]/ensure: defined content as '{sha256}8b64054911aa51e7975d78752ebf7c2d23645b2982c9d4f39cb6144b6882ec7c'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/postgresql_replication_slot.rb]/ensure: defined content as '{sha256}bf084f15f551137d7dc752da4d45ff3f98aea282a88935d128ce6e8425ff84f2'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/puppetdb_conn_validator.rb]/ensure: defined content as '{sha256}846f8de664cc58cee289395fad27e43a3d81f7fc14d8cfe33ee41e53ff54a6cf'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/sysctl.rb]/ensure: defined content as '{sha256}e3e75816ce52ca14acbf78252e2dc0ae98867e5d3b81637a5d4e29fe2803d863'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/type/vcsrepo.rb]/ensure: defined content as '{sha256}01a2195a117f03012a71463763929272c98af08ce59e14f82a5302a1a3d39804'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/util]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/util/external_iterator.rb]/ensure: defined content as '{sha256}f5fe4626636cf5f0e6ec83f9a38b0a292a888cd8e1ce82d1e05c43638698db73'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/util/grafana_conn_validator.rb]/ensure: defined content as '{sha256}cce7be2ec50fd12d48128f781387ba51efb3907993c1b0148f8529b70cc4a091'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/util/ini_file]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/util/ini_file.rb]/ensure: defined content as '{sha256}eee7a6f10a1dfaa6fbbbb13d40007a6163d5ae99b6281012def65617f8197711'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/util/ini_file/section.rb]/ensure: defined content as '{sha256}011eea8fd211437b67dfa5c931093e1ff96cd0a231cb2e75b2b2aa83db8d4411'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/util/postgresql_validator.rb]/ensure: defined content as '{sha256}4adbb1c60911d6d172e0fab46495b85652853d8a359c09a72c85e0fb06cd7da3'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/util/puppetdb_validator.rb]/ensure: defined content as '{sha256}7e5e5ced273fd618ce1c04c199c421c7fffbd99d8a63dddddfbc083bebe13e22'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet/util/setting_value.rb]/ensure: defined content as '{sha256}265a397a95f75812da5a7271fea969eaf4a167eeeb7d57e529842616fb97cf94'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet_x]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet_x/bodeco]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet_x/bodeco/archive.rb]/ensure: defined content as '{sha256}f8f16eacc44dbed05bca0c4dfd43377190e9b9f70c10a609e1a4a828415eadb8'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet_x/bodeco/cacert.pem]/ensure: defined content as '{sha256}ae31ecb3c6e9ff3154cb7a55f017090448f88482f0e94ac927c0c67a1f33b9cf'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet_x/bodeco/util.rb]/ensure: defined content as '{sha256}ec708fd5f7dd10207b6916afe5c3673902950a89966af8e0696535438ca187dc'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet_x/foreman]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet_x/foreman/common.rb]/ensure: defined content as '{sha256}2cc14fc32cccd0739c6ad6df0cd615be214baa38025cfc292b3843c886486c6e'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet_x/libvirt]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet_x/libvirt/rexml_sorted_attributes.rb]/ensure: defined content as '{sha256}3b8bcef96de73fe4ec12fd44c6f249359cf11fbfc037f075f6a953e27f6c910c'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet_x/libvirt/sort_elements.rb]/ensure: defined content as '{sha256}49641ea44366d85d9ea2705d018a96491fad01876f75b4aff357c47979bee632'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet_x/richardc]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet_x/richardc/datacat.rb]/ensure: defined content as '{sha256}52f39ccd6160dd89631882766f0511431af07f3af6eec95a3327e8a32c21cd53'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet_x/stdlib]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet_x/stdlib.rb]/ensure: defined content as '{sha256}5b935ddf8095cd536501080ae7c5126541f8362d602e5ceeae2435d376685258'
+    matrix01: Notice: /Stage[main]/Main/File[/opt/puppetlabs/puppet/cache/lib/puppet_x/stdlib/toml_dumper.rb]/ensure: defined content as '{sha256}57a02bbb4f19016a8320b0baa3531f877d84bcfdbd57488f8bd173b5ea9f8272'
+    matrix01: Notice: /Stage[main]/Mcollective::Config/File[/usr/bin/mco]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Base/Package[linux-generic-hwe-24.04]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Base/Package[apt-file]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Base/Package[build-essential]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Base/Package[ccze]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Base/Package[dfc]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Base/Package[ncdu]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Base/Package[tree]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Base/Package[unzip]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Base/Package[uptimed]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Base/Package[whois]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Base/Package[snapd]/ensure: removed
+    matrix01: Notice: /Stage[main]/Profiles::Base/Package[ubuntu-pro-client-l10n]/ensure: removed
+    matrix01: Notice: /Stage[main]/Profiles::Base/Package[ubuntu-pro-client]/ensure: removed
+    matrix01: Notice: /Stage[main]/Profiles::Base/Service[update-notifier-motd.timer]/enable: enable changed 'false' to 'mask'
+    matrix01: Notice: /Stage[main]/Profiles::Base/Service[apt-news.service]/enable: enable changed 'false' to 'mask'
+    matrix01: Notice: /Stage[main]/Profiles::Base/Service[esm-cache.service]/enable: enable changed 'false' to 'mask'
+    matrix01: Notice: /Stage[main]/Profiles::Base/Exec[refresh apt-file cache]: Triggered 'refresh' from 1 event
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[genebean-0]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[genebean-1]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[genebean-2]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[genebean-3]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[genebean-4]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[genebean-5]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[genebean-6]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[genebean-7]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[ananace-0]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[ananace-1]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[ananace-2]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[bastelfreak-0]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Ssh_keys::People::Bastelfreak/Ssh_authorized_key[personal key 2021-07-02]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Ssh_keys::People::Bastelfreak/Ssh_authorized_key[bastelfreak]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Ssh_keys::People::Bastelfreak/Ssh_authorized_key[bastelfreak-nb-c vox-pupuli-tasks 2021-08-30]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Ssh_keys::People::Bastelfreak/Ssh_authorized_key[bastelfreak@bastelfreak-nb]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Ssh_keys::People::Bastelfreak/Ssh_authorized_key[bastelfreak@basteles-bastelknecht.bastelfreak.org]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[ekohl-0]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[ekohl-1]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[ekohl-2]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Ssh_keys::People::Ekohl/Ssh_authorized_key[ewoud-rsa-1]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Ssh_keys::People::Ekohl/Ssh_authorized_key[ewoud-rsa-2]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[rwaffen-0]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[rwaffen-1]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[rwaffen-2]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[sebastianrakel-0]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[sebastianrakel-1]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Ssh_keys::People::Sebastianrakel/Ssh_authorized_key[Spritzgebaeck-ed25519]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Ssh_keys::People::Sebastianrakel/Ssh_authorized_key[spritzgebaeck-rsa]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[smortex-0]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[smortex-1]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[smortex-2]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Ssh_keys::People::Smortex/Ssh_authorized_key[romain@fenchurch]/ensure: created
+    matrix01: Notice: /Stage[main]/Main/Ssh_authorized_key[binford2k-0]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective::Config/File[/opt/puppetlabs/mcollective]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective::Plugin_dirs/File[/opt/puppetlabs/mcollective/plugins]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective::Plugin_dirs/File[/opt/puppetlabs/mcollective/plugins/mcollective]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective::Plugin_dirs/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective::Plugin_dirs/File[/opt/puppetlabs/mcollective/plugins/mcollective/aggregate]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective::Plugin_dirs/File[/opt/puppetlabs/mcollective/plugins/mcollective/application]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective::Plugin_dirs/File[/opt/puppetlabs/mcollective/plugins/mcollective/audit]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective::Plugin_dirs/File[/opt/puppetlabs/mcollective/plugins/mcollective/connector]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective::Plugin_dirs/File[/opt/puppetlabs/mcollective/plugins/mcollective/data]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective::Plugin_dirs/File[/opt/puppetlabs/mcollective/plugins/mcollective/discovery]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective::Plugin_dirs/File[/opt/puppetlabs/mcollective/plugins/mcollective/registration]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective::Plugin_dirs/File[/opt/puppetlabs/mcollective/plugins/mcollective/security]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective::Plugin_dirs/File[/opt/puppetlabs/mcollective/plugins/mcollective/util]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective::Plugin_dirs/File[/opt/puppetlabs/mcollective/plugins/mcollective/validator]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective::Plugin_dirs/File[/opt/puppetlabs/mcollective/plugins/mcollective/pluginpackager]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective::Facts/File[/opt/puppetlabs/mcollective/plugins/mcollective/refresh_facts.rb]/ensure: defined content as '{sha256}f68121252b1461a9fc478c597d3d77a2c0b1e5707c1e2be535928972458d86a5'
+    matrix01: Notice: /Stage[main]/Apt/File[preferences]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Base/File[/etc/apt/apt.conf.d/20apt-esm-hook.conf]/ensure: removed
+    matrix01: Notice: /Stage[main]/Profiles::Base/Ssh_authorized_key[robert@Roberts-MBP.fritz.box]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Base/Ssh_authorized_key[robert@pc-mueller-2016-07-15]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Base/Ssh_authorized_key[robert@DESKTOP-EV17QP6]/ensure: created
+    matrix01: Notice: /Stage[main]/Nftables/File_line[enable_nftables]/ensure: created
+    matrix01: Notice: /Stage[main]/Nftables/File[/etc/nftables]/ensure: created
+    matrix01: Notice: /Stage[main]/Nftables/File[/etc/nftables/puppet-preflight]/ensure: created
+    matrix01: Notice: /Stage[main]/Nftables/File[/etc/nftables/puppet-preflight.nft]/ensure: defined content as '{sha256}0886f4fd8aa723653046bf72029f0b0b093f97ccbf2d28704e5d1dbfcd7164d8'
+    matrix01: Notice: /Stage[main]/Profiles::Base/File[/etc/profile.d/shell_setup.sh]/ensure: defined content as '{sha256}514bda2adb583c08353365996529dbc39aeb7bd4b1898f40a57e5b8667c60711'
+    matrix01: Notice: /Stage[main]/R10k::Install/Package[r10k]/ensure: ensure changed ['5.0.3'] to '5.0.2'
+    matrix01: Notice: /Stage[main]/R10k::Install::Puppet_gem/File[/usr/bin/r10k]/ensure: created
+    matrix01: Notice: /Stage[main]/R10k::Config/File[/etc/puppetlabs/r10k]/ensure: created
+    matrix01: Notice: /Stage[main]/R10k::Config/File[r10k.yaml]/ensure: defined content as '{sha256}19ed26bb3d10aadd5901bb5db2378d7620bfbf70429c42180f87723b3f275ad8'
+    matrix01: Notice: /Stage[main]/Profiles::Base/File[/etc/hostname]/content: content changed '{sha256}63592da633a3ef961eabe91f416e3a9f017ebe8b787cd4213895d889c513ec0f' to '{sha256}aced5e2a23f37bbe1d6b57e318b9efd45f713689181843de0eb240a237520c43'
+    matrix01: Notice: /Stage[main]/Letsencrypt::Install/Package[letsencrypt]/ensure: created
+    matrix01: Notice: /Stage[main]/Letsencrypt::Config/File[/opt/puppetlabs/puppet/cache/letsencrypt]/ensure: created
+    matrix01: Notice: /Stage[main]/Letsencrypt::Config/Ini_setting[/etc/letsencrypt/cli.ini server https://acme-v02.api.letsencrypt.org/directory]/ensure: created
+    matrix01: Notice: /Stage[main]/Letsencrypt::Config/Ini_setting[/etc/letsencrypt/cli.ini email pmc@voxpupuli.org]/ensure: created
+    matrix01: Notice: /Stage[main]/Letsencrypt::Renew/File[letsencrypt-renewal-hooks-puppet]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/File[/srv/voxpupuli.party]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/File[/srv/voxpupuli.party/.well-known]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/File[/srv/voxpupuli.party/.well-known/matrix/]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/File[/srv/voxpupuli.party/.well-known/matrix/server]/ensure: defined content as '{sha256}b10c14f070b90f775cbc72488590f9e53b9ff9ee240cef9274b50e3e6e887417'
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/File[/srv/voxpupuli.party/.well-known/matrix/client]/ensure: defined content as '{sha256}af8129101a94a14e8e0aac86e203598902aa21789e50d384d0ceb9a84f1fd216'
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/config]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/config/synapse]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/config/synapse/workers]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/data]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/data/synapse]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/data/media]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/logs]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/logs/synapse]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/docker-compose.yml]/ensure: defined content as '{sha256}d99f403800c21d14d516fa3d4b38adbb86195dd7c2c07ee7d1f861600a79bc4b'
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/Dockerfile.synapse]/ensure: defined content as '{sha256}7ee0fbabca2303c5b26db82dbf513245c6cf865df7518d051bc914071c702269'
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/.env]/ensure: changed [redacted] to [redacted]
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/config/synapse/log.yaml]/ensure: defined content as '{sha256}fa5817c1e56d9b60a81966444900db48715bbc2ee37a33876b88ad5d19dd54b4'
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/config/synapse/homeserver.yaml]/ensure: changed [redacted] to [redacted]
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/config/synapse/workers/generic_worker1.yaml]/ensure: defined content as '{sha256}fa22ff75dc7a00668b304f5ca50eb3fa8c55ca0a5ec7ebebc4d0429c2d5dd04f'
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/config/synapse/workers/generic_worker2.yaml]/ensure: defined content as '{sha256}a47735ba0c595b878d98d9d561bf12929528ed99dd163405a1c8e0683899a8cc'
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/config/synapse/workers/generic_worker3.yaml]/ensure: defined content as '{sha256}05e9eb6212ca759422f1bfcd40463d986932f2eb4e2fdcc40774ed86a3dc301d'
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/config/synapse/workers/generic_worker4.yaml]/ensure: defined content as '{sha256}71cd5d5f955672665a8ca4333a7370e18882bdfd6f0d54befbd205095963750c'
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/config/synapse/workers/events_persister.yaml]/ensure: defined content as '{sha256}ea38ce40b51446e356e246f27dca023ac4bf9949e7d1ee88d2925eff5cd89e12'
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/config/synapse/workers/receipts_writer.yaml]/ensure: defined content as '{sha256}1cf561fb38c121bc29f75f62d1911d9812b75fbe2c7c2b81d81aadc5bbf707a7'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_bolt_tasks/Mcollective::Module_plugin[mcollective_agent_bolt_tasks]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/bolt_tasks.ddl]/ensure: defined content as '{sha256}3934327f6c3033b05eb8c392a0279db673c09f3fbc324c90f5feb8b2b3c2ec27'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_bolt_tasks/Mcollective::Module_plugin[mcollective_agent_bolt_tasks]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/bolt_tasks.json]/ensure: defined content as '{sha256}bb8b2954f95133a80237ee9f876b3b63b7d11c9df788bcd3f64fa51e9df63022'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_bolt_tasks/Mcollective::Module_plugin[mcollective_agent_bolt_tasks]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/bolt_tasks.rb]/ensure: defined content as '{sha256}b30760f8afc331b691fbaf4cd1a5ec9ada35d9ea1481f744ca2036b7e53758b3'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_shell/Mcollective::Module_plugin[mcollective_agent_shell]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/shell]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective_agent_shell/Mcollective::Module_plugin[mcollective_agent_shell]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/shell.ddl]/ensure: defined content as '{sha256}1da04f6791ac7eb8181e8053e1f05367f94d3a464fb27de03ff97dceae648b36'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_shell/Mcollective::Module_plugin[mcollective_agent_shell]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/shell.json]/ensure: defined content as '{sha256}7807131b975eb0d7553e3e0aa7b30ae53b25af79c487ca4914ff036dd6c8e588'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_shell/Mcollective::Module_plugin[mcollective_agent_shell]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/shell/job.rb]/ensure: defined content as '{sha256}94fc465ad93d97b13ee4443a29672f19c908ff5d187427faf1377ccd20cdb6b9'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_shell/Mcollective::Module_plugin[mcollective_agent_shell]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/shell.rb]/ensure: defined content as '{sha256}cddb6cb33ed3f6a3822e675ab39a87ed36b7b70c3a78cc518d1166e692d7f271'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_nettest/Mcollective::Module_plugin[mcollective_agent_nettest]/Package[net-ping]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective_agent_nettest/Mcollective::Module_plugin[mcollective_agent_nettest]/File[/opt/puppetlabs/mcollective/plugins/mcollective/data/nettest_data.rb]/ensure: defined content as '{sha256}1577497b0d2393a6494274dba628afd48fdfc356129f0e1c6de2dcd9d6940c5e'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_nettest/Mcollective::Module_plugin[mcollective_agent_nettest]/File[/opt/puppetlabs/mcollective/plugins/mcollective/data/nettest_data.ddl]/ensure: defined content as '{sha256}25fba6c24db94026f889e4e1d1ce5a2e24524dd4fd7b089ebd601ba22b88814d'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_nettest/Mcollective::Module_plugin[mcollective_agent_nettest]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/nettest_agent.rb]/ensure: defined content as '{sha256}16d8ed56aba43388fcc67488d2b5f686cb6b6b6b32c17af4d5eb2120022959b2'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_nettest/Mcollective::Module_plugin[mcollective_agent_nettest]/File[/opt/puppetlabs/mcollective/plugins/mcollective/validator/nettest_fqdn.rb]/ensure: defined content as '{sha256}bcc61827111e417b35134f5c24dfdd081678362156b2cfe069889c4d479cb044'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_nettest/Mcollective::Module_plugin[mcollective_agent_nettest]/File[/opt/puppetlabs/mcollective/plugins/mcollective/validator/nettest_server_address.rb]/ensure: defined content as '{sha256}c45f670af3ab964a9f24acdda4bf5b16902f9b814e2773cd68add63ad9aeac95'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_nettest/Mcollective::Module_plugin[mcollective_agent_nettest]/File[/opt/puppetlabs/mcollective/plugins/mcollective/validator/nettest_fqdn.ddl]/ensure: defined content as '{sha256}12e04d4a7be77ac7a6d01227e97adf360af10a8cc516d6fb20f175692d2da880'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_nettest/Mcollective::Module_plugin[mcollective_agent_nettest]/File[/opt/puppetlabs/mcollective/plugins/mcollective/validator/nettest_server_address.ddl]/ensure: defined content as '{sha256}3fed1dbf4a0f6821ea7a3f7aa3d2b73bc574a0a795c5c946a0db188e21143968'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_nettest/Mcollective::Module_plugin[mcollective_agent_nettest]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/nettest.ddl]/ensure: defined content as '{sha256}c62d838cc20b101b7007f791971c04e7f24d3cf511ec27a3abe764f7b544c564'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_nettest/Mcollective::Module_plugin[mcollective_agent_nettest]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/nettest.json]/ensure: defined content as '{sha256}5f1b87eec26e9a1d06ef6fb2a9fbe31216fb5d2bbc1aacf7d857d61059753e30'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_nettest/Mcollective::Module_plugin[mcollective_agent_nettest]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/nettest.rb]/ensure: defined content as '{sha256}453157093064f1f412f8b14980c9d0034abdaba3e13c575599103f8d1e39328a'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_process/Mcollective::Module_plugin[mcollective_agent_process]/File[/opt/puppetlabs/mcollective/plugins/mcollective/data/process_data.rb]/ensure: defined content as '{sha256}0718c83279506bce1614f617927e198f5ca490db7891c669678b764469958425'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_process/Mcollective::Module_plugin[mcollective_agent_process]/File[/opt/puppetlabs/mcollective/plugins/mcollective/data/process_data.ddl]/ensure: defined content as '{sha256}fbd98b1060e708077c322c36b13c88997531d02912ed85ab312af60f24e8ce46'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_process/Mcollective::Module_plugin[mcollective_agent_process]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/processagent.rb]/ensure: defined content as '{sha256}46011475032c448096d3540794c34c3773a72d5c12300af473558979c23e9620'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_process/Mcollective::Module_plugin[mcollective_agent_process]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/process.ddl]/ensure: defined content as '{sha256}fc424e6884ab26b604249d4bc4e4739a65e5f319eefc9b81475c7b20aca260a6'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_process/Mcollective::Module_plugin[mcollective_agent_process]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/process.json]/ensure: defined content as '{sha256}a416f9487c8983de7da71735e5b38be953d2b4fe7ed9828bcbd34985614c98ca'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_process/Mcollective::Module_plugin[mcollective_agent_process]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/process.rb]/ensure: defined content as '{sha256}e316b4843542c1f916b44e6c9e5718f8f72c15b46ca803e472c5880bbcf90b72'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_iptables/Mcollective::Module_plugin[mcollective_agent_iptables]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/iptables]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective_agent_iptables/Mcollective::Module_plugin[mcollective_agent_iptables]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/iptables/ipv4.rb]/ensure: defined content as '{sha256}a2a63c24735b45eba6b94833694d29b7f4222ec7905bd60c2543437cae295dd4'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_iptables/Mcollective::Module_plugin[mcollective_agent_iptables]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/iptables/ipv6.rb]/ensure: defined content as '{sha256}d1850876849b07aa7f817d2baa8d050e9bf292a0634a655a1f53afafcde47d14'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_iptables/Mcollective::Module_plugin[mcollective_agent_iptables]/File[/opt/puppetlabs/mcollective/plugins/mcollective/validator/ipaddress_validator.rb]/ensure: defined content as '{sha256}2876ed309585431c29e4cc3bfdf60773837c82e782e90ca40d85452dd1474e5d'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_iptables/Mcollective::Module_plugin[mcollective_agent_iptables]/File[/opt/puppetlabs/mcollective/plugins/mcollective/validator/ipaddress_validator.ddl]/ensure: defined content as '{sha256}56896a7f6b0291081711db69b3d362bf9449a5ef00991539f9e1a633e210d2df'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_iptables/Mcollective::Module_plugin[mcollective_agent_iptables]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/iptables.ddl]/ensure: defined content as '{sha256}62bae22281cd81be1d36c7d8b7f7b505ee7ceaa517a218b8d8876203b68eece4'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_iptables/Mcollective::Module_plugin[mcollective_agent_iptables]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/iptables.json]/ensure: defined content as '{sha256}5de039bafc6ed667b87fb4469f3048fe977bd84adf7ec397da8330bae8ac29ab'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_iptables/Mcollective::Module_plugin[mcollective_agent_iptables]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/iptables.rb]/ensure: defined content as '{sha256}1c4f1555b2cb83dfac2d64f5e686ab2fbaad7b19f2fe89467f066d6946dc962e'
+    matrix01: Notice: /Stage[main]/Mcollective_choria/Mcollective::Module_plugin[mcollective_choria]/Package[nats-pure]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective_choria/Mcollective::Module_plugin[mcollective_choria]/Package[choria-mcorpc-support]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective_choria/Mcollective::Module_plugin[mcollective_choria]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/scout.ddl]/ensure: defined content as '{sha256}8503f6eebb6580dc3ca45c378b22fcf901ee87c0fed56f837aa15bce37312ca3'
+    matrix01: Notice: /Stage[main]/Mcollective_choria/Mcollective::Module_plugin[mcollective_choria]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/scout.json]/ensure: defined content as '{sha256}df17b9100a31e613fcc923db6662c94c3ab4a74f6669be8c447e5d072d2f88f2'
+    matrix01: Notice: /Stage[main]/Mcollective_choria/Mcollective::Module_plugin[mcollective_choria]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/rpcutil.ddl]/ensure: defined content as '{sha256}a150ae6e2fd262dcc5842cafd7ce0f3104999ce1264d741cae453f8f81a49ee4'
+    matrix01: Notice: /Stage[main]/Mcollective_choria/Mcollective::Module_plugin[mcollective_choria]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/rpcutil.json]/ensure: defined content as '{sha256}7b74ba2a52b8be6134258b7c362c0461697606869876e8c6083511b7a6414737'
+    matrix01: Notice: /Stage[main]/Mcollective_choria/Mcollective::Module_plugin[mcollective_choria]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/choria_util.ddl]/ensure: defined content as '{sha256}d446a08c3517b001b512368f1e43ff2b254bec23a568842e345729bbd702d15e'
+    matrix01: Notice: /Stage[main]/Mcollective_choria/Mcollective::Module_plugin[mcollective_choria]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/choria_util.json]/ensure: defined content as '{sha256}ffe11d9c3ac8362262920efbd00df52bdf2180b087d96aca61587f8d1b52c6a2'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/puppet_agent_mgr]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/data/puppet_data.rb]/ensure: defined content as '{sha256}670555eb9a329ef5663e24e7f1dc514096413df178f4fcd5e418f52ab4b9a2bb'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/data/resource_data.rb]/ensure: defined content as '{sha256}03f3db6f14c4f70e0f56ca91e54a75940c00dceac377201c76537685e4ab1bd1'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/data/puppet_data.ddl]/ensure: defined content as '{sha256}7892bcc9ca8fe75161a56657add3cf1d28f83392c6253ec037663b24bfafd6b3'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/data/resource_data.ddl]/ensure: defined content as '{sha256}0ca7dd0d7f7aadfcdb96256e211c86a5323c7bbc504da9f2c1e0dd32cf47cc9a'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/puppet_agent_mgr/mgr_v2.rb]/ensure: defined content as '{sha256}deae5a6fcc2854e0bee41c9462c67376cbcf61c9aa14dd87e23bff0be08a97fa'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/puppet_agent_mgr/mgr_v3.rb]/ensure: defined content as '{sha256}ec7d33ea4ce011b3535cce78f9be43bc32e80b9ae6143014d4d44bc6f776241c'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/puppet_agent_mgr/mgr_windows.rb]/ensure: defined content as '{sha256}42839791ad6b22a3cf265bdf158b1208045517e0199223f88028a0ce82743bf4'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/puppet_agent_mgr.rb]/ensure: defined content as '{sha256}2e66665c994646aec6807a65021f639d00a4b38739071ed69a9f780f683c1bc1'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/puppet_server_address_validation.rb]/ensure: defined content as '{sha256}44c8e6a016b13839bba91ce0710c5abda5ddf7934502381b026bc5f3c608c576'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/puppetrunner.rb]/ensure: defined content as '{sha256}2c4883b136bfe678e72d790de4d1e28ddd0cda888ee77170f47b9215e01c56f6'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/validator/puppet_resource_validator.rb]/ensure: defined content as '{sha256}430f372ace83f1979d3d37e835eecf794b1162d86e47c00ba92dd7cf9a2d30cb'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/validator/puppet_server_address_validator.rb]/ensure: defined content as '{sha256}aa085022d1dde26e4e01fd190f8e7a7b52b0d64668da77f2df98a83c70e313c2'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/validator/puppet_tags_validator.rb]/ensure: defined content as '{sha256}ba9ed1426a56489fe8e3be58aa95886d53805fb2fc299605f4723cb5a0ad8bf6'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/validator/puppet_variable_validator.rb]/ensure: defined content as '{sha256}90df31a18facf2211f6fddce4e753cc548ac56909f3c34f6249d4ecf6080d021'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/validator/puppet_resource_validator.ddl]/ensure: defined content as '{sha256}6c512cf5e0b8ed5bec63d3d1cf3ea4360f446aea4f0346b18dca08320a77da41'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/validator/puppet_server_address_validator.ddl]/ensure: defined content as '{sha256}cb6140a00c57c2d1d4bd9f33cbc7115553e96ca738f899835e937c41738a8e8a'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/validator/puppet_tags_validator.ddl]/ensure: defined content as '{sha256}16a52c6e2aa21ba36082897d75e7c6605b4fd92d7d252622ff37ba035acb412b'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/validator/puppet_variable_validator.ddl]/ensure: defined content as '{sha256}8639efc271edaf4ac6263b1221796628ce667b07abd2fd82a06f689f01e0937c'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/puppet.ddl]/ensure: defined content as '{sha256}43bc46143fe2744163ede3e7a79de8175ad1707910c6dd6823088779275d75ec'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/puppet.json]/ensure: defined content as '{sha256}ad7c52b4eb12594f0f9305bab4501ec1956802b93a82d652c687ada0b5960321'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/puppet.rb]/ensure: defined content as '{sha256}69b7974d92c9f85837db3a50b80ac222fed4f5b3a9c3103afae8455db8621e4d'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_service/Mcollective::Module_plugin[mcollective_agent_service]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/service]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective_agent_service/Mcollective::Module_plugin[mcollective_agent_service]/File[/opt/puppetlabs/mcollective/plugins/mcollective/data/service_data.rb]/ensure: defined content as '{sha256}af4452f68309861b1e2aa2779ab829a1a46060b395815716e513113608ba0fb2'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_service/Mcollective::Module_plugin[mcollective_agent_service]/File[/opt/puppetlabs/mcollective/plugins/mcollective/data/service_data.ddl]/ensure: defined content as '{sha256}5ce8176018e0b51a1c6305d984893ef4c28ad2cacc94a4b51867e9d8a82d307d'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_service/Mcollective::Module_plugin[mcollective_agent_service]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/service/base.rb]/ensure: defined content as '{sha256}d6d94c110e290779bc3a4f575f7574ad20e60f25f976ba5440235ab28968dd14'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_service/Mcollective::Module_plugin[mcollective_agent_service]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/service/puppetservice.rb]/ensure: defined content as '{sha256}12919a0222e59c0cfefd0baf9972a64fcfc3f3ac306c5fc9d1b1a27920ed0ae3'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_service/Mcollective::Module_plugin[mcollective_agent_service]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/service/serviceservice.rb]/ensure: defined content as '{sha256}b9c9381457a8918bb846fd98b4579ba1e11ea1a115515b7101301053f163a800'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_service/Mcollective::Module_plugin[mcollective_agent_service]/File[/opt/puppetlabs/mcollective/plugins/mcollective/validator/service_name.rb]/ensure: defined content as '{sha256}e8d209f24c054ddab06cdcc768b41e856f816dbe181467d648818cc8579d845c'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_service/Mcollective::Module_plugin[mcollective_agent_service]/File[/opt/puppetlabs/mcollective/plugins/mcollective/validator/service_name.ddl]/ensure: defined content as '{sha256}f1bc7e446d916510f63f06718021ec38631c9e54de2ca62214bcd5eca5931a39'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_service/Mcollective::Module_plugin[mcollective_agent_service]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/service.ddl]/ensure: defined content as '{sha256}a8f6f451511db452a6887f6b01f658a9b78868cfc0793b049f7024e2bfb7811a'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_service/Mcollective::Module_plugin[mcollective_agent_service]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/service.json]/ensure: defined content as '{sha256}a8fd4f164e577a3b296c589dffecb4752e8c7d2ebdff7df32bf4a4d545c3d9de'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_service/Mcollective::Module_plugin[mcollective_agent_service]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/service.rb]/ensure: defined content as '{sha256}663760e0cf9159f29bc619849c5b0aac788d88510ead83a0d49b0588d12ca5b6'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_package/Mcollective::Module_plugin[mcollective_agent_package]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/package]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective_agent_package/Mcollective::Module_plugin[mcollective_agent_package]/File[/opt/puppetlabs/mcollective/plugins/mcollective/data/package_data.rb]/ensure: defined content as '{sha256}c32adea903d61c435a5ae6a974c464793c2c5b5312786e234bdd1fc850103b7e'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_package/Mcollective::Module_plugin[mcollective_agent_package]/File[/opt/puppetlabs/mcollective/plugins/mcollective/data/package_data.ddl]/ensure: defined content as '{sha256}e587473cbaaeb358785bf0a9ad2ae7d0c4b091e6bb066984cfc42d9fd2a78910'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_package/Mcollective::Module_plugin[mcollective_agent_package]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/package/base.rb]/ensure: defined content as '{sha256}bf511a218d892b60b99fdf03a2a3df6480c7a516e0b7e6192a561e79855e8036'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_package/Mcollective::Module_plugin[mcollective_agent_package]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/package/packagehelpers.rb]/ensure: defined content as '{sha256}2c857c53e1389c0309f5295c319ef28d9677641cbcfd315d917996fb4570fad9'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_package/Mcollective::Module_plugin[mcollective_agent_package]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/package/puppetpackage.rb]/ensure: defined content as '{sha256}03a5f6f7293c36b7b59e39873fd4ebd877a0852f4bc49c1e8b142279b45e37b6'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_package/Mcollective::Module_plugin[mcollective_agent_package]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/package/yumHelper.py]/ensure: defined content as '{sha256}9155c01e143c5520b0f9d474896b4416a54733f2e593e7897f6520e6c7d8cd5c'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_package/Mcollective::Module_plugin[mcollective_agent_package]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/package/yumpackage.rb]/ensure: defined content as '{sha256}b3a1728410daeaa1bfb1c3156b9e4f358d5e5ccf0880026433057f8bea313d9b'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_package/Mcollective::Module_plugin[mcollective_agent_package]/File[/opt/puppetlabs/mcollective/plugins/mcollective/validator/package_name.rb]/ensure: defined content as '{sha256}8fc87ddfdbd1983618114028564be3866f4528f145dd899040b49ca9ddaa87d8'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_package/Mcollective::Module_plugin[mcollective_agent_package]/File[/opt/puppetlabs/mcollective/plugins/mcollective/validator/package_name.ddl]/ensure: defined content as '{sha256}79e0bbfe19a5fa4462367dc7ac57284e9e0e9d4caf55d5b616d8c6c22561d992'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_package/Mcollective::Module_plugin[mcollective_agent_package]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/package.ddl]/ensure: defined content as '{sha256}683282cd0caa2d22e84d8fc67714aae5d875205fffcc37ca52bbd15312fc6e4b'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_package/Mcollective::Module_plugin[mcollective_agent_package]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/package.json]/ensure: defined content as '{sha256}6450c0b9281d104336bf485451f65491e2fed7633e266f78e5d9f8c8d9b75a34'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_package/Mcollective::Module_plugin[mcollective_agent_package]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/package.rb]/ensure: defined content as '{sha256}b73007f33381d1730272438c2cf0fca7ce3aa47e4a3dd4582f514b544dc2a361'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_filemgr/Mcollective::Module_plugin[mcollective_agent_filemgr]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/filemgr.ddl]/ensure: defined content as '{sha256}29ac3dba299a06d027088b35ee999fe2c52bf1c991477db908e06292f860f279'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_filemgr/Mcollective::Module_plugin[mcollective_agent_filemgr]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/filemgr.json]/ensure: defined content as '{sha256}fcc210efe9853bb01261442c756aaa207e8f690e17636bdefaf534052ee2d5db'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_filemgr/Mcollective::Module_plugin[mcollective_agent_filemgr]/File[/opt/puppetlabs/mcollective/plugins/mcollective/agent/filemgr.rb]/ensure: defined content as '{sha256}e679eb7e1fcb466316932d9bbe5e24970ddfc1eceaad5156a4fd62953d6da13b'
+    matrix01: Notice: /Stage[main]/Mcollective_util_actionpolicy/Mcollective::Module_plugin[mcollective_util_actionpolicy]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/actionpolicy.ddl]/ensure: defined content as '{sha256}4ea57c0f872d8ec654b0eeddaa3db1f2f483b1ad4ab29a31b4f13104012afe9c'
+    matrix01: Notice: /Stage[main]/Mcollective_util_actionpolicy/Mcollective::Module_plugin[mcollective_util_actionpolicy]/File[/opt/puppetlabs/mcollective/plugins/mcollective/util/actionpolicy.rb]/ensure: defined content as '{sha256}6318c52f030bcfe3716053bb6b9b6eb07c9d3d1669bf48fa009acf3dc0b52a28'
+    matrix01: Notice: /Stage[main]/Apt/Apt::Setting[conf-update-stamp]/File[/etc/apt/apt.conf.d/15update-stamp]/ensure: defined content as '{sha256}2e6eb1f5f20262bfc6b7dfb26a302f00b4ab5fee803abd9e07ad8378cce067d5'
+    matrix01: Notice: /Stage[main]/Ssh::Server::Config/Concat[/etc/ssh/sshd_config]/File[/etc/ssh/sshd_config]/content: content changed '{sha256}7e95b266d074e781ec9348b720796ac2a4a67c9a07dff8ad04254840e549c67f' to '{sha256}dd615ed11d2b22b1bc82729ef78f1e3b7ba2d4564262853c0b3afc54499a9f90'
+    matrix01: Notice: /Stage[main]/Ssh::Server::Config/Concat[/etc/ssh/sshd_config]/File[/etc/ssh/sshd_config]/mode: mode changed '0644' to '0600'
+    matrix01: Notice: /Stage[main]/Ssh::Server::Service/Service[ssh]/enable: enable changed 'false' to 'true'
+    matrix01: Notice: /Stage[main]/Ssh::Server::Service/Service[ssh]: Triggered 'refresh' from 2 events
+    matrix01: Notice: /Stage[main]/Ssh::Client::Config/Concat[/etc/ssh/ssh_config]/File[/etc/ssh/ssh_config]/content: content changed '{sha256}b00b4653f5bd612551309a9924484baac3cb35071aae7a9988c09eae0f72d265' to '{sha256}0b2fa10a39676dd2cc9ab87da22b86d1a389af9dd0c7de4e0f8fdca045390eeb'
+    matrix01: Notice: /Stage[main]/Nftables/Systemd::Dropin_file[puppet_nft.conf]/File[/etc/systemd/system/nftables.service.d]/ensure: created
+    matrix01: Notice: /Stage[main]/Nftables/Systemd::Dropin_file[puppet_nft.conf]/File[/etc/systemd/system/nftables.service.d/puppet_nft.conf]/ensure: defined content as '{sha256}3c4037581cdc349d1848a4f6ab716a0f14b414166316a71989fe6f88e13134f5'
+    matrix01: Notice: /Stage[main]/Profiles::Puppet::Code/Ssh_keygen[root_github]/Exec[ssh_keygen-root_github]/returns: executed successfully
+    matrix01: Notice: /Stage[main]/Profiles::Puppet::Code/Ssh::Client::Config::User[root_github]/File[/root/.ssh/config]/ensure: defined content as '{sha256}286e0880ddb8a0ef3ba7296f539a7629fcd17e76824a2ad0778546d715c734ca'
+    matrix01: Notice: /Stage[main]/Puppet::Config/Concat[/etc/puppetlabs/puppet/puppet.conf]/File[/etc/puppetlabs/puppet/puppet.conf]/content: content changed '{sha256}486f54346d69ef4aa47df5c7cb1a117b4cf9dac4aad77788eb79dd4d7540cfaf' to '{sha256}7ce18ac2768edd54f8ba5162fe0f4a0a6aaa6f4f44f9ab97c3f68f0a5b992a2a'
+    matrix01: Notice: /Stage[main]/Docker::Repos/Apt::Keyring[docker.asc]/File[/usr/share/keyrings/docker.asc]/ensure: defined content as '{mtime}2026-08-14 04:21:28 UTC'
+    matrix01: Notice: /Stage[main]/Letsencrypt::Scripts/File[/usr/local/sbin/letsencrypt-domain-validation]/ensure: defined content as '{sha256}f3c9e56d65df5912724657a31cb04dbdbdd246cbf62d522a2b28344e47a655da'
+    matrix01: Notice: /Stage[main]/Letsencrypt::Plugin::Nginx/Package[python3-certbot-nginx]/ensure: created
+    matrix01: Notice: /Stage[main]/Choria::Repo/Apt::Source[choria-release]/Apt::Keyring[choria.asc]/File[/etc/apt/keyrings/choria.asc]/ensure: defined content as '{mtime}2024-03-29 19:58:14 UTC'
+    matrix01: Notice: /Stage[main]/Choria::Repo/Apt::Source[choria-release]/Apt::Setting[list-choria-release]/File[/etc/apt/sources.list.d/choria-release.list]/ensure: defined content as '{sha256}cbc9ecaecd1642d91aa80562ec5c377b99f11ed7fd89c787ffcaa9876fb9f7ec'
+    matrix01: Notice: /Stage[main]/Mcollective::Facts/Systemd::Timer[mcollective-facts-refresh.timer]/Systemd::Unit_file[mcollective-facts-refresh.service]/File[/etc/systemd/system/mcollective-facts-refresh.service]/ensure: defined content as '{sha256}9cd64215d6997c44218075655fdfd752fea7713d85fc60bebec3fd5bb33d7c75'
+    matrix01: Notice: /Stage[main]/Nftables/Systemd::Dropin_file[puppet_nft.conf]/Systemd::Daemon_reload[nftables.service]/Exec[systemd-nftables.service-systemctl-daemon-reload]: Triggered 'refresh' from 1 event
+    matrix01: Notice: /Stage[main]/Nftables::Inet_filter/Nftables::Config[inet-filter]/Concat[nftables-inet-filter]/File[/etc/nftables/puppet-preflight/inet-filter.nft]/ensure: defined content as '{sha256}27b4c0be1ce1b27af9a47dfee98302970101c373a8a84d9028474edaeeb26218'
+    matrix01: Notice: /Stage[main]/Nftables::Inet_filter/Nftables::Chain[INPUT]/Concat[nftables-inet-filter-chain-INPUT]/File[/etc/nftables/puppet-preflight/inet-filter-chain-INPUT.nft]/ensure: defined content as '{sha256}332f354fb7ac1f31da0486a0e1bf8f32cf40b741274522d44e6908c1dd2f1226'
+    matrix01: Notice: /Stage[main]/Nftables::Inet_filter/Nftables::Chain[OUTPUT]/Concat[nftables-inet-filter-chain-OUTPUT]/File[/etc/nftables/puppet-preflight/inet-filter-chain-OUTPUT.nft]/ensure: defined content as '{sha256}134221862bf953920afdf8ea74f3a982008ee8122ddf2923fc3dc33130b574e2'
+    matrix01: Notice: /Stage[main]/Nftables::Inet_filter/Nftables::Chain[FORWARD]/Concat[nftables-inet-filter-chain-FORWARD]/File[/etc/nftables/puppet-preflight/inet-filter-chain-FORWARD.nft]/ensure: defined content as '{sha256}4a21f1631691b7fa9c7be720fa17cc70cfb32e065353884184c6ff71b485f9f4'
+    matrix01: Notice: /Stage[main]/Nftables::Inet_filter/Nftables::Chain[global]/Concat[nftables-inet-filter-chain-global]/File[/etc/nftables/puppet-preflight/inet-filter-chain-global.nft]/ensure: defined content as '{sha256}4c1fd3f96c87838d77b8d804a76a8ebcc121456334cb36ade9081b531b9d96a5'
+    matrix01: Notice: /Stage[main]/Nftables::Inet_filter/Nftables::Chain[default_in]/Concat[nftables-inet-filter-chain-default_in]/File[/etc/nftables/puppet-preflight/inet-filter-chain-default_in.nft]/ensure: defined content as '{sha256}0c2c552d287f94a106a1e4eb0b3f54d5d83d2ff2e4a04e3769f219c083febabc'
+    matrix01: Notice: /Stage[main]/Nftables::Inet_filter/Nftables::Chain[default_out]/Concat[nftables-inet-filter-chain-default_out]/File[/etc/nftables/puppet-preflight/inet-filter-chain-default_out.nft]/ensure: defined content as '{sha256}86a34d2ec2c3b54bb80665a070fec63da76f7a17efd9a768e449a1566a7dc878'
+    matrix01: Notice: /Stage[main]/Nftables::Inet_filter/Nftables::Chain[default_fwd]/Concat[nftables-inet-filter-chain-default_fwd]/File[/etc/nftables/puppet-preflight/inet-filter-chain-default_fwd.nft]/ensure: defined content as '{sha256}c3d9d2ae50f23e68c9fe4ccd5574647391ae384cfa4f7b39ca984b7c7734308a'
+    matrix01: Notice: /Stage[main]/Docker::Repos/Apt::Source[docker]/Apt::Setting[list-docker]/File[/etc/apt/sources.list.d/docker.list]/ensure: defined content as '{sha256}3eed7cf3b0c0b96064be12f11b17450f0e803f8e163c864c9ea4c1f45ed671bf'
+    matrix01: Notice: /Stage[main]/Docker::Repos/Apt::Pin[docker]/Apt::Setting[pref-docker]/File[/etc/apt/preferences.d/docker.pref]/ensure: defined content as '{sha256}12cae9612e6a952ae692f1aefcb0990e030f5ffe5c8dbd53c6b13accd57feaff'
+    matrix01: Notice: /Stage[main]/Nftables::Rules::Docker_ce/Nftables::Chain[DOCKER]/Concat[nftables-inet-filter-chain-DOCKER]/File[/etc/nftables/puppet-preflight/inet-filter-chain-DOCKER.nft]/ensure: defined content as '{sha256}2b89defaec18472f5470d68f50bbd63677e55ad46af9be35f233f707dcfca673'
+    matrix01: Notice: /Stage[main]/Nftables::Rules::Docker_ce/Nftables::Chain[DOCKER_ISOLATION_STAGE_1]/Concat[nftables-inet-filter-chain-DOCKER_ISOLATION_STAGE_1]/File[/etc/nftables/puppet-preflight/inet-filter-chain-DOCKER_ISOLATION_STAGE_1.nft]/ensure: defined content as '{sha256}841be22b39bdb6436fa156a911bc1f9617eac4247e4825b115d113a4c55a6fc3'
+    matrix01: Notice: /Stage[main]/Nftables::Rules::Docker_ce/Nftables::Chain[DOCKER_ISOLATION_STAGE_2]/Concat[nftables-inet-filter-chain-DOCKER_ISOLATION_STAGE_2]/File[/etc/nftables/puppet-preflight/inet-filter-chain-DOCKER_ISOLATION_STAGE_2.nft]/ensure: defined content as '{sha256}f6c95e438b6d285706e2662201c455f5c9184f2f3777e2a78afdb09505f0f2a1'
+    matrix01: Notice: /Stage[main]/Nftables::Rules::Docker_ce/Nftables::Chain[DOCKER_USER]/Concat[nftables-inet-filter-chain-DOCKER_USER]/File[/etc/nftables/puppet-preflight/inet-filter-chain-DOCKER_USER.nft]/ensure: defined content as '{sha256}47f897cc11d919390b8776b6de9d5f09e4f3cdcbdc11b06ec16e8e1ef43d0661'
+    matrix01: Notice: /Stage[main]/Nftables::Rules::Docker_ce/Nftables::Chain[DOCKER-nat]/Concat[nftables-ip-nat-chain-DOCKER]/File[/etc/nftables/puppet-preflight/ip-nat-chain-DOCKER.nft]/ensure: defined content as '{sha256}e45b4b2db25da1bcc560c72db81912e0dff1bcb53e9160c99b5e40d36d5691b4'
+    matrix01: Notice: /Stage[main]/Nftables::Rules::Docker_ce/Nftables::Chain[OUTPUT-nat]/Concat[nftables-ip-nat-chain-OUTPUT]/File[/etc/nftables/puppet-preflight/ip-nat-chain-OUTPUT.nft]/ensure: defined content as '{sha256}b86b4fe022b093ab98278a1115ecc47dd2cef645acb8bde1b44cff9f7fcaa396'
+    matrix01: Notice: /Stage[main]/Nftables::Rules::Docker_ce/Nftables::Chain[INPUT-nat]/Concat[nftables-ip-nat-chain-INPUT]/File[/etc/nftables/puppet-preflight/ip-nat-chain-INPUT.nft]/ensure: defined content as '{sha256}8a29ced472a5833793b3ca58e6d20fcb202838bf34172d3b16f3917ccbcbe8ad'
+    matrix01: Notice: /Stage[main]/Nftables/Exec[nft validate]: Triggered 'refresh' from 18 events
+    matrix01: Notice: /Stage[main]/Nftables/File[/etc/nftables/puppet.nft]/ensure: defined content as '{sha256}0886f4fd8aa723653046bf72029f0b0b093f97ccbf2d28704e5d1dbfcd7164d8'
+    matrix01: Notice: /Stage[main]/Nftables/File[/etc/nftables/puppet]/ensure: created
+    matrix01: Notice: /Stage[main]/Nftables::Inet_filter/Nftables::Config[inet-filter]/File[/etc/nftables/puppet/inet-filter.nft]/ensure: defined content as '{sha256}27b4c0be1ce1b27af9a47dfee98302970101c373a8a84d9028474edaeeb26218'
+    matrix01: Notice: /Stage[main]/Nftables::Inet_filter/Nftables::Chain[INPUT]/File[/etc/nftables/puppet/inet-filter-chain-INPUT.nft]/ensure: defined content as '{sha256}332f354fb7ac1f31da0486a0e1bf8f32cf40b741274522d44e6908c1dd2f1226'
+    matrix01: Notice: /Stage[main]/Nftables::Inet_filter/Nftables::Chain[OUTPUT]/File[/etc/nftables/puppet/inet-filter-chain-OUTPUT.nft]/ensure: defined content as '{sha256}134221862bf953920afdf8ea74f3a982008ee8122ddf2923fc3dc33130b574e2'
+    matrix01: Notice: /Stage[main]/Nftables::Inet_filter/Nftables::Chain[FORWARD]/File[/etc/nftables/puppet/inet-filter-chain-FORWARD.nft]/ensure: defined content as '{sha256}4a21f1631691b7fa9c7be720fa17cc70cfb32e065353884184c6ff71b485f9f4'
+    matrix01: Notice: /Stage[main]/Nftables::Inet_filter/Nftables::Chain[global]/File[/etc/nftables/puppet/inet-filter-chain-global.nft]/ensure: defined content as '{sha256}4c1fd3f96c87838d77b8d804a76a8ebcc121456334cb36ade9081b531b9d96a5'
+    matrix01: Notice: /Stage[main]/Nftables::Inet_filter/Nftables::Chain[default_in]/File[/etc/nftables/puppet/inet-filter-chain-default_in.nft]/ensure: defined content as '{sha256}0c2c552d287f94a106a1e4eb0b3f54d5d83d2ff2e4a04e3769f219c083febabc'
+    matrix01: Notice: /Stage[main]/Nftables::Inet_filter/Nftables::Chain[default_out]/File[/etc/nftables/puppet/inet-filter-chain-default_out.nft]/ensure: defined content as '{sha256}86a34d2ec2c3b54bb80665a070fec63da76f7a17efd9a768e449a1566a7dc878'
+    matrix01: Notice: /Stage[main]/Nftables::Inet_filter/Nftables::Chain[default_fwd]/File[/etc/nftables/puppet/inet-filter-chain-default_fwd.nft]/ensure: defined content as '{sha256}c3d9d2ae50f23e68c9fe4ccd5574647391ae384cfa4f7b39ca984b7c7734308a'
+    matrix01: Notice: /Stage[main]/Nftables::Rules::Docker_ce/Nftables::Chain[DOCKER]/File[/etc/nftables/puppet/inet-filter-chain-DOCKER.nft]/ensure: defined content as '{sha256}2b89defaec18472f5470d68f50bbd63677e55ad46af9be35f233f707dcfca673'
+    matrix01: Notice: /Stage[main]/Nftables::Rules::Docker_ce/Nftables::Chain[DOCKER_ISOLATION_STAGE_1]/File[/etc/nftables/puppet/inet-filter-chain-DOCKER_ISOLATION_STAGE_1.nft]/ensure: defined content as '{sha256}841be22b39bdb6436fa156a911bc1f9617eac4247e4825b115d113a4c55a6fc3'
+    matrix01: Notice: /Stage[main]/Nftables::Rules::Docker_ce/Nftables::Chain[DOCKER_ISOLATION_STAGE_2]/File[/etc/nftables/puppet/inet-filter-chain-DOCKER_ISOLATION_STAGE_2.nft]/ensure: defined content as '{sha256}f6c95e438b6d285706e2662201c455f5c9184f2f3777e2a78afdb09505f0f2a1'
+    matrix01: Notice: /Stage[main]/Nftables::Rules::Docker_ce/Nftables::Chain[DOCKER_USER]/File[/etc/nftables/puppet/inet-filter-chain-DOCKER_USER.nft]/ensure: defined content as '{sha256}47f897cc11d919390b8776b6de9d5f09e4f3cdcbdc11b06ec16e8e1ef43d0661'
+    matrix01: Notice: /Stage[main]/Nftables::Rules::Docker_ce/Nftables::Chain[DOCKER-nat]/File[/etc/nftables/puppet/ip-nat-chain-DOCKER.nft]/ensure: defined content as '{sha256}e45b4b2db25da1bcc560c72db81912e0dff1bcb53e9160c99b5e40d36d5691b4'
+    matrix01: Notice: /Stage[main]/Nftables::Rules::Docker_ce/Nftables::Chain[OUTPUT-nat]/File[/etc/nftables/puppet/ip-nat-chain-OUTPUT.nft]/ensure: defined content as '{sha256}b86b4fe022b093ab98278a1115ecc47dd2cef645acb8bde1b44cff9f7fcaa396'
+    matrix01: Notice: /Stage[main]/Nftables::Rules::Docker_ce/Nftables::Chain[INPUT-nat]/File[/etc/nftables/puppet/ip-nat-chain-INPUT.nft]/ensure: defined content as '{sha256}8a29ced472a5833793b3ca58e6d20fcb202838bf34172d3b16f3917ccbcbe8ad'
+    matrix01: Notice: /Stage[main]/Nftables/Service[nftables]/ensure: ensure changed 'stopped' to 'running'
+    matrix01: Notice: /Stage[main]/Nginx::Package::Debian/Apt::Source[nginx]/Apt::Keyring[nginx.asc]/File[/etc/apt/keyrings/nginx.asc]/ensure: defined content as '{mtime}2024-05-30 15:23:28 UTC'
+    matrix01: Notice: /Stage[main]/Nginx::Package::Debian/Apt::Source[nginx]/Apt::Setting[list-nginx]/File[/etc/apt/sources.list.d/nginx.list]/ensure: defined content as '{sha256}07a19c363ece06f10ff8fdc29499941c39c920db264739e117f850665d659f45'
+    matrix01: Notice: /Stage[main]/Apt::Update/Exec[apt_update]: Triggered 'refresh' from 1 event
+    matrix01: Notice: /Stage[main]/Choria::Install/Package[choria]/ensure: created
+    matrix01: Notice: /Stage[main]/Choria::Config/File[/etc/choria/policies]/ensure: created
+    matrix01: Notice: /Stage[main]/Choria::Config/File[/etc/choria/policies/rego]/ensure: created
+    matrix01: Notice: /Stage[main]/Choria::Config/File[/etc/choria/plugin.d]/ensure: created
+    matrix01: Notice: /Stage[main]/Choria::Config/File[/etc/choria/overrides.json]/ensure: defined content as '{sha256}44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a'
+    matrix01: Notice: /Stage[main]/Choria::Config/File[/etc/choria/machine]/ensure: created
+    matrix01: Notice: /Stage[main]/Choria::Config/File[/usr/bin/choria_mcollective_agent_compat.rb]/ensure: defined content as '{sha256}606283ae83813fbe3f8400a1649e1ce0d4fb092fed2dc23403be4278b180f058'
+    matrix01: Notice: /Stage[main]/Choria::Config/File[/etc/choria/server.conf]/content: content changed '{sha256}acf6cfb148fef242aba0d3bd1c19c4e4de45207d352a18931f47649cac750669' to '{sha256}e98c5fe9f3d093d9618c02e11335d95378056586552a345083ccdc081fbef76d'
+    matrix01: Notice: /Stage[main]/Choria::Config/File[/etc/choria/server.conf]/mode: mode changed '0644' to '0640'
+    matrix01: Notice: /Stage[main]/Mcollective::Config/File[/etc/choria/policies/choria_util.policy]/ensure: defined content as '{sha256}33275fa5f360f4d22a66c855249891f84431ef586f8f601c1cce54b3e8fdede8'
+    matrix01: Notice: /Stage[main]/Mcollective::Config/File[/etc/choria/policies/rpcutil.policy]/ensure: defined content as '{sha256}1abed994da2bdbdaf9ccf68dde344650dbe861ab2100816fd761ddcbd1ded4d3'
+    matrix01: Notice: /Stage[main]/Mcollective::Config/File[/etc/choria/policies/scout.policy]/ensure: defined content as '{sha256}f44ed725c335439f1e37044f0ec807b6a47970b67a9e853ed9686750c3354fa8'
+    matrix01: Notice: /Stage[main]/Mcollective::Config/File[/etc/choria/policies/rego/default.rego]/ensure: defined content as '{sha256}18f693caa0e43038f867a40b004246b23347445d0207aad27127b1ea6b704b52'
+    matrix01: Notice: /Stage[main]/Docker::Repos/Package[cgroup-lite]/ensure: created
+    matrix01: Notice: /Stage[main]/Docker::Install/Package[docker]/ensure: created
+    matrix01: Notice: /Stage[main]/Docker::Service/File[/etc/systemd/system/docker.service.d]/ensure: created
+    matrix01: Notice: /Stage[main]/Docker::Service/File[/etc/systemd/system/docker.service.d/service-overrides.conf]/ensure: defined content as '{sha256}06c187898ec3d1d803c12b2656c041e63587acaf2a55bbbeb6d2a87291d0a0e1'
+    matrix01: Notice: /Stage[main]/Docker::Service/Exec[docker-systemd-reload-before-service]: Triggered 'refresh' from 1 event
+    matrix01: Notice: /Stage[main]/Docker::Service/File[/etc/default/docker-storage]/ensure: defined content as '{sha256}1a0bfc5c866936867a3519a80104980d85c5ba5c91a5575f0fc0c5266cc98571'
+    matrix01: Notice: /Stage[main]/Docker::Service/File[/etc/default/docker]/content: content changed '{sha256}3177ea62729e9f63474e41b5a740aeacd5c73eecd9c7b6cc499266adbc09d21b' to '{sha256}547aea9fbda411cf2ffc3ce67b036a724484a326fe971ec35e1651f484374967'
+    matrix01: Notice: /Stage[main]/Docker::Service/Service[docker]: Triggered 'refresh' from 3 events
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/Docker_compose[matrix-synapse]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/Docker_compose[matrix-synapse]: Triggered 'refresh' from 10 events
+    matrix01: Notice: /Stage[main]/Choria::Config/Concat[/etc/choria/policies/groups]/File[/etc/choria/policies/groups]/ensure: defined content as '{sha256}e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+    matrix01: Notice: /Stage[main]/Mcollective::Config/Mcollective::Config_file[/etc/choria/client.conf]/File[/etc/choria/client.conf]/ensure: defined content as '{sha256}ea1d5131544a2a5c827d42f9e69c26b19ba8289de599d87868d420e529e3404c'
+    matrix01: Notice: /Stage[main]/Mcollective::Config/Mcollective::Config_file[/etc/choria/choria-shim.cfg]/File[/etc/choria/choria-shim.cfg]/ensure: defined content as '{sha256}00821c437a078e1b099a97f47757b39c3c5df388ebef78ca91cb51e915f0c15a'
+    matrix01: Notice: /Stage[main]/Mcollective::Facts/Exec[mcollective_facts_yaml_refresh]/returns: executed successfully
+    matrix01: Notice: /Stage[main]/Mcollective_agent_bolt_tasks/Mcollective::Module_plugin[mcollective_agent_bolt_tasks]/File[/etc/choria/policies/bolt_tasks.policy]/ensure: defined content as '{sha256}0810fdc20a9cba91eddaa90daa3b091578673fc9ddc769c02d423838d492a12b'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_shell/Mcollective::Module_plugin[mcollective_agent_shell]/File[/etc/choria/policies/shell.policy]/ensure: defined content as '{sha256}0810fdc20a9cba91eddaa90daa3b091578673fc9ddc769c02d423838d492a12b'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_nettest/Mcollective::Module_plugin[mcollective_agent_nettest]/File[/etc/choria/policies/nettest.policy]/ensure: defined content as '{sha256}0810fdc20a9cba91eddaa90daa3b091578673fc9ddc769c02d423838d492a12b'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_process/Mcollective::Module_plugin[mcollective_agent_process]/File[/etc/choria/policies/process.policy]/ensure: defined content as '{sha256}0810fdc20a9cba91eddaa90daa3b091578673fc9ddc769c02d423838d492a12b'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_iptables/Mcollective::Module_plugin[mcollective_agent_iptables]/File[/etc/choria/policies/iptables.policy]/ensure: defined content as '{sha256}0810fdc20a9cba91eddaa90daa3b091578673fc9ddc769c02d423838d492a12b'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_puppet/Mcollective::Module_plugin[mcollective_agent_puppet]/File[/etc/choria/policies/puppet.policy]/ensure: defined content as '{sha256}f82b3b50c1a49bcd7d42e43bd0a3c0f24ad38d13ef9211fa889624d13c6fe5f0'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_service/Mcollective::Module_plugin[mcollective_agent_service]/File[/etc/choria/policies/service.policy]/ensure: defined content as '{sha256}7d10293ed1523b7138f235120e1f0d40d95150b0bfbce73a0de89afc2030013c'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_package/Mcollective::Module_plugin[mcollective_agent_package]/File[/etc/choria/policies/package.policy]/ensure: defined content as '{sha256}4bd5225005b4a122495b79c8e1f4c531e9d9de90c3c78ed0e4232cb065657f3c'
+    matrix01: Notice: /Stage[main]/Mcollective_agent_filemgr/Mcollective::Module_plugin[mcollective_agent_filemgr]/File[/etc/choria/policies/filemgr.policy]/ensure: defined content as '{sha256}0810fdc20a9cba91eddaa90daa3b091578673fc9ddc769c02d423838d492a12b'
+    matrix01: Notice: /Stage[main]/Nginx::Config/File[/etc/nginx/conf.stream.d]/ensure: created
+    matrix01: Notice: /Stage[main]/Nginx::Config/File[/etc/nginx/conf.mail.d]/ensure: created
+    matrix01: Notice: /Stage[main]/Nginx::Config/File[/etc/nginx/streams-enabled]/ensure: created
+    matrix01: Notice: /Stage[main]/Nginx::Config/File[/etc/nginx/streams-available]/ensure: created
+    matrix01: Notice: /Stage[main]/Nginx::Config/File[/etc/nginx/nginx.conf]/content: content changed '{sha256}48c6a4ec1e1fd28ccf968490f07e34a1d7f755793b2108a3ed8670b1ee2a0aa2' to '{sha256}fdcbc31ea2eb03f8f3266c6c607d26e0762039ed5c5e71e59976cddbc7ab1fe3'
+    matrix01: Notice: /Stage[main]/Nginx::Config/File[/etc/nginx/mime.types]/content: content changed '{sha256}36c77daa2d85803e87c91ba723dd2bc6aaa6543ae4bd4a569034a7bf8bce464d' to '{sha256}e8197a00fba8b28be9e21be01e576c5a1205ca6f078099a6aebf9cccfb082256'
+    matrix01: Notice: /Stage[main]/Mcollective_util_actionpolicy/Mcollective::Module_plugin[mcollective_util_actionpolicy]/Mcollective::Config_file[/etc/choria/plugin.d/actionpolicy.cfg]/File[/etc/choria/plugin.d/actionpolicy.cfg]/ensure: defined content as '{sha256}56e921f11f035bf6c6820f1f2dfb879c15bf66fb1fb4f2c3659cb27cf573d7c4'
+    matrix01: Notice: /Stage[main]/Choria::Service/Service[choria-server]/ensure: ensure changed 'stopped' to 'running'
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Nginx::Resource::Server[voxpupuli.party]/Concat[/etc/nginx/sites-available/voxpupuli.party.conf]/File[/etc/nginx/sites-available/voxpupuli.party.conf]/ensure: defined content as '{sha256}3af1f6b9f7279bc7faed23ce1d9cd40ffbd2685c4c1470f1d99fa6ad74305234'
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Nginx::Resource::Server[voxpupuli.party]/File[voxpupuli.party.conf symlink]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Saving debug log to /var/log/letsencrypt/letsencrypt.log
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Account registered.
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Requesting a certificate for voxpupuli.party
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Certbot failed to authenticate some domains (authenticator: nginx). The Certificate Authority reported these problems:
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns:   Domain: voxpupuli.party
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns:   Type:   unauthorized
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns:   Detail: 2a01:4f9:c01f:802e::1: Invalid response from http://voxpupuli.party/.well-known/acme-challenge/Oj9jPT_ubC9UNuR6JgnzDon2jm1zCHv3D1tjT2xhse4: 404
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Hint: The Certificate Authority failed to verify the temporary nginx configuration changes made by Certbot. Ensure the listed domains point to this nginx server and that it is accessible from the internet.
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Encountered exception during recovery: certbot.errors.MisconfigurationError: nginx restart failed:
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: bind() to 0.0.0.0:80 failed (98: Address already in use)
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: bind() to [::]:80 failed (98: Address already in use)
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: bind() to 0.0.0.0:80 failed (98: Address already in use)
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: bind() to [::]:80 failed (98: Address already in use)
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: bind() to 0.0.0.0:80 failed (98: Address already in use)
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: bind() to [::]:80 failed (98: Address already in use)
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: bind() to 0.0.0.0:80 failed (98: Address already in use)
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: bind() to [::]:80 failed (98: Address already in use)
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: bind() to 0.0.0.0:80 failed (98: Address already in use)
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: bind() to [::]:80 failed (98: Address already in use)
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: still could not bind()
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Some challenges have failed.
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile /var/log/letsencrypt/letsencrypt.log or re-run Certbot with -v for more details.
+    matrix01: Error: 'certbot --text --agree-tos --non-interactive certonly --key-type rsa --rsa-key-size 4096 -a nginx --cert-name 'voxpupuli.party' -d 'voxpupuli.party' --no-redirect' returned 1 instead of one of [0]
+    matrix01: Error: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: change from 'notrun' to ['0'] failed: 'certbot --text --agree-tos --non-interactive certonly --key-type rsa --rsa-key-size 4096 -a nginx --cert-name 'voxpupuli.party' -d 'voxpupuli.party' --no-redirect' returned 1 instead of one of [0]
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/File[/opt/puppetlabs/puppet/cache/letsencrypt/renew-voxpupuli.party.sh]/ensure: defined content as '{sha256}4e06211d40989a7b142c94326973b60663af37c4f8623c9ada0c53f2093e0f9d'
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Cron[letsencrypt renew cron voxpupuli.party]/ensure: created
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Nginx::Resource::Upstream[synapse_client]/Concat[/etc/nginx/conf.d/synapse_client-upstream.conf]/File[/etc/nginx/conf.d/synapse_client-upstream.conf]/ensure: defined content as '{sha256}235838b0c8201780df0cbc529165b9df32c94fb7c2dae5f2c6e4c93319511b3b'
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Nginx::Resource::Upstream[synapse_federation]/Concat[/etc/nginx/conf.d/synapse_federation-upstream.conf]/File[/etc/nginx/conf.d/synapse_federation-upstream.conf]/ensure: defined content as '{sha256}69849d5113672eadaa12244f55a089f1f6eaccd7bf186d20add99eccb6ba0b0f'
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Nginx::Resource::Upstream[synapse_media]/Concat[/etc/nginx/conf.d/synapse_media-upstream.conf]/File[/etc/nginx/conf.d/synapse_media-upstream.conf]/ensure: defined content as '{sha256}405e8a831db289b5dfa71394092eba2b62795fdf41cfc8ffaa7fbec3e6c14179'
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Nginx::Resource::Upstream[synapse_main]/Concat[/etc/nginx/conf.d/synapse_main-upstream.conf]/File[/etc/nginx/conf.d/synapse_main-upstream.conf]/ensure: defined content as '{sha256}697f0d6150791c93bcce2f4eb9237448a8c5519c45142c89e780183291da8d6b'
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Nginx::Resource::Server[matrix01.voxpupu.li]/Concat[/etc/nginx/sites-available/matrix01.voxpupu.li.conf]/File[/etc/nginx/sites-available/matrix01.voxpupu.li.conf]/ensure: defined content as '{sha256}4c82b35acd7ff0bc081ee5d2c74e80ea5e488d37ed2757e86db55214773aa259'
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Nginx::Resource::Server[matrix01.voxpupu.li]/File[matrix01.voxpupu.li.conf symlink]/ensure: created
+    matrix01: Notice: /Stage[main]/Nginx::Service/Exec[nginx_config_check]: Triggered 'refresh' from 9 events
+    matrix01: Notice: /Stage[main]/Nginx::Service/Service[nginx]: Triggered 'refresh' from 1 event
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: Saving debug log to /var/log/letsencrypt/letsencrypt.log
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: Requesting a certificate for matrix01.voxpupu.li
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: 
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: Certbot failed to authenticate some domains (authenticator: nginx). The Certificate Authority reported these problems:
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns:   Domain: matrix01.voxpupu.li
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns:   Type:   unauthorized
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns:   Detail: 2a01:4f9:c013:77c::1: Invalid response from http://matrix01.voxpupu.li/.well-known/acme-challenge/RYgtNQ3Mi-bH31vvozxT7vlKBOrKjRzAe0Qq3SAjVTw: 404
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: 
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: Hint: The Certificate Authority failed to verify the temporary nginx configuration changes made by Certbot. Ensure the listed domains point to this nginx server and that it is accessible from the internet.
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: 
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: Some challenges have failed.
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile /var/log/letsencrypt/letsencrypt.log or re-run Certbot with -v for more details.
+    matrix01: Error: 'certbot --text --agree-tos --non-interactive certonly --key-type rsa --rsa-key-size 4096 -a nginx --cert-name 'matrix01.voxpupu.li' -d 'matrix01.voxpupu.li' --no-redirect' returned 1 instead of one of [0]
+    matrix01: Error: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: change from 'notrun' to ['0'] failed: 'certbot --text --agree-tos --non-interactive certonly --key-type rsa --rsa-key-size 4096 -a nginx --cert-name 'matrix01.voxpupu.li' -d 'matrix01.voxpupu.li' --no-redirect' returned 1 instead of one of [0]
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/File[/opt/puppetlabs/puppet/cache/letsencrypt/renew-matrix01.voxpupu.li.sh]/ensure: defined content as '{sha256}21f4ef30ae7f47c58c68b902a2aa668ad4931ad9db3b8d3bb51107261d88d413'
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Cron[letsencrypt renew cron matrix01.voxpupu.li]/ensure: created
+    matrix01: Notice: /Stage[main]/Mcollective::Facts/Systemd::Timer[mcollective-facts-refresh.timer]/Systemd::Unit_file[mcollective-facts-refresh.service]/Systemd::Daemon_reload[mcollective-facts-refresh.service]/Exec[systemd-mcollective-facts-refresh.service-systemctl-daemon-reload]: Triggered 'refresh' from 1 event
+    matrix01: Notice: /Stage[main]/Mcollective::Facts/Systemd::Timer[mcollective-facts-refresh.timer]/Systemd::Unit_file[mcollective-facts-refresh.timer]/File[/etc/systemd/system/mcollective-facts-refresh.timer]/ensure: defined content as '{sha256}7b190f4c0fd47e72adbc8f440ed1b034cdd6bf30a3d1154c20b1d0a81b03b865'
+    matrix01: Notice: /Stage[main]/Mcollective::Facts/Systemd::Timer[mcollective-facts-refresh.timer]/Systemd::Unit_file[mcollective-facts-refresh.timer]/Systemd::Daemon_reload[mcollective-facts-refresh.timer]/Exec[systemd-mcollective-facts-refresh.timer-systemctl-daemon-reload]: Triggered 'refresh' from 1 event
+    matrix01: Notice: /Stage[main]/Mcollective::Facts/Systemd::Timer[mcollective-facts-refresh.timer]/Systemd::Unit_file[mcollective-facts-refresh.timer]/Service[mcollective-facts-refresh.timer]/ensure: ensure changed 'stopped' to 'running'
+    matrix01: Notice: /Stage[main]/Profiles::Puppet/Package[msgpack]/ensure: created
+    matrix01: Notice: Applied catalog in 235.79 seconds
+=== vagrant up exit: 0
+
+=== second apply + probes: ./scripts/converge --check (14:22 UTC)
+cannot delete non-empty directory: modules/mcollective_util_actionpolicy
+cannot delete non-empty directory: modules/mcollective_util_actionpolicy
+cannot delete non-empty directory: modules/mcollective_choria
+cannot delete non-empty directory: modules/mcollective_choria
+cannot delete non-empty directory: modules/mcollective_agent_shell
+cannot delete non-empty directory: modules/mcollective_agent_shell
+cannot delete non-empty directory: modules/mcollective_agent_service
+cannot delete non-empty directory: modules/mcollective_agent_service
+cannot delete non-empty directory: modules/mcollective_agent_puppetca
+cannot delete non-empty directory: modules/mcollective_agent_puppetca
+cannot delete non-empty directory: modules/mcollective_agent_puppet
+cannot delete non-empty directory: modules/mcollective_agent_puppet
+cannot delete non-empty directory: modules/mcollective_agent_process
+cannot delete non-empty directory: modules/mcollective_agent_process
+cannot delete non-empty directory: modules/mcollective_agent_package
+cannot delete non-empty directory: modules/mcollective_agent_package
+cannot delete non-empty directory: modules/mcollective_agent_nettest
+cannot delete non-empty directory: modules/mcollective_agent_nettest
+cannot delete non-empty directory: modules/mcollective_agent_iptables
+cannot delete non-empty directory: modules/mcollective_agent_iptables
+cannot delete non-empty directory: modules/mcollective_agent_filemgr
+cannot delete non-empty directory: modules/mcollective_agent_filemgr
+cannot delete non-empty directory: modules/mcollective_agent_bolt_tasks
+cannot delete non-empty directory: modules/mcollective_agent_bolt_tasks
+cannot delete non-empty directory: modules/mcollective
+cannot delete non-empty directory: modules/mcollective
+cannot delete non-empty directory: modules/echo
+cannot delete non-empty directory: modules/echo
+cannot delete non-empty directory: modules/choria
+cannot delete non-empty directory: modules/choria
+cannot delete non-empty directory: modules
+Notice: Compiled catalog for matrix01.voxpupu.li in environment production in 3.61 seconds
+Notice: /Stage[main]/Choria::Service/Service[choria-server]/ensure: ensure changed 'stopped' to 'running'
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Requesting a certificate for voxpupuli.party
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Certbot failed to authenticate some domains (authenticator: nginx). The Certificate Authority reported these problems:
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns:   Domain: voxpupuli.party
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns:   Type:   unauthorized
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns:   Detail: 2a01:4f9:c01f:802e::1: Invalid response from http://voxpupuli.party/.well-known/acme-challenge/4TXxVIn5VXDIlUkQrVjtj1GI5BwleNeiRSiGqdveaRU: 404
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Hint: The Certificate Authority failed to verify the temporary nginx configuration changes made by Certbot. Ensure the listed domains point to this nginx server and that it is accessible from the internet.
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Some challenges have failed.
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile /var/log/letsencrypt/letsencrypt.log or re-run Certbot with -v for more details.
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: Requesting a certificate for matrix01.voxpupu.li
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: 
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: Certbot failed to authenticate some domains (authenticator: nginx). The Certificate Authority reported these problems:
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns:   Domain: matrix01.voxpupu.li
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns:   Type:   unauthorized
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns:   Detail: 2a01:4f9:c013:77c::1: Invalid response from http://matrix01.voxpupu.li/.well-known/acme-challenge/giQUYaMMQenRotv7DAqBPIEd_p7wA1_ZGcm5TBwPWlo: 404
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: 
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: Hint: The Certificate Authority failed to verify the temporary nginx configuration changes made by Certbot. Ensure the listed domains point to this nginx server and that it is accessible from the internet.
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: 
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: Some challenges have failed.
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile /var/log/letsencrypt/letsencrypt.log or re-run Certbot with -v for more details.
+Notice: Applied catalog in 16.77 seconds
+==> probes
+client API: ok
+{"m.server": "matrix01.voxpupu.li:443"}
+
+NAME                       STATUS
+media-cron                 Up About a minute
+postgres                   Up About a minute (healthy)
+redis                      Up About a minute (healthy)
+synapse-events-persister   Up About a minute (healthy)
+synapse-main               Up About a minute (healthy)
+synapse-receipts-writer    Up About a minute (healthy)
+synapse-worker1            Up About a minute (healthy)
+synapse-worker2            Up About a minute (healthy)
+synapse-worker3            Up About a minute (healthy)
+synapse-worker4            Up About a minute (healthy)
+=== converge exit: 0

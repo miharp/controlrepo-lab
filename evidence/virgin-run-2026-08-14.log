@@ -1,5 +1,5 @@
-=== matrix-lab virgin run: 2026-08-14 14:15 UTC
-=== controlrepo: branch matrix-fixes @ 59d1822, working tree clean
+=== matrix-lab virgin run: 2026-08-14 15:52 UTC
+=== controlrepo: branch matrix-synapse @ 2968ddb, working tree clean
 === vagrant destroy -f && vagrant up
 ==> matrix01: Forcing shutdown of VM...
 ==> matrix01: Destroying VM and associated drives...
@@ -10,7 +10,7 @@ Bringing machine 'matrix01' up with 'parallels' provider...
 [K==> matrix01: Unregistering the box VM image...
 ==> matrix01: Setting the default configuration for VM...
 ==> matrix01: Checking if box 'bento/ubuntu-24.04' version '202510.26.0' is up to date...
-==> matrix01: Setting the name of the VM: matrix-lab_matrix01_1786716974330_12889
+==> matrix01: Setting the name of the VM: matrix-lab_matrix01_1786722791064_43207
 ==> matrix01: Preparing network interfaces based on configuration...
     matrix01: Adapter 0: shared
     matrix01: Adapter 1: hostonly
@@ -18,7 +18,7 @@ Bringing machine 'matrix01' up with 'parallels' provider...
 ==> matrix01: Running 'pre-boot' VM customizations...
 ==> matrix01: Booting VM...
 ==> matrix01: Waiting for machine to boot. This may take a few minutes...
-    matrix01: SSH address: 10.211.55.184:22
+    matrix01: SSH address: 10.211.55.185:22
     matrix01: SSH username: vagrant
     matrix01: SSH auth method: private key
     matrix01: 
@@ -86,7 +86,7 @@ Bringing machine 'matrix01' up with 'parallels' provider...
     matrix01: Successfully installed r10k-5.0.3
     matrix01: 12 gems installed
     matrix01: [hiera-eyaml-core] Keys created OK
-    matrix01: Notice: Compiled catalog for matrix01.voxpupu.li in environment production in 3.65 seconds
+    matrix01: Notice: Compiled catalog for matrix01.voxpupu.li in environment production in 3.50 seconds
     matrix01: Warning: /Stage[main]/Nftables::Rules::Docker_ce/Nftables::Rule[POSTROUTING-docker]/Concat::Fragment[nftables-ip-nat-chain-POSTROUTING-rule-docker_header]/Concat_fragment[nftables-ip-nat-chain-POSTROUTING-rule-docker_header]: Target Concat_file with path or title 'nftables-ip-nat-chain-POSTROUTING' or tag 'nftables-ip-nat-chain-POSTROUTING not found in the catalog
     matrix01: Warning: /Stage[main]/Nftables::Rules::Docker_ce/Nftables::Rule[POSTROUTING-docker]/Concat::Fragment[nftables-ip-nat-chain-POSTROUTING-rule-docker]/Concat_fragment[nftables-ip-nat-chain-POSTROUTING-rule-docker]: Target Concat_file with path or title 'nftables-ip-nat-chain-POSTROUTING' or tag 'nftables-ip-nat-chain-POSTROUTING not found in the catalog
     matrix01: Warning: /Stage[main]/Nftables::Rules::Docker_ce/Nftables::Rule[PREROUTING-docker]/Concat::Fragment[nftables-ip-nat-chain-PREROUTING-rule-docker_header]/Concat_fragment[nftables-ip-nat-chain-PREROUTING-rule-docker_header]: Target Concat_file with path or title 'nftables-ip-nat-chain-PREROUTING' or tag 'nftables-ip-nat-chain-PREROUTING not found in the catalog
@@ -682,7 +682,7 @@ Bringing machine 'matrix01' up with 'parallels' provider...
     matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/logs]/ensure: created
     matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/logs/synapse]/ensure: created
     matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/docker-compose.yml]/ensure: defined content as '{sha256}d99f403800c21d14d516fa3d4b38adbb86195dd7c2c07ee7d1f861600a79bc4b'
-    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/Dockerfile.synapse]/ensure: defined content as '{sha256}7ee0fbabca2303c5b26db82dbf513245c6cf865df7518d051bc914071c702269'
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/Dockerfile.synapse]/ensure: defined content as '{sha256}434f354eeb5b2e6efc9e8a0f3f04c4bf1f0aac18e0d64228cc98a79dc7c57566'
     matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/.env]/ensure: changed [redacted] to [redacted]
     matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/config/synapse/log.yaml]/ensure: defined content as '{sha256}fa5817c1e56d9b60a81966444900db48715bbc2ee37a33876b88ad5d19dd54b4'
     matrix01: Notice: /Stage[main]/Profiles::Matrix::Synapse/File[/opt/matrix-synapse/config/synapse/homeserver.yaml]/ensure: changed [redacted] to [redacted]
@@ -894,22 +894,22 @@ Bringing machine 'matrix01' up with 'parallels' provider...
     matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Certbot failed to authenticate some domains (authenticator: nginx). The Certificate Authority reported these problems:
     matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns:   Domain: voxpupuli.party
     matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns:   Type:   unauthorized
-    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns:   Detail: 2a01:4f9:c01f:802e::1: Invalid response from http://voxpupuli.party/.well-known/acme-challenge/Oj9jPT_ubC9UNuR6JgnzDon2jm1zCHv3D1tjT2xhse4: 404
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns:   Detail: 2a01:4f9:c01f:802e::1: Invalid response from http://voxpupuli.party/.well-known/acme-challenge/D_2v1GX65p6Um3DZWdiFehGH2iIS_NCds9U2XT-P9Qk: 404
     matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 
     matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Hint: The Certificate Authority failed to verify the temporary nginx configuration changes made by Certbot. Ensure the listed domains point to this nginx server and that it is accessible from the internet.
     matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 
     matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Encountered exception during recovery: certbot.errors.MisconfigurationError: nginx restart failed:
-    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: bind() to 0.0.0.0:80 failed (98: Address already in use)
-    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: bind() to [::]:80 failed (98: Address already in use)
-    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: bind() to 0.0.0.0:80 failed (98: Address already in use)
-    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: bind() to [::]:80 failed (98: Address already in use)
-    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: bind() to 0.0.0.0:80 failed (98: Address already in use)
-    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: bind() to [::]:80 failed (98: Address already in use)
-    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: bind() to 0.0.0.0:80 failed (98: Address already in use)
-    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: bind() to [::]:80 failed (98: Address already in use)
-    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: bind() to 0.0.0.0:80 failed (98: Address already in use)
-    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: bind() to [::]:80 failed (98: Address already in use)
-    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 09:21:27 [emerg] 20420#20420: still could not bind()
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 10:58:14 [emerg] 20465#20465: bind() to 0.0.0.0:80 failed (98: Address already in use)
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 10:58:14 [emerg] 20465#20465: bind() to [::]:80 failed (98: Address already in use)
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 10:58:14 [emerg] 20465#20465: bind() to 0.0.0.0:80 failed (98: Address already in use)
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 10:58:14 [emerg] 20465#20465: bind() to [::]:80 failed (98: Address already in use)
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 10:58:14 [emerg] 20465#20465: bind() to 0.0.0.0:80 failed (98: Address already in use)
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 10:58:14 [emerg] 20465#20465: bind() to [::]:80 failed (98: Address already in use)
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 10:58:14 [emerg] 20465#20465: bind() to 0.0.0.0:80 failed (98: Address already in use)
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 10:58:14 [emerg] 20465#20465: bind() to [::]:80 failed (98: Address already in use)
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 10:58:14 [emerg] 20465#20465: bind() to 0.0.0.0:80 failed (98: Address already in use)
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 10:58:14 [emerg] 20465#20465: bind() to [::]:80 failed (98: Address already in use)
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 2026/08/14 10:58:14 [emerg] 20465#20465: still could not bind()
     matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Some challenges have failed.
     matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile /var/log/letsencrypt/letsencrypt.log or re-run Certbot with -v for more details.
     matrix01: Error: 'certbot --text --agree-tos --non-interactive certonly --key-type rsa --rsa-key-size 4096 -a nginx --cert-name 'voxpupuli.party' -d 'voxpupuli.party' --no-redirect' returned 1 instead of one of [0]
@@ -930,7 +930,7 @@ Bringing machine 'matrix01' up with 'parallels' provider...
     matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: Certbot failed to authenticate some domains (authenticator: nginx). The Certificate Authority reported these problems:
     matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns:   Domain: matrix01.voxpupu.li
     matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns:   Type:   unauthorized
-    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns:   Detail: 2a01:4f9:c013:77c::1: Invalid response from http://matrix01.voxpupu.li/.well-known/acme-challenge/RYgtNQ3Mi-bH31vvozxT7vlKBOrKjRzAe0Qq3SAjVTw: 404
+    matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns:   Detail: 2a01:4f9:c013:77c::1: Invalid response from http://matrix01.voxpupu.li/.well-known/acme-challenge/3AR2Hs2Sl_z3yDptt8lt5xycXRcilZSlquc6RU_1-YE: 404
     matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: 
     matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: Hint: The Certificate Authority failed to verify the temporary nginx configuration changes made by Certbot. Ensure the listed domains point to this nginx server and that it is accessible from the internet.
     matrix01: Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: 
@@ -945,10 +945,10 @@ Bringing machine 'matrix01' up with 'parallels' provider...
     matrix01: Notice: /Stage[main]/Mcollective::Facts/Systemd::Timer[mcollective-facts-refresh.timer]/Systemd::Unit_file[mcollective-facts-refresh.timer]/Systemd::Daemon_reload[mcollective-facts-refresh.timer]/Exec[systemd-mcollective-facts-refresh.timer-systemctl-daemon-reload]: Triggered 'refresh' from 1 event
     matrix01: Notice: /Stage[main]/Mcollective::Facts/Systemd::Timer[mcollective-facts-refresh.timer]/Systemd::Unit_file[mcollective-facts-refresh.timer]/Service[mcollective-facts-refresh.timer]/ensure: ensure changed 'stopped' to 'running'
     matrix01: Notice: /Stage[main]/Profiles::Puppet/Package[msgpack]/ensure: created
-    matrix01: Notice: Applied catalog in 235.79 seconds
+    matrix01: Notice: Applied catalog in 235.28 seconds
 === vagrant up exit: 0
 
-=== second apply + probes: ./scripts/converge --check (14:22 UTC)
+=== second apply + probes: ./scripts/converge --check
 cannot delete non-empty directory: modules/mcollective_util_actionpolicy
 cannot delete non-empty directory: modules/mcollective_util_actionpolicy
 cannot delete non-empty directory: modules/mcollective_choria
@@ -980,7 +980,7 @@ cannot delete non-empty directory: modules/echo
 cannot delete non-empty directory: modules/choria
 cannot delete non-empty directory: modules/choria
 cannot delete non-empty directory: modules
-Notice: Compiled catalog for matrix01.voxpupu.li in environment production in 3.61 seconds
+Notice: Compiled catalog for matrix01.voxpupu.li in environment production in 3.89 seconds
 Notice: /Stage[main]/Choria::Service/Service[choria-server]/ensure: ensure changed 'stopped' to 'running'
 Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Saving debug log to /var/log/letsencrypt/letsencrypt.log
 Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Requesting a certificate for voxpupuli.party
@@ -988,7 +988,7 @@ Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.par
 Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Certbot failed to authenticate some domains (authenticator: nginx). The Certificate Authority reported these problems:
 Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns:   Domain: voxpupuli.party
 Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns:   Type:   unauthorized
-Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns:   Detail: 2a01:4f9:c01f:802e::1: Invalid response from http://voxpupuli.party/.well-known/acme-challenge/4TXxVIn5VXDIlUkQrVjtj1GI5BwleNeiRSiGqdveaRU: 404
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns:   Detail: 2a01:4f9:c01f:802e::1: Invalid response from http://voxpupuli.party/.well-known/acme-challenge/J7esIqUKtfys4D5eO5xP2gQF60fRKTsoyn36V60avEM: 404
 Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 
 Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: Hint: The Certificate Authority failed to verify the temporary nginx configuration changes made by Certbot. Ensure the listed domains point to this nginx server and that it is accessible from the internet.
 Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[voxpupuli.party]/Exec[letsencrypt certonly voxpupuli.party]/returns: 
@@ -1000,13 +1000,13 @@ Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxp
 Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: Certbot failed to authenticate some domains (authenticator: nginx). The Certificate Authority reported these problems:
 Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns:   Domain: matrix01.voxpupu.li
 Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns:   Type:   unauthorized
-Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns:   Detail: 2a01:4f9:c013:77c::1: Invalid response from http://matrix01.voxpupu.li/.well-known/acme-challenge/giQUYaMMQenRotv7DAqBPIEd_p7wA1_ZGcm5TBwPWlo: 404
+Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns:   Detail: 2a01:4f9:c013:77c::1: Invalid response from http://matrix01.voxpupu.li/.well-known/acme-challenge/J6_AwuJcaaqecv2gO82xbwC0KkAmOvsHsbewR7apqHw: 404
 Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: 
 Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: Hint: The Certificate Authority failed to verify the temporary nginx configuration changes made by Certbot. Ensure the listed domains point to this nginx server and that it is accessible from the internet.
 Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: 
 Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: Some challenges have failed.
 Notice: /Stage[main]/Profiles::Matrix::Nginx/Letsencrypt::Certonly[matrix01.voxpupu.li]/Exec[letsencrypt certonly matrix01.voxpupu.li]/returns: Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile /var/log/letsencrypt/letsencrypt.log or re-run Certbot with -v for more details.
-Notice: Applied catalog in 16.77 seconds
+Notice: Applied catalog in 17.33 seconds
 ==> probes
 client API: ok
 {"m.server": "matrix01.voxpupu.li:443"}

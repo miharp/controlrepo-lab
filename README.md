@@ -22,8 +22,9 @@ virgin run against the final branch:
 ACME retries; ends with the container health table).
 
 The fixed branch lives at
-[miharp/controlrepo `matrix-fixes`](https://github.com/miharp/controlrepo/tree/matrix-fixes)
-([full diff](https://github.com/voxpupuli/controlrepo/compare/production...miharp:controlrepo:matrix-fixes)).
+[miharp/controlrepo `matrix-synapse`](https://github.com/miharp/controlrepo/tree/matrix-synapse)
+([full diff](https://github.com/voxpupuli/controlrepo/compare/production...miharp:controlrepo:matrix-synapse);
+`matrix-fixes` is the same history under its older name).
 A detailed findings write-up is available on request; commit messages
 carry the per-fix reasoning.
 
@@ -39,7 +40,7 @@ carry the per-fix reasoning.
 
   ```console
   # the fixed branch:
-  git clone -b matrix-fixes https://github.com/miharp/controlrepo ../voxpupuli_controlrepo
+  git clone -b matrix-synapse https://github.com/miharp/controlrepo ../voxpupuli_controlrepo
 
   # or the unfixed original, to reproduce the findings:
   git clone https://github.com/voxpupuli/controlrepo ../voxpupuli_controlrepo

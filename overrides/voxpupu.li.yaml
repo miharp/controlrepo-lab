@@ -1,0 +1,7 @@
+# Appended by scripts/apply to data/nodes/voxpupu.li.yaml in the VM's copy
+# of the controlrepo (never to the real checkout). This node runs
+# roles::voxpupuli, the role of the real voxpupu.li web server, to verify
+# the profiles::certbot duplicate-package fix (controlrepo issue #203).
+
+# No borg server in the lab.
+profiles::base::manage_borg: false

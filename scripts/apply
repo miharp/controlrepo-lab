@@ -2,18 +2,25 @@
 # Runs ON THE VM (root). Sync the controlrepo working tree, overlay the lab
 # hiera, resolve Puppetfile modules, apply masterless — the same way the
 # controlrepo's own site.pp expects (`puppet apply` + pluginsync hack).
+#
+# Multi-node: the node yaml and lab overrides are chosen by this VM's fqdn,
+# so the same script serves matrix01.voxpupu.li and voxpupu.li.
 set -euo pipefail
 
+fqdn="$(hostname -f)"
 env_dir=/etc/puppetlabs/code/environments/production
-node_yaml="$env_dir/data/nodes/matrix01.voxpupu.li.yaml"
+node_yaml="$env_dir/data/nodes/${fqdn}.yaml"
+overrides="/vagrant-lab/overrides/${fqdn}.yaml"
 
 mkdir -p "$env_dir"
 rsync -a --delete --exclude='.git' /vagrant-controlrepo/ "$env_dir/"
 
-grep -q 'matrix-lab overrides' "$node_yaml" 2>/dev/null || {
-  printf '\n# --- matrix-lab overrides (appended by scripts/apply) ---\n' >> "$node_yaml"
-  grep -v '^#' /vagrant-lab/hiera-lab-overrides.yaml >> "$node_yaml"
-}
+if [ -f "$overrides" ]; then
+  grep -q 'matrix-lab overrides' "$node_yaml" 2>/dev/null || {
+    printf '\n# --- matrix-lab overrides (appended by scripts/apply) ---\n' >> "$node_yaml"
+    grep -v '^#' "$overrides" >> "$node_yaml"
+  }
+fi
 
 cd "$env_dir"
 /opt/puppetlabs/puppet/bin/r10k puppetfile install --moduledir "$env_dir/modules" --force

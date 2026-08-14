@@ -1,22 +1,39 @@
 #!/bin/bash
 # Runs ON THE HOST. Re-apply the current ../voxpupuli_controlrepo working
-# tree (Parallels shared folders are live, so edits are already visible in
-# the VM) and show what happened.
+# tree (shared folders are live, so edits are already visible in the VM)
+# and show what happened.
 #
-#   ./scripts/converge           # apply
-#   ./scripts/converge --check   # then probe the Matrix endpoints
+#   ./scripts/converge [machine]           # apply (default machine: matrix01)
+#   ./scripts/converge [machine] --check   # then probe the machine's endpoints
 set -euo pipefail
 here="$(cd "$(dirname "$0")" && pwd)"
 cd "$here/.."
 
-vagrant ssh matrix01 -c 'sudo /vagrant-lab/scripts/apply' 2>/dev/null
+machine="matrix01"
+if [ $# -gt 0 ] && [ "$1" != "--check" ]; then
+  machine="$1"
+  shift
+fi
+
+vagrant ssh "$machine" -c 'sudo /vagrant-lab/scripts/apply' 2>/dev/null
 
 if [ "${1:-}" = "--check" ]; then
-  echo "==> probes"
-  vagrant ssh matrix01 -c '
-    curl -sf http://matrix01.voxpupu.li/_matrix/client/versions >/dev/null && echo "client API: ok" || echo "client API: FAIL"
-    curl -sf http://voxpupuli.party/.well-known/matrix/server || echo "well-known server: EMPTY/FAIL"
-    echo
-    sudo docker compose -f /opt/matrix-synapse/docker-compose.yml ps --format "table {{.Name}}\t{{.Status}}" 2>/dev/null | head -12
-  ' 2>/dev/null
+  echo "==> probes ($machine)"
+  case "$machine" in
+    matrix01)
+      vagrant ssh matrix01 -c '
+        curl -sf http://matrix01.voxpupu.li/_matrix/client/versions >/dev/null && echo "client API: ok" || echo "client API: FAIL"
+        curl -sf http://voxpupuli.party/.well-known/matrix/server || echo "well-known server: EMPTY/FAIL"
+        echo
+        sudo docker compose -f /opt/matrix-synapse/docker-compose.yml ps --format "table {{.Name}}\t{{.Status}}" 2>/dev/null | head -12
+      ' 2>/dev/null
+      ;;
+    vox01)
+      vagrant ssh vox01 -c '
+        curl -sfo /dev/null -H "Host: grafana.voxpupu.li" http://127.0.0.1/login && echo "grafana via nginx: ok" || echo "grafana via nginx: FAIL"
+        systemctl is-active grafana-server postfix nginx postgresql prometheus | paste -sd" " - | sed "s/^/services (grafana postfix nginx postgresql prometheus): /"
+        dpkg -l certbot 2>/dev/null | awk "/^ii/{print \"certbot package: \" \$3}"
+      ' 2>/dev/null
+      ;;
+  esac
 fi

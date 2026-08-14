@@ -1,12 +1,25 @@
 # matrix-lab
 
-One Ubuntu 24.04 VM (matching the Vox Pupuli fleet per
-`site/profiles/metadata.json`) that runs [voxpupuli/controlrepo] PR #153 —
-the "Setup Matrix Synapse" deployment for `matrix01.voxpupu.li` — exactly
-the way that repo is designed to run: masterless `puppet apply` (its
-site.pp carries a pluginsync hack specifically for this).
+Ubuntu 24.04 VMs (matching the Vox Pupuli fleet per
+`site/profiles/metadata.json`) that run [voxpupuli/controlrepo] roles
+exactly the way that repo is designed to run: masterless `puppet apply`
+(its site.pp carries a pluginsync hack specifically for this).
+
+Machines:
+
+- `matrix01` — `roles::matrix_server`, the PR #153/#202 Matrix Synapse
+  deployment (the lab's original mission)
+- `vox01` (`vagrant up vox01`, not autostarted) — `roles::voxpupuli`
+  under the real node's hostname `voxpupu.li`, added to verify the fix
+  for [issue #203] (duplicate Package[certbot], which had kept that
+  node's catalog uncompilable since March). Evidence:
+  [evidence/vox01-certbot-fix-2026-08-14.log](evidence/vox01-certbot-fix-2026-08-14.log)
+  — catalog compiles and applies with the fix; remaining failures are
+  fresh-bootstrap gaps unrelated to certbot (rvm group, grafana-cli
+  plugin provider, a static sentry vhost that assumes certbot ran).
 
 [voxpupuli/controlrepo]: https://github.com/voxpupuli/controlrepo/pull/153
+[issue #203]: https://github.com/voxpupuli/controlrepo/issues/203
 
 ## Status: mission accomplished (2026-08-13)
 

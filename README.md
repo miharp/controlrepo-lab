@@ -1,28 +1,38 @@
 # matrix-lab
 
-One Debian 12 VM that runs [voxpupuli/controlrepo] PR #153 — the stalled
-"Setup Matrix Synapse" deployment for `matrix01.voxpupu.li` — exactly the
-way that repo is designed to run: masterless `puppet apply` (its site.pp
-carries a pluginsync hack specifically for this). The point is to turn
-review opinions into observed facts before offering fixes upstream in
-#sig-matrix-ops.
+One Ubuntu 24.04 VM (matching the Vox Pupuli fleet per
+`site/profiles/metadata.json`) that runs [voxpupuli/controlrepo] PR #153 —
+the "Setup Matrix Synapse" deployment for `matrix01.voxpupu.li` — exactly
+the way that repo is designed to run: masterless `puppet apply` (its
+site.pp carries a pluginsync hack specifically for this).
 
 [voxpupuli/controlrepo]: https://github.com/voxpupuli/controlrepo/pull/153
 
-## Findings this lab exists to confirm (see ~/projects/pr153-review-notes.md)
+## Status: mission accomplished (2026-08-13)
 
-- the `lookup_options` regex typo (`profile::` vs `profiles::`) breaking
-  the Sensitive conversion at compile time
-- the empty `.well-known/matrix/{client,server}` delegation files
-- ananace's nginx comments: deprecated-only media paths, the garbled
-  client-paths regex, the 60s sync timeout
-- unpinned `matrixdotorg/synapse:latest` (schema-migration hazard)
-- whatever else only a real converge reveals (choria? docker on arm64?)
+The lab found and fixed **19 defects** in the PR — 8 compile blockers,
+11 runtime/deployment issues — all as individual commits on the local
+`matrix-fixes` branch in `../voxpupuli_controlrepo` (Gene's original
+commit preserved as the base). Final validation: a virgin
+`vagrant destroy -f && vagrant up` converges from nothing with zero
+manual steps — full worker fleet healthy, client API served through
+nginx, delegation well-knowns with JSON + CORS.
+
+Write-ups:
+
+- `~/projects/pr153-findings-report.md` — the findings narrative
+  (for #sig-matrix-ops / the new PR conversation)
+- `~/projects/pr153-new-pr-body.md` — paste-ready PR description
+- `~/projects/pr153-review-notes.md` — raw review notes
+
+Nothing has been pushed upstream; the branch ships only after
+coordinating with GeneBean in #sig-matrix-ops.
 
 ## Prerequisites
 
-- `../voxpupuli_controlrepo` checked out as a sibling, on the `matrix` PR
-  branch (`gh pr checkout 153`) or your fix branch
+- `../voxpupuli_controlrepo` checked out as a sibling, on the
+  `matrix-fixes` branch (or `gh pr checkout 153` for the unfixed
+  original)
 - Vagrant + Parallels
 
 ## Use
@@ -34,9 +44,12 @@ vagrant up                    # provision + first apply
 ```
 
 The lab overlays `hiera-lab-overrides.yaml` onto the node's hiera data in
-the VM's copy only — dummy secrets, `manage_borg: false`, and the
-corrected Sensitive regex. Your controlrepo checkout is mounted read-only
-and never modified.
+the VM's copy only — dummy secrets and `manage_borg: false`. Your
+controlrepo checkout is mounted read-only and never modified.
+
+`scripts/apply` tolerates puppet exit code 6 (changes + failures)
+because certbot always fails in the lab — inspect output for anything
+that isn't ACME.
 
 ## Expected lab-only failures (not findings)
 
@@ -44,6 +57,6 @@ and never modified.
   (the profile's fact-guard handles this by design); probe over http://
 - S3 media storage points at a dummy endpoint → uploads/eviction
   untestable; Synapse itself runs
-- Anything reaching Vox production infra (choria brokers, borg) may need
-  further lab overrides — add them to `hiera-lab-overrides.yaml` and note
-  them as deployment-coupling observations
+- The lab is arm64 (Parallels); the fleet is x86. Everything here is
+  multi-arch, but a one-hour Hetzner x86 spot-check before shipping the
+  branch upstream is cheap insurance.

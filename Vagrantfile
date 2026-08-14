@@ -1,6 +1,7 @@
 # matrix-lab: run voxpupuli/controlrepo PR #153 (Matrix Synapse) for real.
 #
-# One Debian 12 VM that applies the actual controlrepo masterless — which is
+# One Ubuntu 24.04 VM (matching the Vox fleet) that applies the actual
+# controlrepo masterless — which is
 # how that repo is designed to run (see the pluginsync hack in its site.pp).
 # The controlrepo working tree is synced from the sibling checkout
 # (../voxpupuli_controlrepo, on the PR branch or your fix branch), so the

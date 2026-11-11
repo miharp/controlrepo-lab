@@ -85,3 +85,88 @@ that isn't ACME.
 - On an arm64 host (e.g. Apple Silicon) the lab runs arm64; the fleet
   is x86. Everything here is multi-arch, but a one-hour Hetzner x86
   spot-check before shipping the branch upstream is cheap insurance.
+
+## Hetzner: the same role in public
+
+`hetzner/` covers what the Vagrant VMs cannot: an x86 server, certificates
+from Let's Encrypt, and federation with other homeservers. It is one
+disposable Hetzner Cloud server with the real node's hostname
+(`matrix01.voxpupu.li`, so hiera classifies it the same) and ports 80 and
+443 open to the world.
+
+First run, 2026-11-11 (`cpx22` in `nbg1`, Synapse v1.165.0, lab names
+under `voxlab.mikeharp.com`): the first apply had no failed resources
+and got both certificates; all ten containers healthy on x86; the
+59-check client flow passed over public HTTPS; the public federation
+tester reported `FederationOK: True`. Getting there found two bugs that
+only appear once certificates exist, both invisible to the Vagrant lab:
+
+- `ssl_session_cache` is not a parameter of `nginx::resource::server`
+  (it is `ssl_cache`), so the catalog stopped compiling on the second run.
+- None of the locations set `ssl => true`, so the TLS server blocks had
+  no Matrix locations: every https request got a 404, and the well-known
+  files came back without the JSON type and CORS header.
+
+It needs the two names in `profiles::matrix` to be parameters
+(`server_name` and `matrix_domain`), because a lab cannot get certificates
+for Vox Pupuli's names. `scripts/apply` refuses to run without lab names.
+
+### Setup
+
+Needs `terraform`, `hcloud`, `rsync`, `dig` and `python3` on this machine.
+
+1. Copy `hetzner/lab.env.example` to `hetzner/lab.env` and fill in the
+   Hetzner API token, two DNS names you control, and a contact address
+   for the lab's Let's Encrypt account. Put both names under a subdomain
+   used for nothing else, and never reuse a pair that has federated: the
+   example file explains the `r1`, `r2` pattern.
+2. `./lab.sh address` reserves the lab's IPv4 address and prints the
+   record to create: one wildcard A record under that subdomain covers
+   every pair. The address survives `./lab.sh down`, so this is done
+   once. `./lab.sh dns` shows when it resolves.
+3. `./lab.sh up` creates the server.
+4. `./lab.sh converge`, twice: the first apply gets the certificates, the
+   second turns TLS on in nginx.
+
+### Use
+
+```console
+cd hetzner
+./lab.sh address     # reserve the address only (no server yet)
+./lab.sh up          # create the server
+./lab.sh dns         # the record to create, and whether both names resolve
+./lab.sh converge    # sync ../../voxpupuli_controlrepo and apply it
+./lab.sh smoke       # 59-check client flow over TLS from this machine
+./lab.sh federation  # the public federation tester's verdict
+./lab.sh ssh         # user lab, sudo without a password
+./lab.sh down        # delete the server (keeps the address)
+./lab.sh down --all  # release the address, firewall and key too
+```
+
+`scripts/smoke.py` also runs inside a Vagrant VM with no arguments:
+`vagrant ssh matrix01 -c 'python3 -' < hetzner/scripts/smoke.py` after
+creating users `alice` and `bob` with the password in the script.
+
+### What differs from the Vagrant lab
+
+- The overrides are rendered once into `hetzner/overrides/` (gitignored)
+  with random secrets, because the server is public. S3 stays a dummy
+  until you put a real bucket's values in that file.
+- The server's copy of `profiles::lets_encrypt` gets your address in
+  place of the hardcoded `pmc@voxpupuli.org`, so the lab does not
+  register an ACME account in the PMC's name.
+- SSH is open only to the address this machine had at `./lab.sh up`.
+  Login is the `lab` user: `profiles::base` purges root's unmanaged keys.
+- A failed resource fails `converge`. With real names nothing is expected
+  to fail. `choria-server` is started on every run and stops again (no
+  broker credentials in a lab), so a clean run exits 2, not 0.
+- `converge` runs the apply as a systemd unit and follows its log. The
+  first time nftables loads, it rejects the replies of SSH sessions that
+  were already open, so a session running the apply itself goes silent.
+
+Cost (November 2026): a `cx33` is about 0.016 EUR an hour while it
+exists; the kept IPv4 address is about 0.50 EUR a month until
+`./lab.sh down --all`. The `cx` types run out in `nbg1` at times
+("error during placement"); `LAB_SERVER_TYPE=cpx22` (2 vCPU, 4 GB, about
+0.037 EUR an hour) has been the fallback. The address is tied to its
+location, so changing `LAB_LOCATION` means a new address and DNS record.

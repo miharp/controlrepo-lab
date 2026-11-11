@@ -1,0 +1,9 @@
+# Hetzner lab: token and names, rendered secrets, Terraform state
+hetzner/lab.env
+hetzner/.lab-state
+hetzner/.known_hosts
+hetzner/overrides/*.yaml
+hetzner/terraform/.terraform/
+hetzner/terraform/.terraform.lock.hcl
+hetzner/terraform/*.tfstate
+hetzner/terraform/*.tfstate.*

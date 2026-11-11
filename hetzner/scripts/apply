@@ -1,0 +1,51 @@
+#!/bin/bash
+# Runs ON THE SERVER (root). Copy the controlrepo tree lab.sh synced into
+# the production environment, append the lab hiera overrides to the node's
+# data, resolve Puppetfile modules and apply masterless, the way site.pp
+# expects (`puppet apply` plus its pluginsync hack).
+#
+#   apply <acme-email>
+set -euo pipefail
+
+acme_email="${1:?usage: apply <acme-email>}"
+fqdn="$(hostname -f)"
+env_dir=/etc/puppetlabs/code/environments/production
+node_yaml="$env_dir/data/nodes/${fqdn}.yaml"
+overrides="/opt/lab/overrides/${fqdn}.yaml"
+
+# This server is public. With the production names it would try to be the
+# real homeserver, so refuse to apply without lab names in the overrides.
+for key in server_name matrix_domain; do
+  grep -q "^profiles::matrix::${key}:" "$overrides" || {
+    echo "refusing to apply: $overrides does not set profiles::matrix::${key}" >&2; exit 1; }
+done
+if grep -E '^profiles::matrix::(server_name|matrix_domain):' "$overrides" | grep -q -E 'voxpupuli\.party|voxpupu\.li'; then
+  echo "refusing to apply: $overrides uses a Vox Pupuli name" >&2; exit 1
+fi
+
+mkdir -p "$env_dir"
+rsync -a --delete /opt/lab/controlrepo/ "$env_dir/"
+
+printf '\n# --- lab overrides (appended by hetzner/scripts/apply) ---\n' >> "$node_yaml"
+grep -v '^#' "$overrides" >> "$node_yaml"
+
+# profiles::lets_encrypt hardcodes the PMC's address. A lab must not
+# register an ACME account under it; this edits the server's copy only.
+le="$env_dir/site/profiles/manifests/lets_encrypt.pp"
+grep -q "'pmc@voxpupuli.org'" "$le" || {
+  echo "refusing to apply: the ACME email is no longer where $le had it" >&2; exit 1; }
+sed -i "s/'pmc@voxpupuli.org'/'${acme_email}'/" "$le"
+
+cd "$env_dir"
+/opt/puppetlabs/puppet/bin/r10k puppetfile install --moduledir "$env_dir/modules" --force
+
+# Exit 0 = no changes, 2 = changes, 4 = failures, 6 = changes and failures.
+# Nothing is tolerated here: with real names ACME is expected to work.
+rc=0
+/opt/puppetlabs/bin/puppet apply \
+  --hiera_config "$env_dir/hiera.yaml" \
+  --modulepath "$env_dir/site:$env_dir/modules" \
+  --detailed-exitcodes \
+  "$env_dir/manifests/site.pp" || rc=$?
+echo "puppet apply exit code: $rc"
+[ "$rc" -eq 0 ] || [ "$rc" -eq 2 ]

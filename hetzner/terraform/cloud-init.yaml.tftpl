@@ -1,0 +1,15 @@
+#cloud-config
+# The node gets the real node's hostname so hiera classifies it the same.
+# Login is a separate user: profiles::base purges root's unmanaged keys.
+hostname: ${short}
+fqdn: ${fqdn}
+manage_etc_hosts: true
+users:
+  - name: lab
+    groups: [sudo]
+    sudo: "ALL=(ALL) NOPASSWD:ALL"
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ${ssh_public_key}
+package_update: true
+packages: [rsync, git, curl, gnupg]

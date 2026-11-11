@@ -128,17 +128,35 @@ disposable Hetzner Cloud server with the real node's hostname
 443 open to the world.
 
 First run, 2026-11-11 (`cpx22` in `nbg1`, Synapse v1.165.0, lab names
-under `voxlab.mikeharp.com`): the first apply had no failed resources
-and got both certificates; all ten containers up on x86 and passing
-their health checks; the 59-check client flow passed over public HTTPS; the public federation
-tester reported `FederationOK: True`. Getting there found two bugs that
-only appear once certificates exist, both invisible to the Vagrant lab:
+under `voxlab.mikeharp.com`). Full output:
+[evidence/hetzner-r1-2026-11-11.log](evidence/hetzner-r1-2026-11-11.log).
+
+- The first apply had no failed resources and got both certificates;
+  all ten containers up on x86 and passing their health checks; the
+  stack came back by itself after a reboot.
+- The 59-check client flow passed over public HTTPS, and the public
+  federation tester reported `FederationOK: True`.
+- Element signed in through the well-known discovery, and a second
+  homeserver joined a public and an encrypted room: messages, typing,
+  receipts and images in both directions.
+- Media against a real Object Storage bucket: upload, eviction of the
+  local copy, and serving it back from the bucket.
+
+Getting there found four bugs the Vagrant lab could not see:
 
 - `ssl_session_cache` is not a parameter of `nginx::resource::server`
-  (it is `ssl_cache`), so the catalog stopped compiling on the second run.
+  (it is `ssl_cache`), so the catalog stopped compiling once the
+  certificate existed.
 - None of the locations set `ssl => true`, so the TLS server blocks had
   no Matrix locations: every https request got a 404, and the well-known
   files came back without the JSON type and CORS header.
+- The containers could not open any outbound connection. Their
+  masquerade rule is in the nftables nat table, which
+  `profiles::nftables` leaves out by default, so there was no outbound
+  federation. Inbound worked, which is why the federation tester alone
+  did not show it.
+- The media eviction job ran a command that does not exist and slept
+  for a day. It only shows with a real bucket and a look at its log.
 
 It needs the two names in `profiles::matrix` to be parameters
 (`server_name` and `matrix_domain`), because a lab cannot get certificates

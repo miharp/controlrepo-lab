@@ -1,0 +1,255 @@
+voxpupuli/controlrepo PR #202 on a public x86 server: evidence
+===============================================================
+
+Captured 2026-11-11, about 19:00 UTC, from the lab in hetzner/ of this
+repo. The server is a disposable Hetzner Cloud cpx22 with the hostname
+matrix01.voxpupu.li, applying roles::matrix_server from PR #202 at
+commit 9aea5c8 with these names in place of the production ones:
+
+  server_name    r1.voxlab.mikeharp.com
+  matrix_domain  matrix.r1.voxlab.mikeharp.com
+
+The server's address is replaced with <lab-ip>. Sections 1, 2, 3, 4
+and 6 are command output captured for this file. Section 5 is counted
+from the server's nginx and Synapse logs. Section 7 is what was
+observed by hand.
+
+
+1. Server state
+---------------
+
+## Server
+Ubuntu 24.04.4 LTS, x86_64, 2 vCPU, 3809 MB RAM, booted 2026-11-11 18:10:01 UTC
+openvox-agent 8.32.0, docker 29.9.3, compose 5.7.1, nginx 1.24.0 (Ubuntu)
+Synapse 1.165.0, s3 storage provider 1.7.0
+
+## Containers
+media-cron                 Up 36 minutes
+NAMES                      STATUS
+postgres                   Up 36 minutes (healthy)
+redis                      Up 36 minutes (healthy)
+synapse-events-persister   Up 36 minutes (healthy)
+synapse-main               Up 36 minutes (healthy)
+synapse-receipts-writer    Up 36 minutes (healthy)
+synapse-worker1            Up 36 minutes (healthy)
+synapse-worker2            Up 36 minutes (healthy)
+synapse-worker3            Up 36 minutes (healthy)
+synapse-worker4            Up 36 minutes (healthy)
+
+## Certificates
+Certificate Name: matrix.r1.voxlab.mikeharp.com
+Domains: matrix.r1.voxlab.mikeharp.com
+Expiry Date: 2027-02-09 16:32:13+00:00 (VALID: 89 days)
+Certificate Name: r1.voxlab.mikeharp.com
+Domains: r1.voxlab.mikeharp.com
+Expiry Date: 2027-02-09 16:31:59+00:00 (VALID: 89 days)
+
+## Firewall: tables loaded, and the masquerade rule for the compose bridge
+table inet filter
+table ip nat
+table ip6 nat
+oifname != "matrix0" ip saddr 172.18.0.0/16 counter packets N bytes N masquerade
+
+## Outbound from the containers
+synapse-main -> https://matrix.org/_matrix/federation/v1/version: 200
+synapse-worker3 -> https://matrix.org/_matrix/federation/v1/version: 200
+synapse-worker4 -> https://matrix.org/_matrix/federation/v1/version: 200
+
+
+2. A repeat apply (hetzner/lab.sh converge)
+-------------------------------------------
+
+ok       r1.voxlab.mikeharp.com  A  <lab-ip>
+ok       matrix.r1.voxlab.mikeharp.com  A  <lab-ip>
+Notice: /Stage[main]/Choria::Service/Service[choria-server]/ensure: ensure changed 'stopped' to 'running'
+Notice: Applied catalog in 3.67 seconds
+puppet apply exit code: 2
+
+choria-server has no broker credentials in a lab and stops again, so
+it is started on every run. Nothing in the matrix profile changes.
+
+
+3. Client flow, from a laptop over public https (hetzner/lab.sh smoke)
+----------------------------------------------------------------------
+
+ok   200 versions                             GET /_matrix/client/versions 
+ok   200 login flows                          GET /_matrix/client/v3/login 
+ok   200 login alice                          POST /_matrix/client/v3/login 
+ok   200 login bob                            POST /_matrix/client/v3/login 
+ok   200 whoami                               GET /_matrix/client/v3/account/whoami 
+ok   200 capabilities                         GET /_matrix/client/v3/capabilities 
+ok   200 devices                              GET /_matrix/client/v3/devices 
+ok   200 set displayname                      PUT /_matrix/client/v3/profile/@alice:r1.voxlab.mikeharp.com/displayname 
+ok   200 get profile                          GET /_matrix/client/v3/profile/@alice:r1.voxlab.mikeharp.com 
+ok   200 pushrules get                        GET /_matrix/client/v3/pushrules/ 
+ok   200 pushrules put                        PUT /_matrix/client/v3/pushrules/global/content/smoke 
+ok   200 pushers get                          GET /_matrix/client/v3/pushers 
+ok   200 presence put                         PUT /_matrix/client/v3/presence/@alice:r1.voxlab.mikeharp.com/status 
+ok   200 presence get                         GET /_matrix/client/v3/presence/@alice:r1.voxlab.mikeharp.com/status 
+ok   200 filter create                        POST /_matrix/client/v3/user/@alice:r1.voxlab.mikeharp.com/filter 
+ok   200 account_data put                     PUT /_matrix/client/v3/user/@alice:r1.voxlab.mikeharp.com/account_data/org 
+ok   200 account_data get                     GET /_matrix/client/v3/user/@alice:r1.voxlab.mikeharp.com/account_data/org 
+ok   200 keys upload                          POST /_matrix/client/v3/keys/upload 
+ok   200 keys query                           POST /_matrix/client/v3/keys/query 
+ok   404 room_keys version                    GET /_matrix/client/v3/room_keys/version 
+ok   200 thirdparty protocols                 GET /_matrix/client/v3/thirdparty/protocols 
+ok   200 turnServer                           GET /_matrix/client/v3/voip/turnServer 
+ok   200 openid token                         POST /_matrix/client/v3/user/@alice:r1.voxlab.mikeharp.com/openid/request_t 
+ok   200 notifications                        GET /_matrix/client/v3/notifications 
+ok   200 createRoom                           POST /_matrix/client/v3/createRoom 
+ok   200 join                                 POST /_matrix/client/v3/rooms/!o06w79V2hLvn-nMJ09Gx_zAwDEAaXDPKKsm6R5ShnrA/ 
+ok   200 send message                         PUT /_matrix/client/v3/rooms/!o06w79V2hLvn-nMJ09Gx_zAwDEAaXDPKKsm6R5ShnrA/ 
+ok   200 state put                            PUT /_matrix/client/v3/rooms/!o06w79V2hLvn-nMJ09Gx_zAwDEAaXDPKKsm6R5ShnrA/ 
+ok   200 typing                               PUT /_matrix/client/v3/rooms/!o06w79V2hLvn-nMJ09Gx_zAwDEAaXDPKKsm6R5ShnrA/ 
+ok   200 receipt                              POST /_matrix/client/v3/rooms/!o06w79V2hLvn-nMJ09Gx_zAwDEAaXDPKKsm6R5ShnrA/ 
+ok   200 read_markers                         POST /_matrix/client/v3/rooms/!o06w79V2hLvn-nMJ09Gx_zAwDEAaXDPKKsm6R5ShnrA/ 
+ok   200 room tag put                         PUT /_matrix/client/v3/user/@alice:r1.voxlab.mikeharp.com/rooms/!o06w79V2h 
+ok   200 room tags get                        GET /_matrix/client/v3/user/@alice:r1.voxlab.mikeharp.com/rooms/!o06w79V2h 
+ok   200 room account_data put                PUT /_matrix/client/v3/user/@alice:r1.voxlab.mikeharp.com/rooms/!o06w79V2h 
+ok   200 sendToDevice                         PUT /_matrix/client/v3/sendToDevice/org.lab.smoke/txn1 
+ok   200 messages                             GET /_matrix/client/v3/rooms/!o06w79V2hLvn-nMJ09Gx_zAwDEAaXDPKKsm6R5ShnrA/ 
+ok   200 members                              GET /_matrix/client/v3/rooms/!o06w79V2hLvn-nMJ09Gx_zAwDEAaXDPKKsm6R5ShnrA/ 
+ok   200 event                                GET /_matrix/client/v3/rooms/!o06w79V2hLvn-nMJ09Gx_zAwDEAaXDPKKsm6R5ShnrA/ 
+ok   200 report event                         POST /_matrix/client/v3/rooms/!o06w79V2hLvn-nMJ09Gx_zAwDEAaXDPKKsm6R5ShnrA/ 
+ok   200 redact                               PUT /_matrix/client/v3/rooms/!o06w79V2hLvn-nMJ09Gx_zAwDEAaXDPKKsm6R5ShnrA/ 
+ok   200 alias put                            PUT /_matrix/client/v3/directory/room/%23smoke-o06w79V2:r1.voxlab.mikeharp 
+ok   200 publicRooms                          GET /_matrix/client/v3/publicRooms 
+ok   200 user_directory                       POST /_matrix/client/v3/user_directory/search 
+ok   200 search                               POST /_matrix/client/v3/search 
+ok   200 sync alice                           GET /_matrix/client/v3/sync 
+ok   200 sync bob                             GET /_matrix/client/v3/sync 
+ok       to-device delivered to bob via sync   
+ok       room visible in alice's sync          
+ok   200 media upload                         POST /_matrix/media/v3/upload 
+ok   200 media config                         GET /_matrix/client/v1/media/config 
+ok   200 media download (authenticated)       GET /_matrix/client/v1/media/download/r1.voxlab.mikeharp.com/PdkdkZpSYgjau 
+ok   200 federation version                   GET /_matrix/federation/v1/version 
+ok   200 server keys                          GET /_matrix/key/v2/server 
+ok   200 well-known server                    GET /.well-known/matrix/server 
+ok   200 well-known client                    GET /.well-known/matrix/client 
+ok   403 admin API                            GET /_synapse/admin/v1/server_version 
+ok   200 leave                                POST /_matrix/client/v3/rooms/!o06w79V2hLvn-nMJ09Gx_zAwDEAaXDPKKsm6R5ShnrA/ 
+ok   200 forget                               POST /_matrix/client/v3/rooms/!o06w79V2hLvn-nMJ09Gx_zAwDEAaXDPKKsm6R5ShnrA/ 
+ok   200 logout                               POST /_matrix/client/v3/logout 
+
+59 passed, 0 failed
+
+
+4. Matrix federation tester (hetzner/lab.sh federation)
+--------------------------------------------------------
+
+FederationOK: True
+  <lab-ip>:443 True
+
+
+5. Element and a second homeserver
+----------------------------------
+
+Element Web signed in to the lab server through the well-known
+discovery, set up cross-signing and key backup, and created a public
+room and an encrypted room. An account on another homeserver joined
+both. Messages, typing indicators, read receipts and
+images were exchanged in both directions, and the encrypted messages
+decrypted on both sides.
+
+Counted from the server's logs afterwards:
+
+## Requests served by nginx for the Matrix host since the first apply, by status
+    795 200
+     60 404
+     10 502
+      8 403
+      3 204
+      2 400
+      1 "-"
+
+## 5xx responses: 10
+
+## Stream-writer and encryption endpoints answered 200 (requests)
+     34 /account_data
+     17 /receipt
+     17 /keys/query
+     16 /read_markers
+     11 /typing
+      9 /keys/upload
+      8 /sendToDevice
+      3 /room_keys
+      2 /keys/claim
+      1 /device_signing/upload
+
+## Inbound federation from other homeservers, by endpoint and status
+     40 200 federation/v1/send
+      3 200 federation/v1/user
+      3 200 federation/v1/query
+      2 200 federation/v2/send_join
+      2 200 federation/v1/state_ids
+      2 200 federation/v1/media
+      2 200 federation/v1/make_join
+      2 200 federation/v1/backfill
+      1 200 key/v2/server
+
+## Outbound federation transactions from the sender worker (since container start)
+200 OK: 1   failed: 0
+
+## Synapse ERROR lines since container start, per container
+synapse-main: 0
+synapse-worker1: 0
+synapse-worker2: 0
+synapse-worker3: 0
+synapse-worker4: 0
+synapse-events-persister: 0
+synapse-receipts-writer: 0
+
+The ten 502s are all between 18:52:40 and 18:54:18 UTC: an open Element
+tab polling /sync and /versions while the stack was restarted twice to
+apply the object storage settings. A change to homeserver.yaml, .env or
+the compose file restarts every container, and the API is down for
+about half a minute each time. The 400s and most of the 404s and 403s
+are internet scanners and requests the server is meant to refuse.
+
+The outbound count above starts at that restart. During the Element
+session before it, the sender worker had delivered 17 transactions to
+the other homeserver with no failures.
+
+
+6. Media against a real Object Storage bucket
+----------------------------------------------
+
+1. uploaded 1250 bytes through the client API; local file present: yes
+2. object in the bucket after Synapse's own async upload (count, sizes): 1 [1250]
+3. eviction pass, 1 second cutoff, with --delete:
+Uploaded 0 media out of 3
+Uploaded 0 files
+Uploaded 0B
+Deleted 3 media
+Deleted 3 files
+Deleted 1.3K
+   local file still present: no | in bucket: 1 [1250]
+4. download through the client API after eviction: 200 | content identical: True
+   local file restored by that fetch: no
+5. objects in the bucket now: 12
+
+## Media eviction job (scheduled pass, 90 day cutoff)
+Checking on  0  undeleted files
+Updated 0 as deleted
+Uploading  0  files
+Uploaded 0 media out of 0
+Uploaded 0 files
+Uploaded 0B
+Deleted 0 media
+Deleted 0 files
+Deleted 0B
+
+The eviction pass in step 3 was run by hand with a one-second cutoff.
+The scheduled job uses 90 days, so on a new server it finds nothing.
+
+
+7. Observed by hand
+-------------------
+
+- First apply on the blank server: no failed resources, and both
+  Let's Encrypt certificates issued. The second apply turned TLS on.
+- Reboot at 18:10 UTC: 44 seconds after boot all ten containers were
+  running, the nine with health checks were healthy, and nginx and
+  nftables were active, with no intervention. The client flow passed
+  again afterwards.

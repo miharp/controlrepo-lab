@@ -2,10 +2,10 @@
 # VM's copy of the controlrepo (never to the real checkout). Everything a
 # lab needs that the PR expects from eyaml/production.
 
-# The PR's global.yaml regex says 'profile::' (singular) so it never
-# matches the profiles:: namespace — this corrected version is itself a
-# finding to report upstream. Without it, the plain-string secrets below
-# fail the Sensitive[String] parameter types.
+# The original #153 global.yaml wrote this regex as 'profile::' (singular),
+# so it never matched and the plain-string secrets below failed the
+# Sensitive[String] parameter types. #202 fixed it there; it stays here
+# so the lab can still run the unfixed original.
 lookup_options:
   '^profiles::matrix::sensitive_\w+$':
     convert_to: 'Sensitive'
@@ -14,6 +14,7 @@ lookup_options:
 profiles::matrix::sensitive_postgres_password: 'lab-postgres-password'
 profiles::matrix::sensitive_macaroon_secret_key: 'lab-macaroon-secret-key-000000000000'
 profiles::matrix::sensitive_form_secret: 'lab-form-secret-000000000000'
+profiles::matrix::sensitive_registration_shared_secret: 'lab-registration-shared-secret-0000'
 profiles::matrix::sensitive_s3_access_key: 'LABDUMMYACCESSKEY'
 profiles::matrix::sensitive_s3_secret_key: 'lab-dummy-secret-key'
 profiles::matrix::s3_bucket: 'lab-media'

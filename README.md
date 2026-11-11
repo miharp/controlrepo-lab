@@ -1,11 +1,16 @@
 # controlrepo-lab
 
-Ubuntu 24.04 VMs (matching the Vox Pupuli fleet per
+Ubuntu 24.04 machines (matching the Vox Pupuli fleet per
 `site/profiles/metadata.json`) that run [voxpupuli/controlrepo] roles
 exactly the way that repo is designed to run: masterless `puppet apply`
 (its site.pp carries a pluginsync hack specifically for this).
 
-Machines:
+There are two halves. The Vagrant VMs below are the fast local loop, on
+a private network with fake names. [`hetzner/`](#hetzner-the-same-role-in-public)
+is one public x86 server for what they cannot do: real certificates and
+federation.
+
+Vagrant machines:
 
 - `matrix01` — `roles::matrix_server`, the PR #153/#202 Matrix Synapse
   deployment (the lab's original mission)
@@ -18,28 +23,47 @@ Machines:
   fresh-bootstrap gaps unrelated to certbot (rvm group, grafana-cli
   plugin provider, a static sentry vhost that assumes certbot ran).
 
-[voxpupuli/controlrepo]: https://github.com/voxpupuli/controlrepo/pull/153
+[voxpupuli/controlrepo]: https://github.com/voxpupuli/controlrepo
 [issue #203]: https://github.com/voxpupuli/controlrepo/issues/203
 
-## Status: mission accomplished (2026-08-13)
+## Status
 
-The lab found and fixed **19 defects** in the PR — 8 compile blockers,
-11 runtime/deployment issues — all as individual commits on the
-`matrix-fixes` branch (Gene's original commit preserved as the base). Final validation: a virgin
-`vagrant destroy -f && vagrant up` converges from nothing with zero
-manual steps — full worker fleet healthy, client API served through
-nginx, delegation well-knowns with JSON + CORS. Full console log of a
-virgin run against the final branch:
+The thing under test is [PR #202], which continues [PR #153]. Its branch
+is [miharp/controlrepo `matrix-synapse`](https://github.com/miharp/controlrepo/tree/matrix-synapse)
+([full diff](https://github.com/voxpupuli/controlrepo/compare/production...miharp:controlrepo:matrix-synapse));
+the commit messages carry the per-fix reasoning.
+
+**August 2026, Vagrant.** The lab found and fixed 19 defects in the PR: 8
+compile blockers and 11 runtime or deployment issues, one commit each on
+top of Gene's original. A `vagrant destroy -f && vagrant up` then
+converged from nothing with zero manual steps: full worker fleet healthy,
+client API served through nginx, delegation well-knowns with JSON and
+CORS. Console log:
 [evidence/virgin-run-2026-08-14.log](evidence/virgin-run-2026-08-14.log)
 (first catalog 236s; the second apply changes nothing but the expected
 ACME retries; ends with the container health table).
 
-The fixed branch lives at
-[miharp/controlrepo `matrix-synapse`](https://github.com/miharp/controlrepo/tree/matrix-synapse)
-([full diff](https://github.com/voxpupuli/controlrepo/compare/production...miharp:controlrepo:matrix-synapse);
-`matrix-fixes` is the same history under its older name).
-A detailed findings write-up is available on request; commit messages
-carry the per-fix reasoning.
+**November 2026, real clients and real TLS.** That run only probed
+`/_matrix/client/versions` over plain HTTP. A 59-check client flow
+([hetzner/scripts/smoke.py](hetzner/scripts/smoke.py)) and the public
+server found six more:
+
+- nginx sent every client endpoint to workers that only serve a
+  documented subset: 12 of the 59 checks failed (typing, receipts,
+  to-device, logout and others) until the routing followed the Synapse
+  worker docs
+- no registration shared secret, so no account could be created
+- two bugs that only appear once certificates exist (see the Hetzner
+  section)
+- the URL preview blacklist left out link-local addresses
+- Synapse was pinned seven releases back
+
+The Vagrant half of this repo has since been proposed for the controlrepo
+itself as [PR #207], generalized to one machine per node.
+
+[PR #153]: https://github.com/voxpupuli/controlrepo/pull/153
+[PR #202]: https://github.com/voxpupuli/controlrepo/pull/202
+[PR #207]: https://github.com/voxpupuli/controlrepo/pull/207
 
 ## Prerequisites
 
@@ -68,9 +92,19 @@ vagrant up                    # provision + first apply
 ./scripts/converge --check    # ...and probe the client API, well-known, containers
 ```
 
-The lab overlays `hiera-lab-overrides.yaml` onto the node's hiera data in
-the VM's copy only — dummy secrets and `manage_borg: false`. Your
+The lab appends `overrides/<fqdn>.yaml` to the node's hiera data in the
+VM's copy only — dummy secrets and `manage_borg: false`. Your
 controlrepo checkout is mounted read-only and never modified.
+
+`--check` only probes a few endpoints. For the full client flow, create
+the two test users once and run the smoke test inside the VM:
+
+```console
+vagrant ssh matrix01 -c 'for u in alice bob; do a=--no-admin; [ $u = alice ] && a=--admin
+  sudo docker exec synapse-main register_new_matrix_user -c /config/homeserver.yaml \
+  -u $u -p lab-password-1234 $a http://localhost:8008; done'
+vagrant ssh matrix01 -c 'python3 -' < hetzner/scripts/smoke.py
+```
 
 `scripts/apply` tolerates puppet exit code 6 (changes + failures)
 because certbot always fails in the lab — inspect output for anything
@@ -83,8 +117,7 @@ that isn't ACME.
 - S3 media storage points at a dummy endpoint → uploads/eviction
   untestable; Synapse itself runs
 - On an arm64 host (e.g. Apple Silicon) the lab runs arm64; the fleet
-  is x86. Everything here is multi-arch, but a one-hour Hetzner x86
-  spot-check before shipping the branch upstream is cheap insurance.
+  is x86. `hetzner/` below is the x86 check.
 
 ## Hetzner: the same role in public
 
@@ -96,8 +129,8 @@ disposable Hetzner Cloud server with the real node's hostname
 
 First run, 2026-11-11 (`cpx22` in `nbg1`, Synapse v1.165.0, lab names
 under `voxlab.mikeharp.com`): the first apply had no failed resources
-and got both certificates; all ten containers healthy on x86; the
-59-check client flow passed over public HTTPS; the public federation
+and got both certificates; all ten containers up on x86 and passing
+their health checks; the 59-check client flow passed over public HTTPS; the public federation
 tester reported `FederationOK: True`. Getting there found two bugs that
 only appear once certificates exist, both invisible to the Vagrant lab:
 
@@ -137,15 +170,17 @@ cd hetzner
 ./lab.sh dns         # the record to create, and whether both names resolve
 ./lab.sh converge    # sync ../../voxpupuli_controlrepo and apply it
 ./lab.sh smoke       # 59-check client flow over TLS from this machine
+./lab.sh smoke --from-server   # the same, requested by the server itself
 ./lab.sh federation  # the public federation tester's verdict
 ./lab.sh ssh         # user lab, sudo without a password
+./lab.sh status      # what exists right now
 ./lab.sh down        # delete the server (keeps the address)
 ./lab.sh down --all  # release the address, firewall and key too
 ```
 
-`scripts/smoke.py` also runs inside a Vagrant VM with no arguments:
-`vagrant ssh matrix01 -c 'python3 -' < hetzner/scripts/smoke.py` after
-creating users `alice` and `bob` with the password in the script.
+`--from-server` is for a resolver on this machine that was asked for the
+names before the DNS record existed and still answers "no such name";
+that lasts up to the zone's negative TTL.
 
 ### What differs from the Vagrant lab
 
